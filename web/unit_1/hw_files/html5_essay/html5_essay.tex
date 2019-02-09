@@ -1,0 +1,175 @@
+\documentclass{article}
+
+%Configuraciones de idioma del documento
+\usepackage[spanish]{babel}
+%Configurar entrada {usar caracteres desde el teclado como á}
+\usepackage[utf8]{inputenc}
+%Fuente que pueda renderizar caracteres en nuestro idioma
+\usepackage[T1]{fontenc}
+%Fuente compatible
+\usepackage{lmodern}
+
+\usepackage[top=2cm, left=2cm, right=2cm, bottom=2cm]{geometry}
+
+\begin{document}
+
+\title{HTML 5}
+\author{Antonio Emiko Ochoa Adame}
+\maketitle
+
+\tableofcontents
+%\newpage
+
+\section{Introducción}
+
+\paragraph{}
+En este documento se detallará brevemente la historia detrás del llamado HTML5
+y lo que esto implica, ya que es un nuevo concepto visto por primera vez hace
+aproximadamente diez años y que aún sigue vigente. También se hablará sobre la
+confusión que llega a surgir cuando se intenta diferenciar HTML5 del HTML
+tradicional, ya que desde que surgió ha estado inmerso en un debate entre las
+organizaciones que apoyan un estándar para los desarrolladores de contenido web y los que
+apoyan un estándar que vela por los desarrolladores de los navegadores como tal.
+También se definirá brevemente los integrantes de HTML5 (CSS y Javascript) y el
+rol que llevan dentro de esta definición, el porqué del uso de ellos y algunas
+características de los mismos.
+
+\section{Desarrollo}
+
+\subsection{¿Qué es HTML5?}
+
+\paragraph{}
+HTML5, como su nombre lo indica, es la mayor y actual versión de HTML y esta
+incluye a XHTML. Se dice que esta versión de está compuesta no solo por una
+tecnología, sinó por un conjunto de tecnologías que definen las propiedades y
+comportamientos de una aplicación web y esto se logra implementando un patrón
+de ``marcado'' \cite{wiki_html5}.
+
+\paragraph{}
+Actualmente existe en dos formas estandarizadas: la \textbf{Recomendación HTML 5.2} por
+la W3C\footnote{Wolrd Wide Web Consortium; una gran coalición de organizaciones.}
+que está más dirida a los desarrolladores de contenido web y la
+\textbf{HTML Living Standard} por la WHATWG\footnote{Un pequeño consorcio
+compuesto por cuatro ``compañías'' que se dedican a desarrollar navegadores.},
+dirigido principalmente a quienes se dedican a desarrollar navegadores
+\cite{wiki_html5}.
+
+\paragraph{}
+Como se menciona en \cite{wiki_html5}, HTML5 como tal, es mostrado al público el
+22 de Enero del 2008 y el objetivo de esta versión es mejorar el leguaje haciendo
+posible el soporte para el contenido multimedia más actual y algunas otras
+características nuevas. Todo esto se hizo con la intención de que el lenguaje
+se mantuviera legible para humanos y que también fuese fácil para las computadoras
+y dispositivos como navegadores web, traductores, entre otros, sin tener
+la rigidez de XHTML y manteniendo una retrocompatibilidad con software más
+antiguo.
+
+\paragraph{}
+HTML5 incluye modelos de procesamiento detallados que permite implementaciones
+interoperables, mejora el marcado para documentos e inlcuye APIs para un desarrollo
+web más complejo \cite{wiki_html5}. A continuación, algunas etiquetas añadidas:
+
+\paragraph{}
+Multimedia y gráficos:
+\begin{itemize}
+	\item <video>
+	\item <canvas>
+	\item <audio>
+\end{itemize}
+
+\paragraph{}
+Elementos para estructura de páginas:
+\begin{itemize}
+	\item <main>
+	\item <section>
+	\item <footer>
+	\item <header>
+	\item <article>
+	\item <aside>
+	\item <nav>
+	\item <figure>
+\end{itemize}
+
+\subsection{Diferencia entre HTML y HTML5}
+
+\paragraph{}
+Como se menciona en \cite{diff_1}, la diferencia en sí es nula, HTML5 sigue
+siendo HTML, la diferencia es que HTML5 es una versión más de este, la cual
+causó un gran impacto ya que se incorporaron nuevas etiquetas (como se mencionó
+anteriormente) y nuevas APIs que mejoraron de manera significativa a la versión
+anterior de este lenguaje.
+
+\subsection{Integración de CSS y Javascript con HTML5}
+
+\paragraph{}
+Como ya se mencionó, HTML5 es conocido por estar integrado por varias
+tecnologías y así contruir aplicaciones web más potentes e innovadoras;
+CSS\footnote{Cascading Style Sheets, se utiliza para dar formato y presentación
+a documentos HTML.} y
+Javascript\footnote{Es un lenguaje interpretado de alto nivel usado para crear
+sitios web dinámicos.}.
+
+\paragraph{}
+CSS describe el estilo de un documento HTML. Este lenguaje permite denifir la
+forma en la que cada uno de los elementos deben se mostrados\cite{css}.
+
+\paragraph{}
+Javascript junto con CSS conforman el núcleo de lo que se conoce como HTML5.
+Este es un lenguaje que permite crear páginas web interactivas, lo que lo hace
+indispensable en la actualidad\cite{javascript}.
+Aunque Javascript fue inicialmente creado para funcionar en el lado del cliente
+(navegador) para poder mostrar contenido de manera dinámica y hasta asíncrona
+, ahora ha sido llevado al lado del servidor ya que es considerado
+un excelente lenguaje tanto en desempeño y funcionalidad como en sintaxis.
+
+\section{Conclusiones}
+
+\paragraph{}
+HTML5 es un concepto un poco abstracto y hasta confuso en algunos casos; de
+manera sencilla podría describir HTML5 como un compendio de tecnologías que
+incluyen CSS, Javascript y un renovado HTML que, en conjunto, permiten
+desarrollar tecnología web de una manera más potente y organizada que como se
+solía hacer hace algún tiempo.
+
+\paragraph{}
+HTML5 surge primero como una necesidad, principalmente, sobre un mejor soporte
+para el contenido multimedia, como pueden ser audio, video y gráficos en general,
+ya que estos últimos años han tenido una gran popularidad y es actualemente
+el mayor contenido de la web, desde mi punto de vista. Sin embargo, la tecnología
+también se ve involucrada en un debate entre organizaciones que tratan de imponer
+un estándar sobre esta tecnología, cada uno por su cuenta y en la forma en la
+que ellos creen conveniente que debería ser utilizado. Esto genera disputas y
+al final de cuentas solo son estándares que pueden ser sacrificados de vez en
+cuando para lograr objetivos muy específicos cuando se habla de proyectos
+web.
+
+\paragraph{}
+Mientras unos prefieren decir que es la versión 5 de este lenguaje de marcado
+y otros pretender manter el lenguaje vivo sin una nomenclatura para las versiones,
+siempre hay que considerar los cambios que realmente importan al momento de
+desarrollar, y estos son los cambios y nuevas características agregadas, como
+pueden ser la serie de etiquetas agregadas o las nuevas APIs disponibles para
+el desarrollo de aplicaciones web más complejas y potentes, ya que implican una
+nueva forma de programar web y que pueden facilitar las cosas cuando un proyecto
+se torna demasiado grande.
+
+\begin{thebibliography}{}
+    \bibitem{wiki_html5}
+	``HTML5''. [online]
+	Available at: https://en.wikipedia.org/wiki/HTML5
+	[Accessed 3 Feb. 2019].
+    \bibitem{diff_1}
+	L. Forgiarini. ``CUÁL ES LA DIFERENCIA ENTRE HTML Y HTML5?''.
+	[online] Available at: https://luisforgiariniblog.com/cual-diferencia-entre-html-html5/
+	[Accessed 3 Feb. 2019].
+    \bibitem{css}
+	``CSS Tutorial''.
+	[online] Available at: https://www.w3schools.com/Css/
+	[Accessed 3 Feb. 2019].
+    \bibitem{javascript}
+	``JavaScript''.
+	[online] Available at: https://en.wikipedia.org/wiki/JavaScript
+	[Accessed 3 Feb. 2019].
+\end{thebibliography}
+
+\end{document}

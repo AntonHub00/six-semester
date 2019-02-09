@@ -1,0 +1,141 @@
+\documentclass{article}
+
+%Configuraciones de idioma del documento
+\usepackage[spanish]{babel}
+%Configurar entrada {usar caracteres desde el teclado como á}
+\usepackage[utf8]{inputenc}
+%Fuente que pueda renderizar caracteres en nuestro idioma
+\usepackage[T1]{fontenc}
+%Fuente compatible
+\usepackage{lmodern}
+
+\begin{document}
+
+\title{Tarea 3}
+\author{Antonio Emiko Ochoa Adame}
+\maketitle
+
+\begin{enumerate}
+	\item Dado el lenguaje $L = \{$sa, ro$\}$, obtenga $L^3$.
+
+		Respuesta: $L^3 = \{$sa, ro, sasa, saro, rosa, roro, sasasa,
+		sasaro, sarosa, saroro, rosasa, rosaro, rorosa, rororo$\}$.
+	\item Dado el lenguaje $L = \{\varepsilon, $ ab$\}$, obtenga $L^0$,
+		$L^1$, $L^2$, $L^3$, $L^4$.
+
+		Respuesta:$L^0 = \{\varepsilon\}$, $L^1 = \{\varepsilon, $ ab$\}$,
+		$L^2 = \{\varepsilon, $ ab$, $ abab$\}$,
+		$L^3 = \{\varepsilon, $ ab$, $ abab$, $ ababab$\}$,
+		$L^4 = \{\varepsilon, $ ab$, $ abab$, $ ababab$, $ abababab$\}$.
+	\item Sean A $= \{$a$\}$ y B $= \{$b$\}$, indique cuáles son las cadenas
+		que forman los siguentes lenguajes: A$^*$B, AB$^*$ y $($AB$)^*$.
+
+		Respuesta: A$^*$B$ = \{$b$, $ ab$, $ aab$, $ aaab$, ...\}$,
+		AB$^* = \{$a$, $ ab$, $ abb$, $ abbb$, ...\}$.
+		$($AB$)^* = \{\varepsilon, $ ab$, $ abab$, $ ababab$, ...\}$.
+	\item Dado los lenguajes: A $= \{011, 001, 11\}$ y B $= \{11, 110\}$
+		sobre el alfabeto $\Sigma = \{0, 1\}$, obtenga los lenguajes
+		que resultan de las operaciones siguientes: $($A$\cap$B$)^*$,
+		$($A$\oplus$B$)^R$, $($B$-$A$)^+$, BA.
+
+		Respuesta:
+		$($A$\cap$B$)^* = \{\varepsilon,$ 11$,$ 1111$,$ 11111111$,...\}$,
+		$($A$\oplus$B$)^R = \{$ 110$,$ 100$,$ 001$\}$,
+		$($A$-$B$)^+ = \{$ 110$,$ 110110$,$ 110110110$...\}$.
+		AB $= \{$ 11011$,$ 11001$,$ 1111$, $ 110011$, $110001$\}$.
+	\item Dado los lenguajes: A $= \{101, 01, 010\}$ y B $= \{10, 010\}$
+		sobre el alfabeto $\Sigma = \{0, 1\}$, obtenga los lenguajes
+		que resultan de las operaciones siguientes: $($A$\cap$B$)^3$,
+		$($A$^R\oplus$B$^R)$, $($B$-$A$)^*$, BA.
+
+		Respuesta: $($A$\cap$B$)^3 = \{$010010010$\}$,
+		$($A$^R\oplus$B$^R) = \{$01$, $10$, $010$\}$,
+		$($B$-$A$)^* = \{$10$, $1010$, $101010$...\}$,
+		BA$)^* = \{$10101$,$ 1001$,$ 10010$,$ 010101$,$ 01001$,$ 010010$\}$.
+	\item Dado los lenguajes: A $= \{\varepsilon, 0, 10, 11\}$ y B $=
+		\{\varepsilon, 1, 01, 11\}$
+		sobre el alfabeto $\Sigma = \{0, 1\}$, obtenga los lenguajes
+		: AB, BA, A$\cup$B,
+		A$\cap$B, A$-$B, B$-$A, A$^*$, B$^2$ y A$\oplus$B.
+
+		Respuesta: AB $= \{\varepsilon,$ 1$,$ 01$,$ 11$,$ 0$,$ 001$,
+		$ 011$,$ 10$,$ 101$,$ 1001$,$ 1011$,$ 111$,$ 1101$,$ 1111$,\}$,
+		BA $= \{\varepsilon,$ 0$,$ 10$,$ 11$,$ 1$,$ 110$,
+		$ 111$,$ 01$,$ 010$,$ 0110$,$ 0111$,$ 1110$,$ 1111$\}$,
+		A$\cup$B $= \{\varepsilon,$ 0$,$ 10$,$ 11$,$ 1$,$ 01$\}$,
+		A$\cap$B $= \{\varepsilon,$ 11$\}$,
+		A$-$B $= \{$0$,$ 10$\}$,
+		B$-$A $= \{$1$,$ 01$\}$,
+		A$^* = \{\varepsilon,$ 0$,$ 10$,$ 11$,$ 00$,$ 010$,$ 011$,
+		$ 100$,$ 1010$,$ 1011$,$ 110$,$ 1110$,$ 1111$, ...\}$,
+		B$^2 = \{\varepsilon,$ 1$,$ 01$,$ 11$,$ 011$,$ 0101$,$ 0111$,
+		$ 1101$,$ 1111$\}$,
+		A$\oplus$B $= \{$0$,$ 10$,$ 1$,$ 01$\}$.
+	\item Dado los lenguajes: A $= \{\varepsilon\}$, B $=
+		\{$aa$,$ ab$,$ bb$\}$, C $= \{\varepsilon,$ aa$,$ ab$\}$ y
+		D $= \o$ obtener los lenguajes:
+		A$\cup$B, A$\cup$C, A$\cup$D, A$\cap$B, A$\cap$D, B$\cap$C,
+		B$\cup$D y C$\cap$A.
+
+		Respuesta: A$\cup$B $= \{\varepsilon, $ aa$,$ ab$,$ bb$\}$,
+		A$\cup$C $= \{\varepsilon, $ aa$,$ ab$\}$,
+		A$\cup$D $= \{\varepsilon\}$,
+		A$\cap$B $= \o$,
+		A$\cap$D $= \o$,
+		B$\cap$C $= \{$aa$,$ ab$\}$,
+		B$\cup$D $= \o$,
+		C$\cap$A $= \varepsilon$.
+	\item Dado los lenguajes: A $= \{$ab$,$ b$, $ cb$\}$ y B $=
+		\{$a$,$ ba$\}$ obtener los
+		lenguajes que resultan de las operaciones de lenguajes:
+		$($A$\cup$B$^2)$, $($B$\cup$A$)^R$, $($AB$)$, $($A$^2\cap$BA$)$,
+		$($A$\oplus$B$^R)$ y $($A$^R-$B$)^2$.
+
+		Respuesta: $($A$\cup$B$^2) = \{$ab$,$ b$,$ cb$,$ aa$,$ aba$,
+		$ baa$,$ baba$\}$,
+		$($B$\cup$A$)^R = \{$ba$,$ b$,$ bc$,$ a$,$ ab$\}$,
+		$($B$\cup$A$)^R = \{$ba$,$ b$,$ bc$,$ a$,$ ab$\}$,
+		$($BA$) = \{$aba$,$ abba$,$ ba$,$ bba$,$ cba$,$ cbba$\}$,
+		$($A$^2\cap$BA$) = \{$bb$,$ bab$,$ bcb$\}$,
+		$($A$\oplus$B$^R) = \{$b$,$ cb$,$ a$\}$,
+		$($A$^R-$B$)^2 = \{$bb$,$ bbc$,$ bcb$,$ bcbc$\}$.
+	\item Dado los lenguajes A $= \{$01$,$ 11$\}$ y B $= \{$011$,$ 101$,$ 11$\}$
+		obtener los lenguajes que resultan de las operaciones:
+		$($A$\cup$B$)^R$, $($B$-$A$)^2$, $($A$-$B$)^+$, $($A$\cap$B$)^*$,
+		A$^R$B.
+
+		Respuesta: $($A$\cup$B$)^R = \{$10$,$ 11$,$ 110$,$ 101$\}$,
+		$($B$-$A$)^2 = \{$011011$,$ 011101$,$ 101011$,$ 101101$\}$,
+		$($A$-$B$)^+ = \{$01$,$ 0101$,$ 010101$, ...\}$,
+		$($A$\cap$B$)^* = \{$01$,$ 0101$,$ 010101$, ...\}$,
+		$($A$^R$B$) = \{$10011$,$ 10101$,$ 1011$,$ 11011$,$11101$,$ 1111$\}$.
+	\item Responda \textbf{V}erdadero o \textbf{F}also según corresponda:
+		\begin{enumerate}
+			\item Para todo lenguaje $L$ se cumple que: $\o \cdot
+				L = L$.
+
+			Respuesta: \textbf{Falso}
+			\item Para todo lenguaje $L$ infinito, se cumple que
+				$L^c$ es finito.
+
+			Respuesta: \textbf{Falso}
+			\item Para todo lenguaje L regular, entonces
+				$\varepsilon \notin L^+$.
+
+			Respuesta: \textbf{Verdadero}
+			\item La cerradura de Kleene del lenguaje vacío $\o$
+				es igual a $\varepsilon$.
+
+			Respuesta: \textbf{Verdadero}
+			\item La cerradura de Kleene cualquier lenguaje $L$
+				es infinita.
+
+			Respuesta: \textbf{Verdadero}
+			\item El lenguaje universal de cualquier alfabeto
+				$\Sigma$ siempre es infinito.
+
+			Respuesta: \textbf{Verdadero}
+		\end{enumerate}
+\end{enumerate}
+
+\end{document}

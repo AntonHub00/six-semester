@@ -1,0 +1,10 @@
+*{
+  border: 5px solid #0000FF;
+  font: 15px verdana, sans-serif;
+  margin: 5px;
+}
+
+body{
+  border: 1px solid #000000
+  margin: 0px 1%;
+}

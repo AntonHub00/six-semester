@@ -1,0 +1,255 @@
+\documentclass{article}
+
+%Configuraciones de idioma del documento
+\usepackage[spanish]{babel}
+%Configurar entrada {usar caracteres desde el teclado como á}
+\usepackage[utf8]{inputenc}
+%Fuente que pueda renderizar caracteres en nuestro idioma
+\usepackage[T1]{fontenc}
+%Fuente compatible
+\usepackage{lmodern}
+
+\usepackage[top=2cm, left=2cm, right=2cm, bottom=2cm]{geometry}
+
+\begin{document}
+
+\title{Unidad 1}
+\author{Antonio Emiko Ochoa Adame}
+\maketitle
+
+\tableofcontents
+%\newpage
+
+\section{Administración de una DB}
+\begin{itemize}
+	\item
+	Trooper habla más con el usuario.
+	\item
+	Skywalker soluciona problemas importantes (migraciones de datos, problemas más
+	fuertes con la bases de datos).
+	\item
+	Vader sabre tratar a la gente, problemas con ingeniería social.
+\end{itemize}
+
+\paragraph{}
+Las responsabilidad de DBA es facilitar el desarrollo y el uso de la base de datos.
+
+
+\begin{itemize}
+	\item
+	Diseñar el modelo lógico y físico.
+	\item
+	Configuración del servidor
+	\item
+	Etc.
+\end{itemize}
+
+\subsection{Control de procesos repetitivos}
+
+\paragraph{}
+Automatizar tareas, por ejemplo, backups.
+
+\textbf{Recomendación: Instalar SQLServer 2017 (versión developer tiene más funciones).}
+
+\subsection{Administración de derechos y restricciones}
+
+Qué se debe de hacer:
+\begin{itemize}
+	\item
+	Ir a recursos humanos.
+	\item
+	Matriz de permisos.
+\end{itemize}
+
+1.- Se hace un análisis
+2.- Se genera una tabla llamada ``matriz de permisos'', que sería hacer un
+análisis de lo permisos, usuarios, cantidad de tablas en las bases de datos, etc.
+
+\subsection{Procesamiento y memoria}
+
+\paragraph{}
+Se pueden asignar al DBMS la cantidad de recursos que puede utilizar (RAM y
+ROM).
+Se puede elegir la cantidad de procesadores para la DB para obtener un
+rendimiento adecuado en la DB.
+
+\paragraph{}
+\textbf{NOTA}
+\begin{itemize}
+	\item
+	Motor
+	\item
+	Servicio
+	\item
+	Instancia
+\end{itemize}
+
+\paragraph{}
+\textbf{Motor}: Sería aqué que hace posible el servicio. Ayuda a hacer acciones en la DB.
+
+\textbf{Servicio}: Permite abrir ventana. Intangible. Permite  o inicia al DBMS
+y permite que el motor funcione con la intancia (gasolina de coche).
+
+\textbf{Instancia}: ``Área de trabajo donde se tienen las bases de datos; espacio lógico''.
+Organización de la base de datos.
+
+\paragraph{}
+Motor e intancia van ligados (moto-instancia).
+
+Se pueden generar cualquier cantidad de intancias en cualquir DBMS.
+
+En MYSQL se puede usar ``sysbench'' para observar cosas relacionadas con los
+recursos.
+
+\subsection{Desarrollo de la seguridad de la base de datos}
+\paragraph{}
+
+\subsection{Acceso a la base de datos y seguridad a nivel de aplicación}
+\paragraph{}
+Se tiene que ser conciente de cómo se lleva a cabo esta parte, incluso si
+no es responsabilidad directa del DBA.
+Se tiene que saber cómo funciona la seguridad desde el lado de la aplicación
+
+\subsection{Administración del SGDB (DBMS)}
+\begin{itemize}
+	\item
+	Pago del licenciamiento
+	\item
+	Documento de proceso de instalación, desinstalación y actualización.
+	\item
+	Verificación de parches y actualizaciones.
+	\item
+	Documentación de ruta de instalación, servidores, direcciones IP, etc.
+	\item
+	Permisos de acceso a servidores de producción y pruebas.
+\end{itemize}
+
+\subsection{Mantenimiento del repositorio}
+\begin{itemize}
+	\item
+	Definición inicial de rutas de archivos primarios, secundarios, tablespaces,
+	logs, unidades de disco.
+
+	\item
+	Monitoreo constante del espacio y crecimiento y definir un porcentaje cuando
+	se deba levantar un alerta.
+
+	\item
+	Estadíticas mensuales.
+
+	\item
+	Documentar procesos de attach y dettach y de migración.
+\end{itemize}
+
+\textbf{Se hace Shrinking}
+
+\paragraph{}
+Se cuentan objetos en la bases de datos (tablas, campos, tipo de datos, usuarios,
+etc.).
+Observar el crecimiento de la DB, obtener gráfica de crecimiento.
+Calcular la cantidad de tiempo que podría tardar en llenarse el almacenamiento.
+
+\paragraph{}
+Si la DB está en uso, se debe terminar de usar en la DB (voluntariamente o
+`` a la fuerza'')
+
+\textbf{dbcc} ayuda a darle mantenimiento a la DB.
+
+\subsection{Monitoreo}
+
+\paragraph{}
+\begin{itemize}
+	\item
+	Seguridad
+	\item
+	Queries en proceso
+	\item
+	Indexación
+\end{itemize}
+
+\paragraph{}
+Seguridad:
+Agregar seguridad para que no hayan problemas con usuarios dentro de la misma
+organización o accesosno autorizados.
+
+\paragraph{}
+Queries en proceso:
+Se puede detectar si alguien está haciendo queries indebidos o queries no
+optimizados o ``malos''.
+
+\paragraph{}
+Indexación:
+
+\subsection{Mantenimiento}
+
+\paragraph{}
+\begin{itemize}
+	\item
+	SHRINK LOG
+	\item
+	DBCC SHRINKDATABASE;
+	\item
+	DBCC SHRINKDATABASE (DB, TRUNCATEONLY);
+	\item
+	DBCC CHECKTABLE
+\end{itemize}
+
+
+\paragraph{}
+Integridad:
+
+La manera en la que está organizada la DB físicamente (en el disco).
+
+\textbf{Bloque} 8 KB (un porción de una tabla).
+
+Se necesitan varios \textbf{bloques} para guardar varias \textbf{tablas}.
+
+Un conjunto de \textbf{bloques} se llama \textbf{Extensión}.
+
+Varias \textbf{extenciones} forman un \textbf{segmento}.
+
+DBCC CHECKTABLE ayuda a checar la integridad.
+
+\paragraph{}
+Indices:
+
+Son archivos.
+
+Se deben reoganizar para optimizar o que funcionen correctamente.
+
+\paragraph{}
+Limpieza de logs binarios MySQL.
+
+Optimización de tablas MySQL (OPTIMIZE TABLE).
+
+Vaciamiento de caché de consultas.(FLUSH QUERY CACHE).
+
+Rotación de logs binarios MySQL. (Se vacían manualmente si ya no hay espacio).
+(Puede que tenga que ser creada una nueva bitácora)
+
+\subsection{(11)Auditorías de logs}
+Se pueden seleccionar que campos se desean auditar.
+
+\subsection{(12)Respaldo y restauración}
+
+\paragraph{}
+\begin{itemize}
+	\item
+	Frecuencia
+	\item
+	Horario
+	\item
+	Rotación
+	\item
+	Bitácora
+	\item
+	Tareas automatizadas
+	\item
+	Caja fuerte
+	\item
+	Sitio alterno
+\end{itemize}
+
+
+
+\end{document}

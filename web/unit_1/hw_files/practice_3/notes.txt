@@ -1,0 +1,22 @@
+Las etiquetas definen las estructura lógica de un documento HTML.
+
+##Porqué usar XHTML sobre HTML?
+1.-Se usa en la web semántica.
+2.-...
+
+##HTML es un standard mundial.
+Entre más se esté apegado al stantard, mejor será interpretado por los
+navegadores.
+
+##HTML5:
+Nuevos conceptos para la construcción de sitios web y aplicaciones en una era
+que combina dispositivos móviles. coputación en la nueva y trabajos en red.
+Propones estándares para nuevas aspectos de la web.
+
+Impulsa la web 3.0.
+
+
+"<!DOCTYPE html>" hace la diferencia física entre HTML y HTML5.
+
+Las nuevas etiquetas permiten saber dónde buscar info importante (nav,
+section, article, footer, header).

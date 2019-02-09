@@ -1,0 +1,15 @@
+Organismo: SEDEAM
+Proyecto: SEDEAM
+Entregable: Especificación de requerimientos
+Autor: Equipo 1
+Versión: 0.1
+Aprovado por: Miriam Zulma Sánchez Hernández
+Fecha de versión: 07/02/19
+Fecha de Aprovación: 08/02/19
+
+Número de páginas: 3
+
+Registro de cambios:
+	0001, versión inicial, Equipo 1, 07/02/19
+
+
