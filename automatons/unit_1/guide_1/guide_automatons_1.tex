@@ -1,0 +1,398 @@
+\documentclass{article}
+
+%Configuraciones de idioma del documento
+\usepackage[spanish]{babel}
+%Configurar entrada {usar caracteres desde el teclado como á}
+\usepackage[utf8]{inputenc}
+%Fuente que pueda renderizar caracteres en nuestro idioma
+\usepackage[T1]{fontenc}
+%Fuente compatible
+\usepackage{lmodern}
+
+\usepackage{alltt}
+
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{Guía de Lenguajes y Autómatas Unidad 1}
+\author{Antonio Emiko Ochoa Adame}
+\maketitle
+
+\section{Definiciones}
+
+\subsection{Conjunto}
+
+Es una \textbf{colección} bien definida de objetos, a los cuales
+se les llama \textbf{elementos}.
+\vspace{1em}
+
+$a \in A $ : el elemento a pertencece al conjunto A.
+
+$a \notin A $ : el elemento a no pertencece al conjunto A.
+
+\paragraph{}
+Las llaves ``$\{\}$'' para describir un conjunto.
+
+\subsection{Conjunto universal U}
+
+Todos los posibles objetos que se consideran para una determinada clase de
+conjuntos.
+
+\subsection{Cardinalidad}
+
+Cantidad de elementos que existen en un conjunto.
+
+\textbf{NOTA}: Si un cojunto es infinito,  \textbf{no} tiene cardinalidad.
+
+Hay infinitos \textbf{enumerables}.
+
+(Dos conjuntos tienen la misma cardinalidad) ? Son equivalentes.
+
+\subsection{Conjunto vacío}
+
+No contiene elementos.
+
+$\o = \{\}$
+
+Carnidalidad = 0
+
+\subsection{Conjuntos de números}
+
+\subsubsection{Naturales (N)}
+
+Se les llama así porque resulta del proceso natural de contar.
+
+1, 2, 3, 4, 5, ...
+
+\subsubsection{Enteros (Z)}
+
+Positivos y negativos.
+
+\subsubsection{Reales (R)}
+
+Decimales, infinitesimales, etc.
+
+\subsection{Aleph}
+
+\textbf{Aleph 0}:
+Es la cardinalidad del conjunto de todos los números naturales.
+\textbf{Infinitos enumerables.}
+\vspace{1em}
+
+Ejemplos:
+\begin{itemize}
+	\item
+	Los cuadrados de los números
+	\item
+	Potencias perfectas
+	\item
+	Números primos
+	\item
+	Números pares
+\end{itemize}
+
+\textbf{Aleph 1}: Es la cardinalidad del conjunto de todos los números
+ordinales contables. \textbf{Infinitos no enumerables.}
+\vspace{1em}
+
+Ejemplos:
+\vspace{1em}
+
+No defined.
+
+\subsection{Operaciones con conjuntos}
+
+\subsubsection{Intersección}
+
+Sean A y B, (A$\cap$B), todos los elementos de A que también estań en B.
+\vspace{1em}
+
+Si una intersección resulta vacío, se dice que es un conjunto ``disjunto''.
+
+\subsubsection{Unión}
+
+A$\cup$B. Conjunto formado por todos los elementos de de A o B.
+
+\subsubsection{Complemento}
+
+$A^c$. Elementos del universo que no pertenece a A.
+
+\subsubsection{Diferencia}
+
+A$-$B. Todos los elementos de A que no están en B.
+A$-$B $= A\cap B^c$
+
+\subsubsection{Diferencia simétrica}
+Todos los elementos de A que no están en B y todos los elementos de B que no
+están en A.
+\vspace{1em}
+
+A$\oplus$B $=$ (A$-$B) $\cup$ (B$-$A) $=$ (A$\cup$B) $-$ (A$\cap$B)
+
+\subsubsection{Igualdad de conjuntos}
+
+Dos conjuntos son iguales cuando los elementos son los mismos en ambos conjuntos.
+
+\subsubsection{Subconjunto}
+
+A$\subset$B. Si cada elemento que pertenece a A también es un elemento de B.
+\vspace{1em}
+
+A$\subset$B. \textbf{Propio} (No deben ser iguales).
+
+A$\subseteq$B. \textbf{Impropio} (Pueden ser iguales).
+
+\subsubsection{Cardinalidad de la unión de dos conjuntos}
+
+N(A$\cup$B) = N(A) $+$ N(B) $-$ N(A$\cap$B)
+
+\subsubsection{Potencia}
+
+Conjunto formado por todos los posibles subconjuntos $2^A$.
+
+\subsubsection{Partición}
+
+Todos los elementos de S deben estar en alguna partición.
+
+Un elemento solo puede estar en un conjunto.
+\vspace{1em}
+
+A$_1\cap$A$_2$= S ó A$_1\cap$A$_2$ = $\o$
+
+\subsubsection{Producto cartesiano}
+
+A$\times$B como el conjunto de todas las parejas ordenadas (a, b) tales que
+a$\in$A y b$\in$B.
+
+\textbf{NO ES CONMUTATIVA}: (2, 1) $\neq$ (1, 2).
+
+\textbf{NOTA}: El resultado son tuplas.
+
+\subsection{Relaciones}
+
+\subsubsection{Relación}
+
+Subconjunto de un producto cartesiano.
+
+A$\rightarrow$B
+
+A: Dominio (Proviene del primer conjunto).
+B: Contradomio (Proviene del segundo conjunto).
+
+\subsubsection{Relación reflexiva}
+
+En la matriz de adyacencia si solo hay ``unos'' en la diagonal.
+
+Ejemplos: (1, 1), (2, 2), (3, 3).
+
+\subsubsection{Relación irreflexiva}
+
+En la matriz de adyacencia si solo hay ``ceros'' en la diagonal.
+
+\subsubsection{Relación simétrica}
+Si (a, b) $\in$ R y (b, a) $\in$ R.
+
+\subsubsection{Relación asimétrica}
+No puede haber elementos del tipo (2, 2), pero también es irreflexiva.
+
+\subsubsection{Relación antisimétrica}
+Una relación binaria R sobre un conjunto A es antisimétrica cuando se da que
+si dos elementos de A se relacionan entre sí mediante R, entonces estos elementos son iguales.
+
+\subsubsection{Relación transitiva}
+(a, b) $\in$ R y (b, c) $\in$ R, entonces (a, c) $\in$ R.
+
+\subsubsection{Relación de equivalencia}
+
+Es una realación equivalencia si es reflexiva, simétrica y transitiva.
+
+Define una partición.
+
+\subsection{Símbolo}
+
+Es la representación tangible de un concepto.
+
+\begin{itemize}
+	\item
+	\textbf{Letra}: Símbolo gráfico (representa un sonido concreto).
+	\item
+	Un dígito es la representación de un valor numérico.
+	\item
+	Símbolos de ciencias e ingeniería.
+	\item
+	Señales
+	\item
+	Emblemas y logotipos.
+\end{itemize}
+
+Hay símbolos que pueden ser perceptibles por otros sentidos.
+
+\subsection{Alfabeto}
+
+Conjunto finito no vacío de símbolos.
+
+Pueden tener orden, pero no todos.
+
+Se representa con $\Sigma$.
+\vspace{1em}
+
+Ejemplos:
+
+\begin{itemize}
+	\item
+	$\Sigma = \{0, 1\}$ (Binario)
+	\item
+	$\Sigma = \{\alpha, \beta, \gamma, \delta, ..., \omega\}$
+	\item
+	$\Sigma = \{READ, INPUT, GET, FOR, ..., IF\}$
+\end{itemize}
+
+\subsubsection{Propiedades de los alfabetos}
+
+Se pueden usar las siguientes operaciones: $\cup, \cap, -, \oplus$.
+
+$\Sigma_1 \cup \Sigma_2$ es un alfabeto.
+
+$\Sigma_1 \cap \Sigma_2$ es un alfabeto si $\Sigma_1$ y $\Sigma_2$ no son
+disjuntos.
+
+$\Sigma_1 - \Sigma_2$ es un alfabeto si $\Sigma_1 \not\subseteq \Sigma_2$.
+
+$\Sigma_2 - \Sigma_1$ es un alfabeto si $\Sigma_2 \not\subseteq \Sigma_1$.
+
+$\Sigma_1 \oplus \Sigma_2$ es un alfabeto si $\Sigma_1 \ne \Sigma_2$.
+\vspace{1em}
+
+Ejemplos:
+\vspace{1em}
+
+Dado:
+
+$\Sigma_1 = \{0, 1, 2, 3, 4\}$
+$\Sigma_2 = \{0, 2, 5, 6\}$
+$\Sigma_3 = \{0, 2\}$
+\vspace{1em}
+
+Realizar las siguientes operaciones:
+
+$\Sigma_1 \cup \Sigma_2 = \{0, 1, 2, 3, 4, 5, 6\}$
+
+$\Sigma_1 \cap \Sigma_3 = \{0, 2\}$
+
+$\Sigma_2 - \Sigma_3 = \{5, 6\}$
+
+$\Sigma_3 - \Sigma_1 =$ No existe alfabeto. El alfabeto $\o$ no es posible.
+
+$\Sigma_1 \oplus \Sigma_3 = \{1, 3, 4\}$
+
+\subsection{Cadena}
+
+Secuencia finita de símbolos de un alfabeto dado, yuxtapuestos uno a continuación
+de otro.
+\vspace{1em}
+
+Ejemplos:
+\vspace{1em}
+
+$\Sigma = \{0, 1\}$
+
+$x = 000011111, y = 10101, w = 11, z = 0$
+\vspace{1em}
+
+$\Sigma = \{a, b, c, d, e\}$
+
+$x1 = beca$
+
+$x2 = aaaaaaaaaa$
+
+$x3 = c$
+
+$x4 = \varepsilon$
+
+$x5 = decada$
+\vspace{1em}
+
+\textbf{NOTA}: El orden importa, es decir, $luis \ne suli$
+
+\subsection{Cadena vacía}
+
+Se forma por una secuencia de cero símbolos de cualquier alfabeto.
+
+La cadena vacía se denot con $\varepsilon$.
+
+La longitud de una cadena es la cantidad de símbolos que contiene.
+
+\subsection{Ambigüedad de cadenas}
+
+Se suele usar \textbackslash 0 (o \textbackslash O?) para eliminar ambigüedad de cadenas vacías.
+\vspace{1em}
+
+Ejemplo de ambigüedad de cadenas:
+\vspace{1em}
+
+$\Sigma = \{01, 1, 0\}$
+
+$x = 0101$ No se sabe que longitud tiene.
+
+\subsection{Longitud de una cadena}
+
+$w_1 = 101011$, entonces $|w_1| = 6$
+
+$w_2 = 10110100101$, entonces $|w_2| = 11$
+
+$w_3 = \varepsilon$, entonces $|w_3| = 0$
+
+\subsection{Concatenación}
+
+Es yuxtaponer dos cadenas, una a continuación de la otra.
+
+$x \cdot w$ o $xw$
+
+\subsection{Propiedades de la concatenación}
+
+\textbf{NOTA}: No es conmutativa, es decir, $wx \ne xw$.
+\vspace{1em}
+
+La longitud de la concatenación es igual a la suma de las longitudes de las
+cadenas individuales.
+\vspace{1em}
+
+$|wx| = |w| + |x|$
+
+$|wx| = |xw|$ son diferentes, pero tienen la misma longitud.
+\vspace{1em}
+
+La cadena vacía es el \textbf{elemento neutro} de la concatenación.
+\vspace{1em}
+
+Sea $w$ un cadena, para cualquier $n \ge 0$, se tiene la enésima potencia
+de $w$.
+
+\begin{equation*}
+    w^n = \begin{cases}
+    \varepsilon & n = 0\\
+    ww^{n-1} & n > 0\\
+    \end{cases}
+\end{equation*}
+
+Ejemplos:
+\vspace{1em}
+
+Con $w = abc$
+\vspace{1em}
+
+$w^0 = \varepsilon$
+
+$w^1 = ww^0= abc \varepsilon = abc$
+
+$w^2 = ww^1 = abcabc$
+\vspace{1em}
+
+\textbf{NOTA}: La potencia \textbf{no} es conmutativa.
+
+\paragraph{}
+\textbf{NOTA}: El autor de este documento no se hace responsable de uso indebido del
+mismo.
+
+\end{document}
