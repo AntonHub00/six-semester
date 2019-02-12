@@ -1,0 +1,90 @@
+\documentclass{article}
+
+%Configuraciones de idioma del documento
+\usepackage[spanish]{babel}
+%Configurar entrada {usar caracteres desde el teclado como á}
+\usepackage[utf8]{inputenc}
+%Fuente que pueda renderizar caracteres en nuestro idioma
+\usepackage[T1]{fontenc}
+%Fuente compatible
+\usepackage{lmodern}
+
+\usepackage{spverbatim}
+
+\begin{document}
+
+\title{Tarea 6}
+\author{Antonio Emiko Ochoa Adame}
+\maketitle
+
+1.- Escriba una expresión regular para identificar palabras entre 4 y 15
+caracteres, formadas por letras minúsculas exclusivamente.
+
+\begin{spverbatim}
+R = /\b[a-z]{4,15}\b/g
+\end{spverbatim}
+\vspace{1em}
+
+2.- Escriba una expresión regular para identificar las direcciones de correo,
+con las siguientes características:
+
+\begin{itemize}
+	\item
+	Antes de la arroba puede haber tres o más caracteres alfanuméricos,
+	incluyendo el punto.
+	\item
+	La arroba es obligatoria.
+	\item
+	Después de la arroba puede haber varios (al menos uno) grupos de dos o
+	más caracteres alfanuméricos, separados por un punto.
+	\item
+	Para terminar debe haber una extensión de dos a cuatro caracteres.
+\end{itemize}
+
+\begin{spverbatim}
+R = /[\w.]{3,}@(\w{2,}\.)+\w{2,4}/g
+\end{spverbatim}
+\vspace{1em}
+
+3.- Escriba una expresión regular para reconocer fechas en el formato
+\textbf{dd/mm/aaaa}, de acuerdo con los siguientes criterios:
+
+\begin{itemize}
+	\item
+	\textbf{dd} entre 01 y 30
+	\item
+	\textbf{mm} entre 01 y 12
+	\item
+	\textbf{aaaa} que contenga cuatro dígitos
+\end{itemize}
+
+\begin{spverbatim}
+R = /\b(0[1-9]|[12]\d|30)\/(0[1-9]|1[012])\/\d{4}\b/g
+\end{spverbatim}
+\vspace{1em}
+
+4.- Escriba una expresión regular para reconocer una hora en el formato
+\textbf{HH:mm:ss}, en la que los valores de \textbf{HH} estén entre 00 y 24 y
+los valores de \textbf{mm} y \textbf{ss} entre 00 y 59.
+
+\begin{spverbatim}
+R = /\b([01]\d|2[0-4])(:(0\d|[1-5]\d)){2}\b/g
+\end{spverbatim}
+\vspace{1em}
+
+5.- Escriba una expresión regular que sirva para reconocer una contraseña que
+esté formada por 8 caracteres o más y que contenga uno o más dígitos, una o
+más letras minúsculas y una o más mayúsculas.
+
+\begin{spverbatim}
+R = /(?=\w{8,})(?=.*\d+.*)(?=.*[a-z]+.*)(?=.*[A-Z]+.*).*/g
+\end{spverbatim}
+\vspace{1em}
+
+Sin caracteres especiales:
+
+\begin{spverbatim}
+R = /(?=\w{8,})(?=\w*\d+\w*)(?=\w*[a-zA-Z]+\w*)(?=\w*[A-Z]+\w*)\w*/g
+\end{spverbatim}
+
+\end{document}
