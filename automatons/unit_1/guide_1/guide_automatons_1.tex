@@ -9,9 +9,12 @@
 %Fuente compatible
 \usepackage{lmodern}
 
+%Text formating
 \usepackage{alltt}
 
+%Math lybraries
 \usepackage{amsmath}
+\usepackage{amssymb}
 
 \begin{document}
 
@@ -19,9 +22,7 @@
 \author{Antonio Emiko Ochoa Adame}
 \maketitle
 
-\section{Definiciones}
-
-\subsection{Conjunto}
+\section{Conjunto}
 
 Es una \textbf{colección} bien definida de objetos, a los cuales
 se les llama \textbf{elementos}.
@@ -34,12 +35,12 @@ $a \notin A $ : el elemento a no pertencece al conjunto A.
 \paragraph{}
 Las llaves ``$\{\}$'' para describir un conjunto.
 
-\subsection{Conjunto universal U}
+\section{Conjunto universal U}
 
 Todos los posibles objetos que se consideran para una determinada clase de
 conjuntos.
 
-\subsection{Cardinalidad}
+\section{Cardinalidad}
 
 Cantidad de elementos que existen en un conjunto.
 
@@ -49,7 +50,7 @@ Hay infinitos \textbf{enumerables}.
 
 (Dos conjuntos tienen la misma cardinalidad) ? Son equivalentes.
 
-\subsection{Conjunto vacío}
+\section{Conjunto vacío}
 
 No contiene elementos.
 
@@ -57,25 +58,25 @@ $\o = \{\}$
 
 Carnidalidad = 0
 
-\subsection{Conjuntos de números}
+\section{Conjuntos de números}
 
-\subsubsection{Naturales (N)}
+\subsection{Naturales (N)}
 
 Se les llama así porque resulta del proceso natural de contar.
 
 1, 2, 3, 4, 5, ...
 
-\subsubsection{Enteros (Z)}
+\subsection{Enteros (Z)}
 
 Positivos y negativos.
 
-\subsubsection{Reales (R)}
+\subsection{Reales (R)}
 
 Decimales, infinitesimales, etc.
 
-\subsection{Aleph}
+\section{Aleph $\aleph$}
 
-\textbf{Aleph 0}:
+\textbf{Aleph $\aleph$ 0}:
 Es la cardinalidad del conjunto de todos los números naturales.
 \textbf{Infinitos enumerables.}
 \vspace{1em}
@@ -92,7 +93,7 @@ Ejemplos:
 	Números pares
 \end{itemize}
 
-\textbf{Aleph 1}: Es la cardinalidad del conjunto de todos los números
+\textbf{Aleph $\aleph$ 1}: Es la cardinalidad del conjunto de todos los números
 ordinales contables. \textbf{Infinitos no enumerables.}
 \vspace{1em}
 
@@ -101,40 +102,40 @@ Ejemplos:
 
 No defined.
 
-\subsection{Operaciones con conjuntos}
+\section{Operaciones con conjuntos}
 
-\subsubsection{Intersección}
+\subsection{Intersección}
 
 Sean A y B, (A$\cap$B), todos los elementos de A que también estań en B.
 \vspace{1em}
 
 Si una intersección resulta vacío, se dice que es un conjunto ``disjunto''.
 
-\subsubsection{Unión}
+\subsection{Unión}
 
 A$\cup$B. Conjunto formado por todos los elementos de de A o B.
 
-\subsubsection{Complemento}
+\subsection{Complemento}
 
 $A^c$. Elementos del universo que no pertenece a A.
 
-\subsubsection{Diferencia}
+\subsection{Diferencia}
 
 A$-$B. Todos los elementos de A que no están en B.
 A$-$B $= A\cap B^c$
 
-\subsubsection{Diferencia simétrica}
+\subsection{Diferencia simétrica}
 Todos los elementos de A que no están en B y todos los elementos de B que no
 están en A.
 \vspace{1em}
 
 A$\oplus$B $=$ (A$-$B) $\cup$ (B$-$A) $=$ (A$\cup$B) $-$ (A$\cap$B)
 
-\subsubsection{Igualdad de conjuntos}
+\subsection{Igualdad de conjuntos}
 
 Dos conjuntos son iguales cuando los elementos son los mismos en ambos conjuntos.
 
-\subsubsection{Subconjunto}
+\subsection{Subconjunto}
 
 A$\subset$B. Si cada elemento que pertenece a A también es un elemento de B.
 \vspace{1em}
@@ -143,15 +144,15 @@ A$\subset$B. \textbf{Propio} (No deben ser iguales).
 
 A$\subseteq$B. \textbf{Impropio} (Pueden ser iguales).
 
-\subsubsection{Cardinalidad de la unión de dos conjuntos}
+\subsection{Cardinalidad de la unión de dos conjuntos}
 
 N(A$\cup$B) = N(A) $+$ N(B) $-$ N(A$\cap$B)
 
-\subsubsection{Potencia}
+\subsection{Potencia}
 
 Conjunto formado por todos los posibles subconjuntos $2^A$.
 
-\subsubsection{Partición}
+\subsection{Partición}
 
 Todos los elementos de S deben estar en alguna partición.
 
@@ -160,7 +161,7 @@ Un elemento solo puede estar en un conjunto.
 
 A$_1\cap$A$_2$= S ó A$_1\cap$A$_2$ = $\o$
 
-\subsubsection{Producto cartesiano}
+\subsection{Producto cartesiano}
 
 A$\times$B como el conjunto de todas las parejas ordenadas (a, b) tales que
 a$\in$A y b$\in$B.
@@ -169,9 +170,9 @@ a$\in$A y b$\in$B.
 
 \textbf{NOTA}: El resultado son tuplas.
 
-\subsection{Relaciones}
+\section{Relaciones}
 
-\subsubsection{Relación}
+\subsection{Relación}
 
 Subconjunto de un producto cartesiano.
 
@@ -180,36 +181,36 @@ A$\rightarrow$B
 A: Dominio (Proviene del primer conjunto).
 B: Contradomio (Proviene del segundo conjunto).
 
-\subsubsection{Relación reflexiva}
+\subsection{Relación reflexiva}
 
 En la matriz de adyacencia si solo hay ``unos'' en la diagonal.
 
 Ejemplos: (1, 1), (2, 2), (3, 3).
 
-\subsubsection{Relación irreflexiva}
+\subsection{Relación irreflexiva}
 
 En la matriz de adyacencia si solo hay ``ceros'' en la diagonal.
 
-\subsubsection{Relación simétrica}
+\subsection{Relación simétrica}
 Si (a, b) $\in$ R y (b, a) $\in$ R.
 
-\subsubsection{Relación asimétrica}
+\subsection{Relación asimétrica}
 No puede haber elementos del tipo (2, 2), pero también es irreflexiva.
 
-\subsubsection{Relación antisimétrica}
+\subsection{Relación antisimétrica}
 Una relación binaria R sobre un conjunto A es antisimétrica cuando se da que
 si dos elementos de A se relacionan entre sí mediante R, entonces estos elementos son iguales.
 
-\subsubsection{Relación transitiva}
+\subsection{Relación transitiva}
 (a, b) $\in$ R y (b, c) $\in$ R, entonces (a, c) $\in$ R.
 
-\subsubsection{Relación de equivalencia}
+\subsection{Relación de equivalencia}
 
 Es una realación equivalencia si es reflexiva, simétrica y transitiva.
 
 Define una partición.
 
-\subsection{Símbolo}
+\section{Símbolo}
 
 Es la representación tangible de un concepto.
 
@@ -228,7 +229,7 @@ Es la representación tangible de un concepto.
 
 Hay símbolos que pueden ser perceptibles por otros sentidos.
 
-\subsection{Alfabeto}
+\section{Alfabeto}
 
 Conjunto finito no vacío de símbolos.
 
@@ -248,7 +249,7 @@ Ejemplos:
 	$\Sigma = \{READ, INPUT, GET, FOR, ..., IF\}$
 \end{itemize}
 
-\subsubsection{Propiedades de los alfabetos}
+\subsection{Propiedades de los alfabetos}
 
 Se pueden usar las siguientes operaciones: $\cup, \cap, -, \oplus$.
 
@@ -286,7 +287,7 @@ $\Sigma_3 - \Sigma_1 =$ No existe alfabeto. El alfabeto $\o$ no es posible.
 
 $\Sigma_1 \oplus \Sigma_3 = \{1, 3, 4\}$
 
-\subsection{Cadena}
+\section{Cadena}
 
 Secuencia finita de símbolos de un alfabeto dado, yuxtapuestos uno a continuación
 de otro.
@@ -315,7 +316,7 @@ $x5 = decada$
 
 \textbf{NOTA}: El orden importa, es decir, $luis \ne suli$
 
-\subsection{Cadena vacía}
+\section{Cadena vacía}
 
 Se forma por una secuencia de cero símbolos de cualquier alfabeto.
 
@@ -323,7 +324,7 @@ La cadena vacía se denot con $\varepsilon$.
 
 La longitud de una cadena es la cantidad de símbolos que contiene.
 
-\subsection{Ambigüedad de cadenas}
+\section{Ambigüedad de cadenas}
 
 Se suele usar \textbackslash 0 (o \textbackslash O?) para eliminar ambigüedad de cadenas vacías.
 \vspace{1em}
@@ -335,7 +336,7 @@ $\Sigma = \{01, 1, 0\}$
 
 $x = 0101$ No se sabe que longitud tiene.
 
-\subsection{Longitud de una cadena}
+\section{Longitud de una cadena}
 
 $w_1 = 101011$, entonces $|w_1| = 6$
 
@@ -343,13 +344,13 @@ $w_2 = 10110100101$, entonces $|w_2| = 11$
 
 $w_3 = \varepsilon$, entonces $|w_3| = 0$
 
-\subsection{Concatenación}
+\section{Concatenación}
 
 Es yuxtaponer dos cadenas, una a continuación de la otra.
 
 $x \cdot w$ o $xw$
 
-\subsection{Propiedades de la concatenación}
+\section{Propiedades de la concatenación}
 
 \textbf{NOTA}: No es conmutativa, es decir, $wx \ne xw$.
 \vspace{1em}
@@ -390,6 +391,118 @@ $w^2 = ww^1 = abcabc$
 \vspace{1em}
 
 \textbf{NOTA}: La potencia \textbf{no} es conmutativa.
+\vspace{1em}
+
+$w = 01$
+
+$x = 10$
+\vspace{1em}
+
+$(wx)^2 = (0110)^2 = 01100110$
+
+$w^2x^2 = (01)^2(10)^2= 01011010$
+
+\section{Prefijos y sufijos}
+
+\subsection{Prefijos}
+
+El sufijo es el complemento de prefijo.
+
+Una cadena de longitud $n$, tendría $n-1$ prefijos propios y $1$ impropio.
+\vspace{1em}
+
+$w = xz$ donde $x$ es el prefijo de $w$ y $z$ es el sufijo de $w$.
+
+Si $z \ne \varepsilon \therefore x$ es prefijo propio.
+
+Si $x = w \therefore x$ es prefijo impropio.
+
+\subsection{Sufijos}
+
+Una cadena de longitud $n$, tendría $n-1$ prefijos propios y $1$ impropio.
+\vspace{1em}
+
+$w = xz$
+
+Si $x \ne \varepsilon \therefore z$ es sufijo propio.
+
+Si $z = w \therefore z$ es sufijo impropio.
+
+\subsection{Cadena vacía}
+
+La cadena vacía ($\varepsilon$) es prefijo y sufijo impropio de cualquier cadena.
+
+\section{Subcadenas}
+
+Cualquier prefijo y sufijo propio es una subcadena.
+
+$w = xyz$ si $x$ y $z$ son subcadenas (en sentido propio).
+
+¿Cuántas subcadena tiene una cadena?
+\vspace{1em}
+
+$N = \frac{n(n+1)}{2}$, pero $N$ disminuye si hay símbolos repetidos.
+
+\section{Inversa de una cadena}
+
+La inversa de una cadena $w$ es la cadena $w^R$, tal que es la imagen reflejada
+de $w$.
+
+\begin{equation*}
+    w^R = \begin{cases}
+    \varepsilon & w = 0\\
+    y^{R}a & w = ay\\
+    \end{cases}
+\end{equation*}
+
+Ejemplo:
+\vspace{1em}
+
+$w = amor$
+
+$w^R = (amor) ^R = (mor)^{R}a = (m(or)^R)a = ((or)^{R}m)a = (o(r)^{R})ma = (r)^R oma
+= roma$
+
+\subsection{Propiedades de la inversa de una cadena}
+
+$(x^R)^R = x$.
+\vspace{1em}
+
+Si $x = wy$, entonces $x^R = y^Rw^R$.
+\vspace{1em}
+
+Una cadena es un \textbf{palíndromo} si $w = w^R$.
+\vspace{1em}
+
+\subsection{Lenguajes formal}
+
+Es un conjunto de palabras o cadenas formadas a partir de los símbolos  un
+alfabeto dado.
+
+Un lenguaje puede ser finito o infinito, pero el alfabeto debe ser finito.
+
+Ejemplos:
+\vspace{1em}
+
+(Lenguaje finito)
+
+Sea $\Sigma = \{a, b\}$ (el alfabeto).
+
+$L = \{\varepsilon, ab, abbab, abbba, aba\}$
+\vspace{1em}
+
+(Lenguaje infinito)
+
+Sea $\Sigma = \{0, 1\}$ (el alfabeto).
+
+$L = \{\varepsilon, 0, 1, 00, 11, 000, 010, 101, 111, ...\}$ (El lenguaje formado
+por todas palíndromas sobre $\Sigma$).
+\vspace{1em}
+
+o
+\vspace{1em}
+
+$L = \{w | w = w^R\}$ (El lenguaje formado por todas palíndromas sobre $\Sigma$).
 
 \paragraph{}
 \textbf{NOTA}: El autor de este documento no se hace responsable de uso indebido del
