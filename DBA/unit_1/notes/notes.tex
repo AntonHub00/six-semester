@@ -232,6 +232,13 @@ Se pueden seleccionar que campos se desean auditar.
 
 \subsection{(12)Respaldo y restauración}
 
+RPO: Cuando se dan señales de que algo anda mal.
+
+Desastre: (En el mejor escenario hay un respaldo).
+
+RTO: Cuando se concluye que todo volverá a funcionar normalmente.
+
+
 \paragraph{}
 \begin{itemize}
 	\item
@@ -250,6 +257,98 @@ Se pueden seleccionar que campos se desean auditar.
 	Sitio alterno
 \end{itemize}
 
+\subsection{(13)Concurrencia}
 
+\begin{itemize}
+	\item
+	Manejo de transacciones
+	\item
+	Llaves primarias
+	\item
+	Índices
+	\item
+	Propiedades ACID:
+		\begin{itemize}
+		\item
+		Atomic
+		\item
+		Consistent
+		\item
+		Isolated
+		\item
+		Durable
+		\end{itemize}
+\end{itemize}
+
+\textbf{Manejo de transacciones}
+\vspace{1em}
+
+Cuando hay un select se genere un ``bloqueo compartido''.
+Un select se atiende más rápido porque solo es una lectura (bloqueo compartido).
+
+Cuando hay un update se genere un ``bloqueo exclusivo''.
+
+Begin transaction, rollback y commit ayudan para asegurar la consistencia de la
+información.
+\vspace{1em}
+
+\textbf{Llaves primarias}
+
+Evita redundancia de tuplas
+\vspace{1em}
+
+\textbf{Índices}
+
+Ayuda a que los queries se ejecuten más rápido.
+\vspace{1em}
+
+\textbf{ACID}
+
+Deben asegurar que cuando se haga una transacción se debe asegurar ACID.
+
+Definir ACID.
+
+Durabilidad.- Si es exitosa la transacción, debe hacerse un commit para que los
+cambios permanezcan o ``persistan''.
+
+\subsection{(14)Bloqueos}
+
+Exlusivo, compartido, deadlock.
+
+Se bloquea cuando dos usuarios quieren utilizar el mismo recurso al mismo
+tiempo. A esto se le llama \textbf{deadlock}.
+
+Se debe monitorear para ver si ocurren deadlocks.
+
+Se debe liberar el deadlock manualmente, pero esto puede generar inscosistencia
+en la información.
+
+\subsection{(15)Problemas de pérdida de información}
+
+\begin{itemize}
+	\item
+	Correciones manuales automatizadas.
+	\item
+	Correcciones masivas.
+\end{itemize}
+
+\subsection{(16)Migraciones}
+
+\begin{itemize}
+	\item
+	De tabla a tabla.
+	\item
+	De una DB a otra DB.
+	\item
+	A una DB de producción.
+	\item
+	A una DB de consultas.
+	\item
+	A una DB de pruebas.
+	\item
+	DB distribuída.
+	\item
+	Implicaciones en llaves primarias y autoincrementables.
+\end{itemize}
 
 \end{document}
