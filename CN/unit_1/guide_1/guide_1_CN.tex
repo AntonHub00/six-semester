@@ -18,10 +18,13 @@
 \section{Definiciones}
 
 Las redes se basan en protocolos.
+\vspace{1em}
 
 Sin uno o más de los 5 elementos de la comunicación, esta no puede existir.
+\vspace{1em}
 
 \textbf{Modulación de banda base}.- Pasar de señal digital a señal analógica.
+\vspace{1em}
 
 \textbf{Medio guiado}.- La información va de origen a destino sin pasar los
 límites del medio.
@@ -52,19 +55,24 @@ límites del medio.
 
 \textbf{Switch}.- Importante en interconexión. Se usa para hacer una red. Conecta
 más de dos dispositivos entre sí.
+\vspace{1em}
 
 \textbf{HUB}.- Es concentrado de señales y las transmite (ya no se utiliza tanto).
+\vspace{1em}
 
 El switch hace lo mismo que el HUB, pero administra a quién le manda el mensaje;
 esto lo hace a través del direccionamiento.
+\vspace{1em}
 
 Una conexión inalámbrica siempre proviene de una conexión alámrica.
 
 \section{Protocolos}
 
 \textbf{Protocolo}.- Reglas de transmisión de un mensaje.
+\vspace{1em}
 
 \textbf{Protocolos}.- Son reglas que rigen la comunicación de los datos.
+\vspace{1em}
 
 Se utilizan a través de estándares.
 
@@ -86,40 +94,39 @@ Se utilizan a través de estándares.
 	\item
 	(5)Física
 \end{itemize}
+\vspace{1em}
 
 \textbf{Aplicación}
-\vspace{1em}
 
 Se genera el mensaje.
+\vspace{1em}
 
 \textbf{Presentación}
-\vspace{1em}
 
 Determina el formato de los datos.
+\vspace{1em}
 
 \textbf{Sesión}
-\vspace{1em}
 
 Abre sesión entre dos dispositivos.
+\vspace{1em}
 
 \textbf{Transporte}
-\vspace{1em}
 
 Control de flujo y segmentación del mensaje.
+\vspace{1em}
 
 \textbf{Red}
-\vspace{1em}
 
 Verifica direccionamiento IP y determina la ruta.
+\vspace{1em}
 
 \textbf{Enlace}
-\vspace{1em}
 
 Determina con qué tecnología se enviará un mensaje (UTP, coaxial, Wi-Fi).
 \vspace{1em}
 
 \textbf{Física}
-\vspace{1em}
 
 Intraestructua; cableado, bits, modulación.
 \vspace{1em}
@@ -131,11 +138,14 @@ Intraestructua; cableado, bits, modulación.
 
 (Media Access Control). Se compone de 48 bits y su valor está representado en
 hexadecimal.
+\vspace{1em}
 
 Es un ID único asignado a un NIC (Controlador de Interfaz de Red).
+\vspace{1em}
 
 Los primeros 24 bits es de OUI y los últimos 24 son del número de serie del
 fabricante.
+\vspace{1em}
 
 El proceso del modelo OSI se llama encapsulamiento y desencapsulamiento.
 
@@ -227,9 +237,13 @@ El proceso del modelo OSI se llama encapsulamiento y desencapsulamiento.
 \section{Cliente-servidor}
 
 \textbf{Listen}.- Primitiva de servicio.
+\vspace{1em}
+
 \textbf{Request}.- Primitiva de servicio.
+\vspace{1em}
 
 EL servidor está a la escucha mientras el cliente hace solicitudes.
+\vspace{1em}
 
 Ejemplos de servidores:
 
@@ -241,6 +255,430 @@ Ejemplos de servidores:
 	\item
 	Servidores de ftp
 \end{itemize}
+\vspace{1em}
+
+\section{Otros}
+
+Las redes privadas tienen un segmeneto de direccionamiento privado.
+
+\textbf{Routear un mensaje}.- A qué segmento de red estoy conectado.
+
+\textbf{Direccionamiento}
+\vspace{1em}
+
+A.- 0-127
+
+B.- 127-191
+
+C.- 191-223
+
+\section{Redes convergentes}
+
+Son múltiples servicios sobre una misma red.
+\vspace{1em}
+
+Utlizan una misma infraestructura de red para utilizar todos los servicios.
+\vspace{1em}
+
+\textbf{Redes de información inteligentes}.- Basadas en dispositivos inteligentes.
+
+\section{Arquitectura de una red}
+
+Son los servicios y medios que conforman una red.
+\vspace{1em}
+
+Es lo que ``tiene que tener una red'':
+\begin{itemize}
+	\item
+	Tolerancia a fallos
+	\item
+	Escalabilidad
+	\item
+	Calidad en el sevicio
+	\item
+	Seguridad
+\end{itemize}
+\vspace{1em}
+
+\textbf{Tolerancia a fallos}
+\vspace{1em}
+
+Ejemplo: Si un router falla, buscar una ruta redundante/alterna
+para evitar la pérdida de servicio.
+\vspace{1em}
+
+Esto ofrece una experiencia positiva al usuario; que nunca deje de tener
+acceso a internet, por ejemplo.
+\vspace{1em}
+
+\textbf{Escalabilidad}
+
+Que pueda crecer / tener conexiones adicionales siempre y cuando no disminuya
+el rendimiento actual de la red.
+\vspace{1em}
+
+\textbf{Calidad del servicio}
+
+Se admnistra dentro del router.
+\vspace{1em}
+
+Los servicios se pueden clasificar por grado de importancia.
+\vspace{1em}
+
+Ejemplo: Los streamings tienen prioridad alta o mayor sobre que un correo
+electrónico, por ejemplo.
+\vspace{1em}
+
+\textbf{Seguridad}
+
+Medidas de seguridad protegen la red de accesos no autorizados.
+
+Ejemplos: contraseñas, inicios de sesión, etc.
+
+Los admin. protegen las redes con hardware y software evitando así el acceso
+físico a la red.
+\vspace{1em}
+
+
+\section{Modelos de protocolo y referencia}
+
+\textbf{Modelo de referencia}.- Modelo OSI.
+\vspace{1em}
+
+\textbf{Modelo de protocolo}.- TCP/IP.
+\vspace{1em}
+
+El modelo de referencia (OSI) dice cómo debe ser la transmisión de un mensaje;
+dan una idea de cómo debe fluir la información en la red sin involucrar procesos.
+\vspace{1em}
+
+El modelo de protocolo tiene 4 capas y se basa en protocolos; indica las reglas
+exactas. Es la forma ``real'' de cómo se aplica la comunicación.
+\vspace{1em}
+
+Capas de TCP/IP:
+
+\begin{itemize}
+	\item
+	Aplicación
+	\item
+	Transporte
+	\item
+	Internet
+	\item
+	Acceso a la red (genera la ruta del origen al destino)
+\end{itemize}
+\vspace{1em}
+
+\textbf{Direccionamiento lógico}.- Direcciones IP.
+\vspace{1em}
+
+\textbf{Encapsulamiento}.- Proceso en el que la infoque pasa por la red en cada
+etapa se le añade info que necesita.
+\vspace{1em}
+
+\section{PDU}
+
+\textbf{PDU}.- Unidad de Datos de Protocolo (Protocol Data Unit).
+\vspace{1em}
+
+El PDU cambia de nombre dependiendo de la capa y se añade uno por cada para por
+la que pasa.
+\vspace{1em}
+
+\textbf{PDU en Aplicación}: Se llaman \textbf{datos}.
+\vspace{1em}
+
+\textbf{PDU en Transporte}: Se llaman \textbf{segmento o datagrama } dependiendo de si es
+TCP o UDP respectivamente.
+\vspace{1em}
+
+\textbf{PDU en Internet}: Se llaman \textbf{paquete}. Direccionamiento está en
+el encabezado de red.
+\vspace{1em}
+
+Acceso a la red (medio) se divide en 2:
+
+\begin{itemize}
+	\item
+	Enlace de datos
+	\item
+	Física
+\end{itemize}
+\vspace{1em}
+
+\textbf{PDU en Enlace de datos}: Se llaman \textbf{trama}. Dirección MAC, control
+de flujo (trailar).
+\vspace{1em}
+
+\textbf{PDU en Física}: Se llaman \textbf{bits}.
+\vspace{1em}
+
+Entonces:
+
+PDUs = Datos -> segmento/datagrama -> Paquete -> Trama -> Bits.
+
+\section{TCP y UDP}
+
+\textbf{TCP}: Protocolo de Control de Tranferencia (Transmission Control Protocol).
+\vspace{1em}
+
+\textbf{UCP}: Protocolo de datagramas.
+\vspace{1em}
+
+\textbf{Datagrama}: Diagramas de usuario.
+\vspace{1em}
+
+\textbf{Características de TCP}
+\vspace{1em}
+
+Es seguro y es \textbf{orientado a la conexión}. Símil con una llamada.
+\vspace{1em}
+
+\textbf{Características de UCP}
+\vspace{1em}
+
+Es \textbf{no orientado a la conexión}. Símil con telegrama.
+\vspace{1em}
+
+\textbf{IP}.- Protocolo de direccionamiento (Internet Protocol). Solo entrega
+paquetes.
+\vspace{1em}
+
+\textbf{Router}.- Se encarga de definir las rutas de envío de paquetes.
+\vspace{1em}
+
+\section{Modelo OSI y Modelos TCP/IP}
+
+\textbf{Capa de presentación}.- Es el formato de los datos. Se encarga de que los
+usuarios puedan enviar y recibir el mismo formato.
+\vspace{1em}
+
+\begin{itemize}
+	\item
+	Compresión de los datos
+	\item
+	Cifrado (si lo requiere)
+\end{itemize}
+\vspace{1em}
+
+\textbf{Capa de sesión}.- Modos de diágologo.
+\vspace{1em}
+
+\textbf{Capa de Aplicación}.- Genera los mensajes.
+\vspace{1em}
+
+\section{Servicios}
+
+\subsection{Servidor DNS}
+
+Asocia una dirección IP con un  nombre de dominio.
+
+\subsection{Servidor TELNET}
+
+Escritorio remoto.
+\vspace{1em}
+
+Conexión remota para manipular la red desde otra ubicación.
+\vspace{1em}
+
+Sirve para el monitereo o manipulación de equipos a distancia.
+\vspace{1em}
+
+Desventaja: Es inseguro porque los datos van en texto plano.
+\vspace{1em}
+
+\subsection{Servidor Email}
+
+SMTP, POP e IMAP(a veces).
+\vspace{1em}
+
+\textbf{SMTP}.- Simple Mail Transfer Protocol.
+\vspace{1em}
+
+\textbf{POP}.- Post Office Protocol.
+\vspace{1em}
+
+Para enviar y recibir correos.
+\vspace{1em}
+
+\subsection{Servidor DHCP}
+
+Para asignar direcciones IP de manera dinámica.
+\vspace{1em}
+
+Tengo una dirección mientras estás navegando y se libera dicha dirección cuando
+me desconecto.
+\vspace{1em}
+
+\subsection{Servidor web}
+
+\textbf{HTTP}.- Hyper Text Transfer Protocol.
+\vspace{1em}
+
+Para cliente-servidor de páginas web.
+\vspace{1em}
+
+\subsection{Servidor FTP}
+
+Para almacenar, transferir o descargar archivos de la capa de app.
+\vspace{1em}
+
+\textbf{Servicio o proceso}.- Es lo que está ejecutando un protocolo.
+\vspace{1em}
+
+\section{Modelo cliente-servidor}
+
+El servidor procesa todos los requisitos el cliente.
+\vspace{1em}
+
+\textbf{Descarga}.- Servidor envía respuesta para que el cliente la procese.
+\vspace{1em}
+
+\textbf{Carga}.- El cliente solicita al servidor para que almacene info.
+\vspace{1em}
+
+EL servidor puede hacer procesamiento paralelo (centralizado).
+\vspace{1em}
+
+Los servidores son depósitos de info.
+\vspace{1em}
+
+\textbf{Daemon}.- Modo escucha (servicio que está activo).
+\vspace{1em}
+
+\section{DNS}
+
+Es cliente-sevidor.
+\vspace{1em}
+
+\begin{enumerate}
+	\item
+	El servidor
+	\item
+	Petición (soliticat web page)
+	\item
+	Verificar
+	\item
+	Resuelve
+	\item
+	Devuelve la IP
+	\item
+	EL cliente recibe la IP
+\end{enumerate}
+\vspace{1em}
+
+Hay jerarquías
+
+\section{HTTP}
+
+\begin{enumerate}
+	\item
+	Procesa la dirección IP
+	\item
+	Resuelve un código HTML
+	\item
+	Se obtiene la página web
+\end{enumerate}
+
+\section{HTTP}
+
+\section{Control de flujo y conexión segura}
+
+En la capa de transporte hay 2 protoclos: TCP y UDP.
+\vspace{1em}
+
+3 operacines básicas de confiabilidad:
+
+\begin{itemize}
+	\item
+	Seguimiento de datos transmitidos
+	\item
+	Acuse de recibo de los datos recibidos
+	\item
+	Retransmisión de cualquier paquete sin acuse de recibo.
+\end{itemize}
+\vspace{1em}
+
+\subsection{UDP}
+
+\begin{itemize}
+	\item
+	No solicita reenvío
+	\item
+	Es rápido
+	\item
+	Tiene menor carga
+	\item
+	Entrega los datos cuando los recibe
+\end{itemize}
+\vspace{1em}
+
+Ejemplos: Telefonía IP y streaming de video.
+
+\subsection{TCP}
+
+\begin{itemize}
+	\item
+	Confiable
+	\item
+	Acuse de recibo
+	\item
+	Reenvío de datos perdidos
+	\item
+	Los segmentos se entregan en el orden eviado
+\end{itemize}
+\vspace{1em}
+
+Ejemplos: SMTP, POP y HTTP. Los correos se reciben o no, pero nunca a la mitad.
+
+\section{Encabezado de Transporte}
+
+Debe de llevar info para realizar el proceso de control.
+\vspace{1em}
+
+\textbf{Encabezado de segmento (TCP)}
+\vspace{1em}
+
+\begin{itemize}
+	\item
+	20 bytes
+	\item
+	Tiene muchos campos
+	\item
+	Mucha información
+\end{itemize}
+\vspace{1em}
+
+\textbf{Encabezado de segmento (UDP)}
+\vspace{1em}
+
+\begin{itemize}
+	\item
+	8 bytes
+	\item
+	Tiene pocos campos
+	\item
+	Ligero
+	\item
+	Mínimo esfuerzo
+\end{itemize}
+\vspace{1em}
+
+\section{Puertos}
+
+Entrada y salida de datos.
+\vspace{1em}
+
+Los datagramas y segmentos deben indicar de qué puerto viene y hacia cual va.
+\vspace{1em}
+
+\textbf{Bien conocidos}.- 0-1023.
+
+\textbf{Registrados}.- 1023-49151.
+
+\textbf{Privados y/o dinámicos}.- 49151-65535.
+\vspace{1em}
 
 \textbf{Disclaimer}: La finalidad de este documento es servir como apoyo de estudio.
 El autor de la versión original de este documento no se hace responsable del
