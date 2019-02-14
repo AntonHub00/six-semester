@@ -1,0 +1,249 @@
+\documentclass{article}
+
+%Configuraciones de idioma del documento
+\usepackage[spanish]{babel}
+%Configurar entrada {usar caracteres desde el teclado como á}
+\usepackage[utf8]{inputenc}
+%Fuente que pueda renderizar caracteres en nuestro idioma
+\usepackage[T1]{fontenc}
+%Fuente compatible
+\usepackage{lmodern}
+
+\begin{document}
+
+\title{Guía de Redes de Computadoras Unidad 1}
+\author{Antonio Emiko Ochoa Adame}
+\maketitle
+
+\section{Definiciones}
+
+Las redes se basan en protocolos.
+
+Sin uno o más de los 5 elementos de la comunicación, esta no puede existir.
+
+\textbf{Modulación de banda base}.- Pasar de señal digital a señal analógica.
+
+\textbf{Medio guiado}.- La información va de origen a destino sin pasar los
+límites del medio.
+
+\section{Factores que afectan la comunicación}
+
+\subsection{Factores externos}
+
+\begin{itemize}
+	\item
+	\textbf{Diafonía}.- Empalme de señales.
+	\item
+	Calidad de la ruta
+	\item
+	Calidad de veces que el mensaje cambia de forma.
+\end{itemize}
+
+\subsection{Factores internos}
+
+\begin{itemize}
+	\item
+	Tamaño del mensaje.
+	\item
+	Importancia del mensaje.
+\end{itemize}
+
+\section{Símbolos/dispositivos de las redes de datos}
+
+\textbf{Switch}.- Importante en interconexión. Se usa para hacer una red. Conecta
+más de dos dispositivos entre sí.
+
+\textbf{HUB}.- Es concentrado de señales y las transmite (ya no se utiliza tanto).
+
+El switch hace lo mismo que el HUB, pero administra a quién le manda el mensaje;
+esto lo hace a través del direccionamiento.
+
+Una conexión inalámbrica siempre proviene de una conexión alámrica.
+
+\section{Protocolos}
+
+\textbf{Protocolo}.- Reglas de transmisión de un mensaje.
+
+\textbf{Protocolos}.- Son reglas que rigen la comunicación de los datos.
+
+Se utilizan a través de estándares.
+
+\section{Modelo OSI}
+
+\begin{itemize}
+	\item
+	(7)Aplicación
+	\item
+	(6)Presentación
+	\item
+	(5)Sesión
+	\item
+	(4)Transporte
+	\item
+	(3)Red
+	\item
+	(2)Enlace
+	\item
+	(5)Física
+\end{itemize}
+
+\textbf{Aplicación}
+\vspace{1em}
+
+Se genera el mensaje.
+
+\textbf{Presentación}
+\vspace{1em}
+
+Determina el formato de los datos.
+
+\textbf{Sesión}
+\vspace{1em}
+
+Abre sesión entre dos dispositivos.
+
+\textbf{Transporte}
+\vspace{1em}
+
+Control de flujo y segmentación del mensaje.
+
+\textbf{Red}
+\vspace{1em}
+
+Verifica direccionamiento IP y determina la ruta.
+
+\textbf{Enlace}
+\vspace{1em}
+
+Determina con qué tecnología se enviará un mensaje (UTP, coaxial, Wi-Fi).
+\vspace{1em}
+
+\textbf{Física}
+\vspace{1em}
+
+Intraestructua; cableado, bits, modulación.
+\vspace{1em}
+
+\section{Otros}
+
+\textbf{MAC}
+\vspace{1em}
+
+(Media Access Control). Se compone de 48 bits y su valor está representado en
+hexadecimal.
+
+Es un ID único asignado a un NIC (Controlador de Interfaz de Red).
+
+Los primeros 24 bits es de OUI y los últimos 24 son del número de serie del
+fabricante.
+
+El proceso del modelo OSI se llama encapsulamiento y desencapsulamiento.
+
+\section{Clasificación de Redes}
+
+\begin{itemize}
+	\item
+		Por alcance.
+
+		\begin{itemize}
+			\item
+			PAN
+			\item
+			LAN
+			\item
+			WAN
+			\item
+			CAN
+			\item
+			MAN
+		\end{itemize}
+	\item
+		Por relación funcional.
+
+		\begin{itemize}
+			\item
+			Cliente-servidor
+			\item
+			peer-to-per
+		\end{itemize}
+	\item
+		Por topología.
+
+		\begin{itemize}
+			\item
+			Red en bus
+			\item
+			Red de anillo
+			\item
+			Red de estrella
+			\item
+			Red en malla (todos conectados con todos)
+			\item
+			Red en árbol
+		\end{itemize}
+	\item
+		Por modo de direccionamiento/modo de transmisión de datos.
+
+		\begin{itemize}
+			\item
+			Simplex
+			\item
+			Half-duplex o semi-duplex (Ambos sentidos pero
+			no al mismo tiempo)
+			\item
+			Full-duplex (Ambos sentidos pero y al mismo tiempo)
+		\end{itemize}
+	\item
+		Por grado de autenticación.
+
+		\begin{itemize}
+			\item
+			Red privada
+			\item
+			Red de acceso público
+		\end{itemize}
+	\item
+		Por grado de difusión.
+
+		\begin{itemize}
+			\item
+			Intranet
+			\item
+			Internet
+		\end{itemize}
+	\item
+		Por servicio o función
+
+		\begin{itemize}
+			\item
+			Red comercial
+			\item
+			Red educativa
+			\item
+			Red para procesado de datos
+		\end{itemize}
+\end{itemize}
+
+\section{Cliente-servidor}
+
+\textbf{Listen}.- Primitiva de servicio.
+\textbf{Request}.- Primitiva de servicio.
+
+EL servidor está a la escucha mientras el cliente hace solicitudes.
+
+Ejemplos de servidores:
+
+\begin{itemize}
+	\item
+	Servidores de correo
+	\item
+	Servidores web
+	\item
+	Servidores de ftp
+\end{itemize}
+
+\textbf{Disclaimer}: La finalidad de este documento es servir como apoyo de estudio.
+El autor de la versión original de este documento no se hace responsable del
+uso indebido del mismo.
+
+\end{document}
