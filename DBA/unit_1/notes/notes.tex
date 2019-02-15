@@ -350,5 +350,51 @@ en la información.
 	\item
 	Implicaciones en llaves primarias y autoincrementables.
 \end{itemize}
+\vspace{1em}
+
+Cuando un campos se usa mucho se le pude generar un índice para optimiziar
+una búsqueda.
+\vspace{1em}
+
+Si no es suficiente, se puede partir la tabla para en campos importantes
+para poder agilizar los queries.
+\vspace{1em}
+
+Una tabla pequeña puede creecer demasiado sin darnos cuentas, por es
+es importante sacar estadísticas, así se puede obsevar el comportamiento
+de la DB y poder tomar desiciones en base a dicha información.
+\vspace{1em}
+
+\section{Respaldos}
+
+Técnicas de respaldo.
+\vspace{1em}
+
+Inicio de código
+
+USE MASTER;
+
+BACKUP DB-NAME
+
+Fin de código
+\vspace{1em}
+
+\textbf{Página o bloque}.- Unidad mínima de almacenamiento de una DB.
+
+Varios bloques/páginas forman un extent se guardan tablas.
+
+Varios extent forma un segmento.
+\vspace{1em}
+
+Una DB siempre está divido en 2 archivos: DATA y LOG.
+\vspace{1em}
+
+Automatización de los respaldos es lo más adecuado.
+\vspace{1em}
+
+Faltan temas: bak en MySQL.
+
+Práctica: Se generará código a partir de un modelo relacionar, generar, respaldos,
+procedures, trigger, tareas de mantenimiento y monitoreo, insetar tuplas, etc.
 
 \end{document}
