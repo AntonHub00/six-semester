@@ -225,10 +225,186 @@ tipo de memoria; hay tres pasos:
 		Se escribe el bloque completo (los 512 bytes)
 \end{enumerate}
 
+\section{Arquitectura de un procesador}
+
+\begin{figure}[h!]
+	\includegraphics[width=\linewidth]{architecture.jpeg}
+	\caption{Arquitectura de un procesador}
+	\label{fig:Archi}
+\end{figure}
+
+A continuación se explica la arquitectura de un procesador como se muestra en la
+figura \ref{fig:Archi}:
+
+\vspace{1em}
+La ROM guarda tanto las intrucciones como las constantes.
+
+\vspace{1em}
+La RAM guarda variables.
+
+\vspace{1em}
+Los operandos de la ALU pueden ser variables, constantes y registros, pero siempre
+uno de los operando debe ser un \textbf{registro}.
+
+No se pueden hacer operaciones con 2 variables, 2 constantes o una variables y
+una constante.
+
+\vspace{1em}
+La ALU decodifica la instrucción. Cada instrucción tiene asociado un
+\textbf{OPCODE} (Código de operación), cuando la ALU detecta el \textbf{OPCODE},
+sabe qué operación debe realizar con los operandos.
+
+\vspace{1em}
+Cuando se hace una operación se modifican las banderas (bits del registro de
+estados y control) que indican las características del resultado.
+
+\section{Números sin signo}
+
+El valor más pequeño siempre es 0.
+
+\vspace{1em}
+Rango de número sin signo de 8 bits [0, 255], 9 bits [0, 511], 10 bits [0, 1023],
+etc.
+
+\vspace{1em}
+Fórmula: $[0, 2^{n}-1]$ donde $n$ es el número de bits del número.
+
+\section{Números con signo}
+
+Los números con signo son representados con complemento a 2.
+
+\vspace{1em}
+Fórmula: $[-2^{n-1}, 2^{n-1}-1]$ donde $n$ es el número de bits del número.
+
+\vspace{1em}
+Cuando un número con signo se representa en complemento a 2, puede mostrar tanto
+números negativos como positivos.
+
+\vspace{1em}
+Se sabe que es negativo si el MSB (Most Significant Bit) es 1 y que es
+positivo si el MSB es 0.
+
+\vspace{1em}
+``Sacar'' o ``hacer'' el complemento a 2 significa que, si el número es positivo,
+hacerlo negativo y viceversa.
+
+Hacer el complemento a 2 de un número es invertir el signo de dicho número.
+
+\vspace{1em}
+Representar el complemento a 2 significa que, si el número es negativo,
+representarlo negativo y viceversa.
+
+\vspace{1em}
+Ejemplo de números con signo de 8 bits:
+
+\vspace{1em}
+$1111,1111_{2}$: Negativo
+
+$0101,1111_{2}$: Positivo
+
+$1111_{2}$: Positivo
+
+$1010_{2}$: Positivo
+
+$1000,0000_{2}$: Negativo
+
+\vspace{1em}
+Los números en complemento a  2 son fáciles de determinar cuando son positivos,
+pero cuando son negativos hay que hacer otros procedimientos.
+
+\subsection{Complemento a 2 (método 1)}
+
+Pasos:
+
+\begin{enumerate}
+	\item
+		Invertir los bits
+	\item
+		Sumar una unidad
+\end{enumerate}
+
+\subsection{Complemento a 2 (método 2)}
+
+El MSB tiene una ponderación negativa.
+
+\section{Extensión de bit de signo}
+
+\subsection{Números sin signo}
+
+$0101_{2} = 5$
+
+$00101_{2} = 5$
+
+$000101_{2} = 5$
+
+$0000000101_{2} = 5$
+
+\subsection{Números con signo}
+
+$110_{2} = -2$
+
+$1110_{2} = -2$
+
+$111110_{2} = -2$
+
+$1111110_{2} = -2$
+
+$111111110_{2} = -2$
+
+\vspace{1em}
+¿Qué número represetan los siguientes números en complemento a 2 si son de 10
+bits?
+
+\vspace{1em}
+$a) 11,1111,1010_{2} = -6$
+
+$b) 11,1110,0100_{2} = -28$
+
+$c) 11,1111,1110_{2} = -2$
+
+$d) 11,1000,0010_{2} = -126$
+
+$e) 11,1101,1110_{2} = -34$
+
+\vspace{1em}
+Representar en complemento a 2 de 9 bits:
+
+\vspace{1em}
+$-9_{10} = 1,1111,0111_{2}$
+
+$-17_{10} = 1,1110,1111_{2}$
+
+$-8_{10} = 1,1111,1000_{2}$
+
+$-20_{10} = 1,1110,1100_{2}$
+
+\vspace{1em}
+Antes de determinar un número hay que considerar lo siguiente:
+
+\begin{enumerate}
+	\item
+		¿Están o no en complemento a 2?
+	\item
+		Si están en complemento a 2, ¿De cuántos bits son?
+\end{enumerate}
+
+\vspace{1em}
+\textbf{Sobreflujo}.- Indica un cambio indebido de signo.
+
+\newpage
+
+\vspace{1em}
+Ejemplos de operaciones donde se indican los cambios en las banderas:
+
+\begin{figure}[h!]
+	\centerline{\includegraphics[width=0.5\columnwidth]{flags.jpeg}}
+	\caption{Cambio de banderas debido a las operaciones}
+	\label{fig:flags}
+\end{figure}
+
 \vspace{1em}
 \textbf{Disclaimer}: La finalidad de este documento es servir como apoyo de estudio.
 El autor de la versión original de este documento no se hace responsable del
 uso indebido del mismo.
 
 \end{document}
-
