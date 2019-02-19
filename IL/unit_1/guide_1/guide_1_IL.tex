@@ -1,0 +1,234 @@
+\documentclass{article}
+
+%Configuraciones de idioma del documento
+\usepackage[spanish]{babel}
+%Configurar entrada {usar caracteres desde el teclado como á}
+\usepackage[utf8]{inputenc}
+%Fuente que pueda renderizar caracteres en nuestro idioma
+\usepackage[T1]{fontenc}
+%Fuente compatible
+\usepackage{lmodern}
+
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{Guía de Lenguajes de Interfaz}
+\author{Antonio Emiko Ochoa Adame}
+\maketitle
+
+\section{Importancia del lenguaje Ensamblador}
+
+Si se entiende el lenguaje ensamblador se pueden hacer programas eficientes porque
+puede ver qué se está programando y relacionarlo con ensamblador.
+
+\vspace{1em}
+Esto es fácil de ver en lenguajes de medio nivel (como C) donde es fácil de
+apreciar cómo sería dicho código, pero en ensamblador.
+
+\section{Lenguaje Máquina}
+
+Es el lenguaje que entiende el procesador, es decir, unos y ceros (1s y 0s).
+
+\section{Lenguaje Ensamblador}
+
+Es el lenguaje que es más fácil de entender para el programador.
+
+El lenguaje ensamblador está basado en \textbf{nemónicos}.
+
+\vspace{1em}
+Aprender el código de cada intrucción es muy complicado para el programador, así
+los \textbf{nemónicos} son usados en su lugar.
+
+\vspace{1em}
+\textbf{Nemónicos}.- Palabras cortas que dan una idea de la instrucción.
+
+\vspace{1em}
+Ejemplos de \textbf{nemónicos}: ADD (suma), LD (cargar), sub (restar).
+
+\vspace{1em}
+\textbf{OPCODE (Código de operación)}.- Lenguaje que entiende el procesador e
+indica la instrucción a realizar.
+
+\vspace{1em}
+Dos procesadores son \textbf{compatibles} (equivalentes) si tiene el
+\textbf{mismo número de instrucciones} y el \textbf{mismo OPCODE para la misma
+intrucción}.
+
+\newpage
+
+\section{Memorias}
+
+\begin{itemize}
+	\item
+		Secuencial
+	\item
+		No secuencial
+	\item
+		Volátil
+	\item
+		No volátil (ROM)
+\end{itemize}
+
+\subsection{Clasificación de memorias}
+
+\subsubsection{Memoria secuencial y no secuencial}
+
+Para acceder a una determinada posición de una localidad un una memoria secuencial
+, es necesario pasar por las localidades adyacentes.
+
+\vspace{1em}
+Ejemplos: Cassettes (se tenía que rebobinar).
+
+\vspace{1em}
+\textbf{¿Cómo funcionan las memorias actuales?}
+
+\vspace{1em}
+Tienen un bus de direcciones donde se indica la localidad a accesar (no secuencial).
+
+\subsubsection{Memoria volátil y no volátil}
+
+\textbf{Memoria volátil}.- La información se mantiene siempre y cuando esta se
+mantenga energizada; La información se pierde si se elimina el voltaje.
+
+\vspace{1em}
+\textbf{Memoria no volátil}.- La información se mantiene aún sin voltaje.
+
+\subsubsection{Memoria estática y dinámica}
+
+La memoria \textbf{RAM} se divide en:
+
+\begin{itemize}
+	\item
+		Estática $\rightarrow$ utiliza \textbf{transistores}
+	\item
+		Dinámica $\rightarrow$ utiliza \textbf{capacitores}
+\end{itemize}
+
+\vspace{1em}
+\textbf{Memoria estática}
+
+\vspace{1em}
+Mientras se encuentre energizada la información se mantiene.
+
+\vspace{1em}
+Está basada en transistores.
+
+\vspace{1em}
+\textbf{Memoria dinámica}
+
+\vspace{1em}
+Además de estar energizada, se requiere refrescar la información para no perderla.
+
+\vspace{1em}
+Está basada en capacitores. Un capacitor pierde su carga con el tiempo.
+
+\vspace{1em}
+El sistema operativo es el encargado de leer y escribir a información de esta
+memoria; esto se hace cientos de veces por segundo.
+
+\vspace{1em}
+Bit en una memoria dinámica:
+
+\begin{figure}[h!]
+	\includegraphics[width=\linewidth]{bit_refresh.jpeg}
+	\caption{Refresco de bit}
+	\label{fig:bit_refresh}
+\end{figure}
+
+En la figura \ref{fig:bit_refresh} se puede observar cómo el sistema operativo
+lee el bit de información y lo vuelve a escribir.
+
+\subsection{Memoria ROM}
+
+\begin{itemize}
+	\item
+		EPROM
+	\item
+		E$^2$PROM
+	\item
+		Flash
+\end{itemize}
+
+\subsubsection{Memoria EPROM (Programable eléctricamente)}
+
+Solo puede programar bits en un cambio de \textbf{1 a 0}, pero \textbf{no} puede convertir de
+\textbf{0 a 1}
+
+\vspace{1em}
+\textbf{Proceso de borrado}.- Poner los bits en 1. (se borra con luz UV).
+
+\vspace{1em}
+Se caracteriza por tener una ventan de cuarzo transparente para que la luz UV
+pueda entrar y así borrar la información (poner los bits en 1).  Posteriormente,
+con un programador se ponen los bits deseados a 0.
+
+\vspace{1em}
+En las PCs antiguas, el BIOS tenía una memoria EPROM donde se cubría la ventana
+con cinta negra para evitar la luz UV.
+
+\subsubsection{Memoria E$^2$PROM (Programable y borrable eléctricamente)}
+
+\vspace{1em}
+Con el mismo programador se pueden poner los bits a 0 y a 1 (borrar).
+
+\vspace{1em}
+Cualquier localidad de memoria puede programarse de manera individual.
+
+\subsubsection{Memoria Flash}
+
+Es muy parecida a la E$^2$PROM porque puede borrarse y programarse de manera
+elétrica.
+
+\vspace{1em}
+Permite mayor densidad de información.
+
+\vspace{1em}
+Es más económica.
+
+\vspace{1em}
+\textbf{Desventaja}:
+
+\vspace{1em}
+No se puede programar una localidad de manera independiente; se tiene programar
+un \textbf{bloque (o página)} completo.
+
+\vspace{1em}
+Ejemplo de cómo se modifican las memorias:
+
+\begin{figure}[h!]
+	\includegraphics[width=\linewidth]{e2prom.jpeg}
+	\caption{Memoria E$^2$PROM}
+	\label{fig:e2prom}
+\end{figure}
+
+En la figura \ref{fig:e2prom} se muestra cómo simplemente se modifica la localidad
+deseada sin ningún problema.
+
+\begin{figure}[h!]
+	\includegraphics[width=\linewidth]{flash.jpeg}
+	\caption{Memoria Flash}
+	\label{fig:Flash}
+\end{figure}
+
+\newpage
+
+En la figura \ref{fig:Flash} se muestra cómo es el proceso de escribir en este
+tipo de memoria; hay tres pasos:
+
+\begin{enumerate}
+	\item
+		Se leen 512 bytes
+	\item
+	Se modifica la localidad deseada
+	\item
+		Se escribe el bloque completo (los 512 bytes)
+\end{enumerate}
+
+\vspace{1em}
+\textbf{Disclaimer}: La finalidad de este documento es servir como apoyo de estudio.
+El autor de la versión original de este documento no se hace responsable del
+uso indebido del mismo.
+
+\end{document}
+
