@@ -397,4 +397,39 @@ Faltan temas: bak en MySQL.
 Práctica: Se generará código a partir de un modelo relacionar, generar, respaldos,
 procedures, trigger, tareas de mantenimiento y monitoreo, insetar tuplas, etc.
 
+\section{Permisos}
+
+\begin{itemize}
+	\item
+	Grant (Da permisos)
+	\item
+	Deny (Niega ciertos permisos)
+	\item
+	Revoke (Revoca permisos, quita los permisos que tenga)
+\end{itemize}
+\vspace{1em}
+
+\textbf{Procesos de negocio}
+\vspace{1em}
+
+Conocer el proceso de negocio permite saber qué permisos necesita cada tipo de
+usuario.
+
+Tener claro quienes son mis usuarios y cuáles tablas hay.
+\vspace{1em}
+
+Es importante saber quién está conectado en la DB.
+
+EL comando EXEC SP\_WHO permite saber esto.
+
+SELECT * FROM SYSPROCESSES WHERE SPID = 55;
+
+SELECT * FROM SYSOBJECTS WHERE XTYPE = 'U';
+
+Introducir aquí query que muestra queries corridos (desencriptados.).
+\vspace{1em}
+
+Falta: Funciones para crear índice, funciones de mantenimiento y función de
+importar exportar.
+
 \end{document}
