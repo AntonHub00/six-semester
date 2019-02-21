@@ -9,8 +9,28 @@ body {
   text-align: center;
   border: 1px solid #999999;
   background: #DDDDDD;
-  border-radius: 20px 40px;
+  border-radius: 20px;
+  /* border-radius: 20px / 10px; */
+  box-shadow: rgb(0, 0, 200) 10px 10px 20px;
+  text-shadow: rgb(200, 100, 100) 3px 3px 5px;
+  /* background: -webkit-linear-gradient(bottom, #550000, #5555FF); */
+  /* background: -webkit-linear-gradient(top, #FFFFFF 50%, #006699 90%); */
+  background: -webkit-radial-gradient(center, ellipse, #FFFFFF 0%, #006699 200%);
+  text-shadow: rgba(0,0,0,0.9) 3px 3px 5px;
+  outline: 2px dashed #000099;
+  outline-offset: 15px;
+  /* -webkit-transform: scale(-1,1); */
+  /* -webkit-transform: scale(2); */
+  /* -webkit-transform: translateY(100px) rotate(45deg) scaleX(0.3); */
+  -webkit-transition: -webkit-transform 0.5s ease-in-out 0.5s;
 }
+
+#principal:hover{
+  /* -webkit-transform: rotate(45deg); */
+  /* -webkit-transform: translate(200px); */
+  -webkit-transform: translateY(100px) rotate(45deg) scaleX(0.3);
+}
+
 #titulo {
   font: bold 36px verdana, sans-serif;
 }
