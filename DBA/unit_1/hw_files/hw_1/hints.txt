@@ -1,0 +1,5 @@
+1.- Obtener archivo que contenga la colonias del municipio de Morelia.
+2.- Eliminar info que no es relevante.
+3.- Poner info en nuevo archivo.
+4.- Borrar el contenido de la tabla destino.
+5.- 
