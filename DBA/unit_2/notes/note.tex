@@ -1,0 +1,183 @@
+\documentclass{article}
+
+%Configuraciones de idioma del documento
+\usepackage[spanish]{babel}
+%Configurar entrada {usar caracteres desde el teclado como á}
+\usepackage[utf8]{inputenc}
+%Fuente que pueda renderizar caracteres en nuestro idioma
+\usepackage[T1]{fontenc}
+%Fuente compatible
+\usepackage{lmodern}
+
+\usepackage[top=2cm, left=2cm, right=2cm, bottom=2cm]{geometry}
+
+\begin{document}
+
+\title{Unidad 2}
+\author{Antonio Emiko Ochoa Adame}
+\maketitle
+
+\tableofcontents
+%\newpage
+
+\section{Componentes de la arquitectura de un SGBD}
+
+Objetivos de un SGDB:
+
+\begin{itemize}
+	\item
+		Independencia de los datos:
+	\item
+		Integridad de los datos:
+	\item
+		Seguridad de los datos:
+\end{itemize}
+
+\vspace{1em}
+\textbf{Servicios de un SGDB}
+
+Creación de un SGDB (aparición)
+
+Antes se guardaba la info en archivos sobre un OS.
+
+Conjunto de programas que definían y trabajaban sus propios datos (no funcionó;
+había que estar reparando a cada rato)
+
+Cuando se dió la concurrencia la información se corrompía.
+
+Se necesitó, entonces, un sistema que lidiara con todos estos problemas.
+
+\vspace{1em}
+\textbf{Bases de datos plana (una tabla)}
+
+Se parecía a Excel, pero era insegura.
+
+\begin{itemize}
+	\item
+		Había redundacia e inconsistencia.
+
+	\item
+		Dificultad para acceso a datos.
+
+	\item
+		Separación y aislamiento de los datos.
+
+	\item
+		Porblemas de seguridad de datos.
+
+\end{itemize}
+
+\section{Niveles}
+
+\subsection{Nivel interno físico}
+
+El más cercado al almacenamiento físico, es decir, como está ordenado en la compu.
+
+Describe la estructura física de la DB mediante el esquema interno.
+
+Especifica un modelo físico y describe detalles de cómo se almacenan físicamente
+los datos; archivos, organización, métodos de acceso, longitud, campos, etc.
+
+\subsection{Nivel externo o ...}
+Memoria externa de la compu.
+Cómo vemos los datos y las tablas desde afuera.
+
+\subsection{Nivel conceptural}
+
+Modelo ER, modelo jerárquico, atributos, operaciones entre los usuarios y
+restricciones.
+
+Representa la info contenida en la DB.
+
+Visión desde un punto de vista organizativa. El porqué de los modelos, ER,
+``el cómos realacionan los datos''.
+
+\subsection{Nivel lógico}
+
+Es un SGDB concreto, es el esquema lógico de la representación de entidades y
+relaciones.
+
+\vspace{1em}
+El SGDB debe tranformar cualquier petición del usuario.
+
+Actualmente son mejores: se puede crear índices, monitorear, auditar, implementar
+seguridad, concurrencia de miles o millones de usuarios.
+
+\section{Componentes de los SGDBs}
+
+\subsection{Lenguajes}
+
+\begin{itemize}
+	\item
+		DDL: Leguaje de defición de datos.
+	\item
+		DML: Leguaje de manipulación de datos.
+\end{itemize}
+
+Diccionario de datos: Información sobre la defición de los datos (SON LOS
+METADATOS).
+
+Proporciona info importantes acerca tablas, usarios, etc.
+
+\subsection{Seguridad e integridad}
+
+Restricción de acceso de usuarios.
+
+Mecanismo creado para garantizar la seguridad.
+
+Que no acceda cualquier persona, que los datos estén seguros.
+
+\subsection{Requerimiento para la instalación de un SGDB}
+
+\textbf{Ediciones de SQL Server}
+
+\begin{itemize}
+	\item
+		Enterprise (clúster)
+	\item
+		Standard
+	\item
+		Developer (www.dreamspark.com)
+	\item
+		Express
+\end{itemize}
+
+\vspace{1em}
+\textbf{Idioma - Collation}
+
+Español.
+
+\vspace{1em}
+\textbf{Collation}.- Nos dice qué símbolos están permitidos usar en la DB.
+
+\vspace{1em}
+\textbf{Requerimientos}
+
+\begin{itemize}
+	\item
+		.net framework 3.0
+	\item
+		IIS (para apps web)
+	\item
+		Visual Studio (para algunas funciones si se usa Microsft Office)
+\end{itemize}
+
+\vspace{1em}
+\textbf{Asistente}
+
+\begin{itemize}
+	\item
+		Aplicaciones/herramientas
+	\item
+		x servicios de consultas
+	\item
+		Polybase
+	\item
+		Analisis Services
+	\item
+		Polybase
+	\item
+		Autenticación mixta
+\end{itemize}
+
+\end{document}
