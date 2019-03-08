@@ -261,4 +261,35 @@ Tamaño máximo de DBs
 
 SOs
 
+\section{Administración del espacio en disco}
+
+\subsection{Definición de conceptos}
+
+\begin{itemize}
+	\item
+		Tabla
+	\item
+		Bloque (página)
+	\item
+		Extensión
+	\item
+		Segmento
+\end{itemize}
+
+\textbf{Bloque} o página es la unidad más pequeña (múltiplo del tamaño de las
+páginas del OS) de almacenamiento.
+
+Es mejor que los bloque sean del mismo tamaño que los del OS o múltiplo porque
+así no se sobrecarga el procesador haciendo operaciones innecesarias.
+
+Un registro iría en un bloque (hablando de espacio físico).
+
+\textbf{Extensión}: Cuando se configura el tamaño de un elemento se usan
+extensiones para poder aumentar el tamaño de dicho objeto.
+
+\textbf{Segmento}: grupos de extensiones que forman lo objetos de la DB.
+
+\textbf{Datafile}: (*.mdf ó *.ndf) .Solo puede pertenecer a un determinado
+tablespace.
+
 \end{document}
