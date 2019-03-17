@@ -4,15 +4,15 @@ USE personal_finances_db;
 
 CREATE persona
 {
+	usuario VARCHAR(15) UNIQUE,
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	nombre VARCHAR(50) NOT NULL,
 	apellido_m VARCHAR(50) NOT NULL,
 	apellido_p VARCHAR(50) NOT NULL,
 	fecha_nac DATE NOT NULL,
 	correo VARCHAR(50) NOT NULL,
-	teléfono VARCHAR(15) NOT NULL,
-	usuario VARCHAR(15) UNIQUE,
-	contraseña VARCHAR(15 NOT NULL)
+	telefono VARCHAR(10) NOT NULL,
+	contraseña VARCHAR(15) NOT NULL
 };
 
 CREATE cuenta
