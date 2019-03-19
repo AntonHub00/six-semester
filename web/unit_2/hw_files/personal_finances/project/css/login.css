@@ -1,33 +1,132 @@
 *{
   margin: 0;
   padding: 0;
+  font-family: helvetica;
 }
 
 .wrapper{
-  border: 1px solid #000;
-  width: 50%;
+  width: 80%;
   margin: auto;
+  height: 100vh;
   display: grid;
-  grid-gap: 0.5em;
-  grid-template-columns: repeat(3, 1fr);
+  /* grid-gap: 3em; */
+  grid-gap: 1em;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto repeat(3, 1fr) auto;
   grid-template-areas:
-  ". username ."
-  ". password ."
-  "submit submit submit"
+  "mh mh"
+  "register ."
+  "register login"
+  "register ."
+  ". ."
 }
 
-.grid-item{
+.main-header{
+  grid-area: mh;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 40px;
+  background: #0288D1;
+  color: #fff;
+}
+
+.signin-wrapper,
+.login-wrapper,
+.main-header{
+  border: 1px solid #bdbdbd;
+  border-radius: 0.4em;
   padding: 0.5em;
 }
 
-.username-box{
+.signin-wrapper,
+.login-wrapper{
+  background: #fff;
+  color: #212121;
+}
+
+.signin-wrapper{
+  grid-area: register;
+
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas:
+  ". si-username si-name ."
+  ". si-slastname si-flastname ."
+  ". si-birthdate si-email ."
+  ". si-phone si-password ."
+  ". si-submit si-submit ."
+}
+
+.signin-wrapper .username-box{
+  grid-area: si-username;
+}
+
+.signin-wrapper .name-box{
+  grid-area: si-name;
+}
+
+.signin-wrapper .slastname-box{
+  grid-area: si-slastname;
+}
+
+.signin-wrapper .flastname-box{
+  grid-area: si-flastname;
+}
+
+.signin-wrapper .birthdate-box{
+  grid-area: si-birthdate;
+}
+
+.signin-wrapper .email-box{
+  grid-area: si-email;
+}
+
+.signin-wrapper .phone-box{
+  grid-area: si-phone;
+}
+
+.signin-wrapper .password-box{
+  grid-area: si-password;
+}
+
+.signin-wrapper .submit-box{
+  grid-area: si-submit;
+}
+
+.login-wrapper{
+  grid-area: login;
+
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+  ". username ."
+  ". password ."
+  ". submit ."
+}
+
+.login-grid-item,
+.signin-grid-item{
+  padding: 1em;
+}
+
+.login-wrapper .username-box{
   grid-area: username;
 }
 
-.password-box{
+.login-wrapper .password-box{
   grid-area: password;
 }
 
-.submit-box{
+.login-wrapper .submit-box{
   grid-area: submit;
+}
+
+input[type="submit"]{
+  display: block;
+  width: 100%;
+  height: 2em;
 }
