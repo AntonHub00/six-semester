@@ -1,0 +1,33 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper{
+  border: 1px solid #000;
+  width: 50%;
+  margin: auto;
+  display: grid;
+  grid-gap: 0.5em;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+  ". username ."
+  ". password ."
+  "submit submit submit"
+}
+
+.grid-item{
+  padding: 0.5em;
+}
+
+.username-box{
+  grid-area: username;
+}
+
+.password-box{
+  grid-area: password;
+}
+
+.submit-box{
+  grid-area: submit;
+}

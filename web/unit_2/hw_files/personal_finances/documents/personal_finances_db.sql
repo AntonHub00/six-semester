@@ -2,54 +2,57 @@ CREATE DATABASE IF NOT EXISTS personal_finances_db;
 
 USE personal_finances_db;
 
-CREATE persona
-{
-	usuario VARCHAR(15) UNIQUE,
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nombre VARCHAR(50) NOT NULL,
-	apellido_m VARCHAR(50) NOT NULL,
-	apellido_p VARCHAR(50) NOT NULL,
-	fecha_nac DATE NOT NULL,
-	correo VARCHAR(50) NOT NULL,
-	telefono VARCHAR(10) NOT NULL,
-	contraseña VARCHAR(15) NOT NULL
-};
+CREATE TABLE user
+(	username VARCHAR(20) PRIMARY KEY,
+	name VARCHAR(50) NOT NULL,
+	first_last_name VARCHAR(50) NOT NULL,
+	second_last_name VARCHAR(50) NOT NULL,
+	birthdate DATE NOT NULL,
+	email VARCHAR(50) NOT NULL,
+	phone VARCHAR(10) NOT NULL,
+	password VARCHAR(15) NOT NULL
+);
 
-CREATE cuenta
-{
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	numero VARCHAR(20) UNIQUE,
-	banco VARCHAR(20),
-	saldo INT,
-	id_persona INT,
-	FOREIGN KEY (id_persona) REFERENCES persona(id)
-	ON DELETE no action
-	ON UPDATE cascade
-};
+CREATE TABLE bank
+(	id INT PRIMARY KEY AUTO_INCREMENT,
+	description VARCHAR(20) NOT NULL
+);
 
-CREATE tipo_transaccion
-{
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descripcion VARCHAR(20),
-};
+CREATE TABLE transaction_type
+(	id INT PRIMARY KEY AUTO_INCREMENT,
+	description VARCHAR(20) NOT NULL
+);
 
-CREATE transaccion
-{
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	fecha DATE,
-	hora TIME,
-	id_persona INT,
-	monto INT,
-	id_tipo INT,
-	concepto VARCHAR(30),
-	numero_cuenta INT,
-	FOREIGN KEY (id_persona) REFERENCES persona(id)
+CREATE TABLE account
+(
+	number VARCHAR(20) PRIMARY KEY,
+	id_bank INT NOT NULL,
+	balance INT NOT NULL,
+	id_user VARCHAR(20) NOT NULL,
+	FOREIGN KEY (id_user) REFERENCES user(username)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE,
+	FOREIGN KEY (id_bank) REFERENCES bank(id)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE
+);
+
+CREATE TABLE transaction
+(	id INT PRIMARY KEY AUTO_INCREMENT,
+	date DATE NOT NULL,
+	time TIME NOT NULL,
+	amount INT NOT NULL,
+	id_user VARCHAR(20) NOT NULL,
+	id_transaction_type INT NOT NULL,
+	payment_concept VARCHAR(30) NOT NULL,
+	account_number VARCHAR(20) NOT NULL,
+	FOREIGN KEY (id_user) REFERENCES user(username)
 	ON DELETE no action
 	ON UPDATE cascade,
-	FOREIGN KEY (id_tipo) REFERENCES tipo_transaccion(id)
+	FOREIGN KEY (id_transaction_type) REFERENCES transaction_type(id)
 	ON DELETE no action
 	ON UPDATE cascade,
-	FOREIGN KEY (id_numero_cuenta) REFERENCES cuenta(numero)
+	FOREIGN KEY (account_number) REFERENCES account(number)
 	ON DELETE no action
 	ON UPDATE cascade
-};
+);
