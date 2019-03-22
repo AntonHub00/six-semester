@@ -13,29 +13,29 @@
     <nav class="grid-item navbar">
       <ul class="menu">
         <li class="menu-item">
-          <a href="index.html"> Inicio </a>
+          <a href="index.php"> Inicio </a>
         </li>
         <li class="menu-item">
-          <a href="gastos.html"> Gastos </a>
+          <a href="gastos.php"> Gastos </a>
         </li>
         <li class="menu-item">
-          <a href="ingresos.html"> Ingresos </a>
+          <a href="ingresos.php"> Ingresos </a>
         </li>
         <li class="menu-item">
-          <a href="cuentas.html"> Cuentas </a>
+          <a href="cuentas.php"> Cuentas </a>
         </li>
         <li class="menu-item">
-          <a href="mis-datos.html"> Mis datos </a>
+          <a href="mis-datos.php"> Mis datos </a>
         </li>
         <li class="menu-item">
-          <a href="login.html"> Cerrar sesión </a>
+          <a href="login.php"> Cerrar sesión </a>
         </li>
       </ul><!--End menu-->
     </nav><!--End navbar-->
     <main class="grid-item main">
       <section>
         <header>
-          Cuentas
+          Mis datos
         </header>
         <article>
           Este es el conenido de esta sección <br>

@@ -50,13 +50,20 @@
   display: grid;
   grid-gap: 1em;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   grid-template-areas:
+  "title title title title"
   ". si-username si-name ."
   ". si-slastname si-flastname ."
   ". si-birthdate si-email ."
   ". si-phone si-password ."
   ". si-submit si-submit ."
+}
+
+.signin-wrapper .title-box{
+  grid-area: title;
+  text-align: center;
+  font-size: 30px;
 }
 
 .signin-wrapper .username-box{
@@ -101,11 +108,12 @@
   display: grid;
   grid-gap: 1em;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   grid-template-areas:
-  ". username ."
-  ". password ."
-  ". submit ."
+  "li-title li-title li-title"
+  ". li-username ."
+  ". li-password ."
+  ". li-submit ."
 }
 
 .login-grid-item,
@@ -113,16 +121,22 @@
   padding: 1em;
 }
 
+.login-wrapper .title-box{
+  grid-area: li-title;
+  text-align: center;
+  font-size: 30px;
+}
+
 .login-wrapper .username-box{
-  grid-area: username;
+  grid-area: li-username;
 }
 
 .login-wrapper .password-box{
-  grid-area: password;
+  grid-area: li-password;
 }
 
 .login-wrapper .submit-box{
-  grid-area: submit;
+  grid-area: li-submit;
 }
 
 input[type="submit"]{
