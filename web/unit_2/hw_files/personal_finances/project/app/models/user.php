@@ -12,12 +12,12 @@ class User extends DB_handler{
     $result = $this->connect()->query($query);
 
     if($result){
-      echo("<script>alert('Registrado correctamente')
-        window.location.replace('index.php');</script>");
+      echo("<script>alert('Registrado correctamente');
+      window.location.replace('".SITE_URL."');</script>");
     }
     else{
-      echo("<script>alert('ERROR: No se pudo registrar usuario en la base de datos')
-        window.location.replace('login.php');</script>");
+      echo("<script>alert('ERROR: No se pudo registrar usuario en la base de datos');
+      window.location.replace('".SITE_URL."?controller=login');</script>");
     }
   }
 
@@ -32,13 +32,17 @@ class User extends DB_handler{
       return false;
   }
 
-  public function get_credentials($username){
-    if($this->exists($username)){
-      echo("Should set session");
+  public function check_credentials($username, $password){
+    $query = "SELECT $username WHERE password = $password";
+
+    $result = $this->connect()->query($query);
+
+    if($result->num_rows > 0){
+      echo("<script>window.location.replace('".SITE_URL."');</script>");
     }
     else{
-      echo("<script>alert('Contraseña incorrecta');
-      window.location.replace('login.php');</script>");
+      echo("<script>alert('ERROR: Usuario o contraseña inválidos');
+      window.location.replace('".SITE_URL."?controller=login');</script>");
     }
   }
 }

@@ -2,9 +2,28 @@
 
 class Session{
 
-  public static set_session(){
+  public static start(){
+    if (session_status() == PHP_SESSION_NONE)
+      session_start();
   }
 
-  public static get_session(){
+  public static set($username){
+    $_SESSION[$username] = $username
+  }
+
+  public static get($username){
+    if(isset($_SESSION[$username]))
+      return $_SESSION[$username]
+    else
+      return NULL
+  }
+
+  public static delete(){
+  }
+
+  public static show(){
+    echo("<pre>");
+      print_r($_SESSION);
+    echo("</pre>");
   }
 }

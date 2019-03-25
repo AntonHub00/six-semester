@@ -1,54 +1,16 @@
-<?php
-  require_once("includes/db_include.php");
-  require_once("includes/user_include.php");
-
-  if ($_SERVER["REQUEST_METHOD"] == "POST"){
-
-    if(isset($_POST["signin"])){
-      $username = $_POST["username"];
-      $name = $_POST["name"];
-      $flastname = $_POST["flastname"];
-      $slastname = $_POST["slastname"];
-      $birthdate = $_POST["birthdate"];
-      $email = $_POST["email"];
-      $phone = $_POST["phone"];
-      $password = $_POST["password"];
-
-      $db_user = new User($username);
-
-      if($db_user->exists($username)){
-        echo("<script>alert('Este nombre de usuario ya se encuentra registrado');
-        window.location.replace('login.php');</script>");
-      }
-      else{
-        $db_user->signin($username, $name, $flastname, $slastname,
-        $birthdate, $email, $phone, $password);
-      }
-    }
-    else{
-      $username = $_POST["username"];
-      $password = $_POST["password"];
-
-      $db_user = new User($username);
-
-      $db_user->get_credentials($username);
-    }
-  }
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
-  <link rel="stylesheet" type="text/css" href="css/login.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo(SITE_URL);?>/public/css/login.css">
 </head>
 <body>
   <div class="wrapper">
     <header class="main-header">
       finanzapp
     </header>
-    <form action="login.php" method="POST" class="signin-wrapper">
+    <form action="<?php echo(SITE_URL);?>" method="POST" class="signin-wrapper">
       <input type="hidden" id="signin" name="signin">
       <div class="title-box">
         Registrarse
@@ -99,7 +61,7 @@
       </div>
     </form>
 
-    <form action="login.php" method="POST" class="login-wrapper">
+    <form action="<?php echo(SITE_URL);?>" method="POST" class="login-wrapper">
       <input type="hidden" id="login" name="login">
       <div class="title-box">
         Ingresar
@@ -107,15 +69,16 @@
       <div class="login-grid-item username-box">
         <label for="username">Usuario</label>
         <input type="text" id="login-username" name="username" placeholder="Usuario"
-        maxlength="20" class="">
+        maxlength="20" class="" require>
       </div>
       <div class="login-grid-item password-box">
         <label for="password">Contraseña</label>
         <input type="password" id="login-password" name="password"
-        placeholder="Contraseña" maxlength="15" class="">
+        placeholder="Contraseña" maxlength="15" class="" require>
       </div>
       <div class="login-grid-item submit-box">
-        <input type="submit">
+        <!-- <input type="submit" name="login" value="login"> -->
+        <button type="submit" name="posted" value="login">Ingresar</button>
       </div>
     </form>
   </div>
