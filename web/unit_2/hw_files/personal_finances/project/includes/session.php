@@ -18,6 +18,11 @@ class Session{
       return NULL
   }
 
+  public static function nset($username){
+    if(isset($_SESSION[$username])){
+    }
+  }
+
   public static delete(){
     session_destroy();
   }
