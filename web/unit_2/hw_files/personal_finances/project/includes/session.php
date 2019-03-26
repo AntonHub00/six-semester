@@ -2,32 +2,32 @@
 
 class Session{
 
-  public static start(){
+  public static function start(){
     if (session_status() == PHP_SESSION_NONE)
       session_start();
   }
 
-  public static set($username){
-    $_SESSION[$username] = $username
+  public static function set($username){
+    $_SESSION["username"] = $username;
   }
 
-  public static get($username){
-    if(isset($_SESSION[$username]))
-      return $_SESSION[$username]
+  public static function get(){
+    if(isset($_SESSION["username"]))
+      return $_SESSION["username"];
     else
-      return NULL
+      return false;
   }
 
-  public static function nset($username){
-    if(isset($_SESSION[$username])){
-    }
+  public static function unset(){
+    if(isset($_SESSION["username"]))
+      unset($_SESSION["username"]);
   }
 
-  public static delete(){
+  public static function delete(){
     session_destroy();
   }
 
-  public static show(){
+  public static function show(){
     echo("<pre>");
       print_r($_SESSION);
     echo("</pre>");
