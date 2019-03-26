@@ -19,12 +19,12 @@ class DB_handler{
                              $this->db);
 
     if($connection->connect_errno){
-      echo("<scritpt>alert('ERROR: No se pudo conectar con la
-        base de datos');</scritpt>");
+      echo("<script>alert('ERROR: No se pudo conectar con la base de datos');
+      window.location.replace('".SITE_URL."?controller=login');</script>");
     }
-
-    return $connection;
+    else{
+      return $connection;
+    }
   }
-
 }
 

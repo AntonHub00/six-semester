@@ -10,8 +10,7 @@
     <header class="main-header">
       finanzapp
     </header>
-    <form action="<?php echo(SITE_URL);?>" method="POST" class="signin-wrapper">
-      <input type="hidden" id="signin" name="signin">
+    <form action="<?php echo(SITE_URL);?>/index.php" method="POST" class="signin-wrapper">
       <div class="title-box">
         Registrarse
       </div>
@@ -57,12 +56,11 @@
         placeholder="Contraseña" maxlength="15" class="" required>
       </div>
       <div class="signin-grid-item submit-box">
-        <input type="submit">
+        <button type="submit" name="posted" value="signin">Registrarse</button>
       </div>
     </form>
 
-    <form action="<?php echo(SITE_URL);?>" method="POST" class="login-wrapper">
-      <input type="hidden" id="login" name="login">
+    <form action="<?php echo(SITE_URL);?>/index.php" method="POST" class="login-wrapper">
       <div class="title-box">
         Ingresar
       </div>
@@ -77,7 +75,6 @@
         placeholder="Contraseña" maxlength="15" class="" require>
       </div>
       <div class="login-grid-item submit-box">
-        <!-- <input type="submit" name="login" value="login"> -->
         <button type="submit" name="posted" value="login">Ingresar</button>
       </div>
     </form>

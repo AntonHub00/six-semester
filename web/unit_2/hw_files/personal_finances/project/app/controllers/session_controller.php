@@ -19,6 +19,7 @@ class Session{
   }
 
   public static delete(){
+    session_destroy();
   }
 
   public static show(){
