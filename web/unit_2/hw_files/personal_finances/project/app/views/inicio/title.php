@@ -1,1 +1,1 @@
-Inicio
+<?php echo("Inicio"); ?>

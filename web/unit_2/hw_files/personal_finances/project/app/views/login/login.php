@@ -67,12 +67,12 @@
       <div class="login-grid-item username-box">
         <label for="username">Usuario</label>
         <input type="text" id="login-username" name="username" placeholder="Usuario"
-        maxlength="20" class="" require>
+        maxlength="20" class="" required>
       </div>
       <div class="login-grid-item password-box">
         <label for="password">Contraseña</label>
         <input type="password" id="login-password" name="password"
-        placeholder="Contraseña" maxlength="15" class="" require>
+        placeholder="Contraseña" maxlength="15" class="" required>
       </div>
       <div class="login-grid-item submit-box">
         <button type="submit" name="posted" value="login">Ingresar</button>

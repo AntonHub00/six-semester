@@ -20,5 +20,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
   }
 }
 
-
 require_once(SITE_ROOT."/app/views/login/login.php");

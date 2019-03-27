@@ -32,4 +32,12 @@ class Session{
       print_r($_SESSION);
     echo("</pre>");
   }
+
+  public static function check_session(){
+    if(!self::get()){
+      #echo("<script>alert('Necesitas iniciar sesión primero');
+      #window.location.replace('".SITE_URL."?controller=login');</script>");
+      echo("<script> window.location.replace('".SITE_URL."?controller=login');</script>");
+    }
+  }
 }

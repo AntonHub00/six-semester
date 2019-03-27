@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>
-    <?php echo($title);?>
+    <?php eval("?>$title");?>
   </title>
     <link rel="stylesheet" type="text/css" href="<?php echo(SITE_URL);?>/public/css/main.css">
 </head>
@@ -37,10 +37,10 @@
     <main class="grid-item main">
       <section>
       <header>
-        <?php echo($main_content_title);?>
+        <?php eval("?>$main_content_title");?>
       </header>
         <article>
-          <?php echo($main_content);?>
+          <?php eval("?>$main_content");?>
         </article>
       </section>
     </main><!--End main-->
@@ -50,7 +50,7 @@
           Menu <br>
         </header>
         <article>
-          <?php echo($aside_content);?>
+          <?php eval("?>$aside_content");?>
         </article>
       </section>
     </aside><!--End aside-->

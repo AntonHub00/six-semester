@@ -14,15 +14,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
   $phone = $_POST["phone"];
   $password = $_POST["password"];
 
-  $db_user = new User($username);
-
-  if($db_user->exists($username)){
+  if(User::exists($username)){
     echo("<script>alert('Este nombre de usuario ya se encuentra registrado');
     window.location.replace('".SITE_URL."?controller=login');</script>");
   }
   else{
-    $db_user->signin($username, $name, $flastname, $slastname, $birthdate,
+    $able_to_signin = User::signin($username, $name, $flastname, $slastname, $birthdate,
     $email, $phone, $password);
+
+    if($able_to_signin){
+      echo("<script>alert('Registrado correctamente');
+      window.location.replace('".SITE_URL."?controller=login');</script>");
+    }
+    else{
+      echo("<script>alert('ERROR: No se pudo registrar usuario en la base de datos');
+      window.location.replace('".SITE_URL."?controller=login');</script>");
+    }
   }
 }
 
