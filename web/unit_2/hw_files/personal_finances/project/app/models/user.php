@@ -2,7 +2,7 @@
 
 class User extends DB_handler{
 
-  public function signin($username, $name, $fln, $sln, $birthdate,
+  public static function signin($username, $name, $fln, $sln, $birthdate,
                             $email, $phone, $password){
 
     $query = "INSERT INTO user (username, name, first_last_name,
@@ -10,7 +10,7 @@ class User extends DB_handler{
               VALUES('$username', '$name', '$fln', '$sln', '$birthdate',
               '$email', '$phone', '$password')";
 
-    $result = $this->connect()->query($query);
+    $result = self::connect()->query($query);
 
     if($result)
       return true;
@@ -22,10 +22,10 @@ class User extends DB_handler{
       #window.location.replace('".SITE_URL."?controller=login');</script>");
   }
 
-  public function exists($username){
+  public static function exists($username){
     $query = "SELECT username FROM user WHERE username = '$username'";
 
-    $result = $this->connect()->query($query);
+    $result = self::connect()->query($query);
 
     if($result->num_rows > 0)
       return true;
@@ -33,11 +33,11 @@ class User extends DB_handler{
       return false;
   }
 
-  public function check_credentials($username, $password){
+  public static function check_credentials($username, $password){
     $query = "SELECT username FROM user WHERE
       username = '$username' AND password = '$password'";
 
-    $result = $this->connect()->query($query);
+    $result = self::connect()->query($query);
 
     if($result->num_rows > 0)
       return true;

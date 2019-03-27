@@ -30,7 +30,7 @@
         <a href="<?php echo(SITE_URL);?>?controller=mis-datos"> Mis datos </a>
         </li>
         <li class="menu-item">
-          <a href="<?php echo(SITE_URL);?>?controller=login"> Cerrar sesión </a>
+          <a href="<?php echo(SITE_URL);?>?controller=logout"> Cerrar sesión </a>
         </li>
       </ul><!--End menu-->
     </nav><!--End navbar-->
