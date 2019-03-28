@@ -75,4 +75,61 @@ class User extends DB_handler{
     else
       return false;
   }
+
+  public static function get_categories($username){
+    $query = "SELECT description FROM categories WHERE user_id = '$username'";
+
+    $result = self::connect()->query($query);
+
+    if($result->num_rows > 0)
+      return $result;
+    else
+      return false;
+  }
+
+  public static function add_categorie($username, $category){
+    $query = "INSERT INTO categories (user_id, description) VALUES('$username', '$category')";
+
+    $result = self::connect()->query($query);
+
+    if($result)
+      return true;
+    else
+      return false;
+  }
+
+  public static function category_exists($username, $category){
+    $query = "SELECT description FROM categories
+      WHERE description = '$category' AND user_id = '$username'";
+
+    $result = self::connect()->query($query);
+
+    if($result->num_rows > 0)
+      return true;
+    else
+      return false;
+  }
+
+  public static function update_category($username, $category, $current_category){
+    $query = "UPDATE categories SET description = '$category' WHERE description = '$current_category' AND user_id = '$username';";
+
+    $result = self::connect()->query($query);
+
+    if($result)
+      return true;
+    else
+      return false;
+  }
+
+  public static function delete_category($username, $category){
+    $query = "DELETE FROM categories WHERE description = '$category' AND user_id = '$username'";
+
+    $result = self::connect()->query($query);
+
+    if($result)
+      return true;
+    else
+      return false;
+  }
+
 }
