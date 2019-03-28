@@ -1,6 +1,4 @@
 <?php
-require_once(SITE_ROOT."/app/models/db.php");
-require_once(SITE_ROOT."/app/models/user.php");
 
 $username = Session::get();
 

@@ -3,9 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>
-    <?php eval("?>$title");?>
+    <?php
+      if(isset($title))
+        eval("?>$title");
+    ?>
   </title>
     <link rel="stylesheet" type="text/css" href="<?php echo(SITE_URL);?>/public/css/main.css">
+    <?php
+      if(isset($style_links))
+        eval("?>$style_links");
+    ?>
 </head>
 <body>
   <div class="wrapper">
@@ -37,10 +44,16 @@
     <main class="grid-item main">
       <section>
       <header>
-        <?php eval("?>$main_content_title");?>
+        <?php
+          if(isset($main_content_title))
+            eval("?>$main_content_title");
+        ?>
       </header>
         <article>
-          <?php eval("?>$main_content");?>
+          <?php
+            if(isset($main_content))
+              eval("?>$main_content");
+          ?>
         </article>
       </section>
     </main><!--End main-->
@@ -50,7 +63,10 @@
           Menu <br>
         </header>
         <article>
-          <?php eval("?>$aside_content");?>
+          <?php
+            if(isset($aside_content))
+              eval("?>$aside_content");
+          ?>
         </article>
       </section>
     </aside><!--End aside-->
