@@ -58,7 +58,7 @@ else{
           window.location.replace('".SITE_URL."?controller=gastos');</script>");
         }
         else{
-          echo("<script>alert('ERROR: No se pudo eliminar categoría');
+          echo("<script>alert('ERROR: No se pudo eliminar categoría de la base de datos');
           window.location.replace('".SITE_URL."?controller=gastos');</script>");
         }
       }

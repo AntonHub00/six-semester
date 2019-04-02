@@ -14,6 +14,7 @@ elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 require_once(SITE_ROOT."/app/models/db.php");
 require_once(SITE_ROOT."/app/models/user.php");
+require_once(SITE_ROOT."/app/models/account.php");
 require_once(SITE_ROOT."/includes/session.php");
 
 Session::start();

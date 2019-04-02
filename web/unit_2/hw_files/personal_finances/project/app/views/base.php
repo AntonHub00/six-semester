@@ -57,19 +57,6 @@
         </article>
       </section>
     </main><!--End main-->
-    <aside class="grid-item aside">
-      <section>
-        <header>
-          Menu <br>
-        </header>
-        <article>
-          <?php
-            if(isset($aside_content))
-              eval("?>$aside_content");
-          ?>
-        </article>
-      </section>
-    </aside><!--End aside-->
     <footer class="grid-item footer">
       Finanzapp &copy 2019
     </footer><!--End footer-->

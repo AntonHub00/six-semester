@@ -1,10 +1,9 @@
 <form action="<?php echo(SITE_URL);?>/index.php" method="POST" class="signin-wrapper">
-  <div class="signin-grid-item username-box">
-    <label for="category">Gasto</label>
+  <div class="signin-grid-item username-box" style="display:inline;">
     <input type="text" id="category" name="category"
     placeholder="Categoría de gasto" maxlength="20" class="" required>
   </div>
-  <div class="signin-grid-item submit-box">
+  <div class="signin-grid-item submit-box" style="display:inline;">
     <button type="submit" name="posted" value="gastos">Añadir</button>
   </div>
 </form>
@@ -41,3 +40,6 @@
   No tienes categorías registradas
 <?php endif; ?>
 
+<br>
+
+<h3>Mis gastos</h3>

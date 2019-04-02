@@ -4,6 +4,8 @@ $main_content_title = file_get_contents(SITE_ROOT."/app/views/cuentas/main_conte
 $main_content = file_get_contents(SITE_ROOT."/app/views/cuentas/main_content.php");
 $aside_content = file_get_contents(SITE_ROOT."/app/views/cuentas/aside_content.php");
 
+#$accounts is available for the view
+
 #Load template
 require_once(SITE_ROOT."/app/views/base.php");
 ?>
