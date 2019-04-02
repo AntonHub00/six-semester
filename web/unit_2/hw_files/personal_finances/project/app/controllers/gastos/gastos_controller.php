@@ -4,22 +4,64 @@ Session::check_session();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
-  $category = $_POST["category"];
+  if($_POST["form"] == "register"){
+    $category = $_POST["category"];
 
-  if(User::category_exists(Session::get(), $category)){
-    echo("<script>alert('Esa categoría a se encuentra registrada');
-    window.location.replace('".SITE_URL."?controller=gastos');</script>");
-  }
-  else{
-    $category_added = User::add_categorie(Session::get(), $category);
-
-    if($category_added){
-      echo("<script>alert('Categoría registrada exitosamente');
+    if(User::category_exists(Session::get(), $category)){
+      echo("<script>alert('Esa categoría a se encuentra registrada');
       window.location.replace('".SITE_URL."?controller=gastos');</script>");
     }
     else{
-      echo("<script>alert('ERROR: No se pudo registrar categoría');
-      window.location.replace('".SITE_URL."?controller=gastos');</script>");
+      $category_added = User::add_categorie(Session::get(), $category);
+
+      if($category_added){
+        echo("<script>alert('Categoría registrada exitosamente');
+        window.location.replace('".SITE_URL."?controller=gastos');</script>");
+      }
+      else{
+        echo("<script>alert('ERROR: No se pudo registrar categoría');
+        window.location.replace('".SITE_URL."?controller=gastos');</script>");
+      }
+    }
+  }
+  else{
+    $account_name = $_POST["account_option"];
+    $amount = $_POST["amount"];
+    $float_amount = (float) $amount;
+
+    $account_got = Account::get(Session::get(),
+    $account_name);
+    $account_got = $account_got->fetch_assoc();
+    $float_account_got = (float) $account_got["balance"];
+
+    #print_r($account_got["balance"]);
+    #var_dump($float_amount);
+    #var_dump($float_account_got);
+    #die();
+
+    if($account_got){
+      if($float_amount <= $float_account_got){
+
+        $able_to_subtract = Account::subtract_amount(Session::get(),
+        $account_name, $amount);
+
+        if($able_to_subtract){
+            echo("<script>alert('Gasto registrado exitosamente');
+            window.location.replace('".SITE_URL."?controller=cuentas');</script>");
+        }
+        else{
+            echo("<script>alert('ERROR: No se pudo registrar el gasto en la base de datos');
+            window.location.replace('".SITE_URL."?controller=gastos');</script>");
+        }
+      }
+      else{
+        echo("<script>alert('ERROR: Fondos insuficientes');
+        window.location.replace('".SITE_URL."?controller=cuentas');</script>");
+      }
+    }
+    else{
+        echo("<script>alert('ERROR: No se pudo obtener la información de la base de datos');
+        window.location.replace('".SITE_URL."?controller=gastos');</script>");
     }
   }
 }
@@ -29,6 +71,7 @@ else{
   if(count($_GET) == 1){
     $user_in_session = Session::get();
     $categories = User::get_categories($user_in_session);
+    $accounts = Account::get_all(Session::get());
   }
   else{
     if($_GET["option"] == "update"){

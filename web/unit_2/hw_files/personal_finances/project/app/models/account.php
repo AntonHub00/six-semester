@@ -21,7 +21,7 @@ class Account extends DB_handler{
     $result = self::connect()->query($query);
 
     if($result->num_rows > 0)
-      return true;
+      return $result;
     else
       return false;
   }
@@ -53,6 +53,28 @@ class Account extends DB_handler{
   public static function delete($username, $name){
     $query = "DELETE FROM account
       WHERE user_id = '$username' AND name = '$name'";
+
+    $result = self::connect()->query($query);
+
+    if($result)
+      return true;
+    else
+      return false;
+  }
+
+  public static function add_amount($username, $name, $amount){
+    $query = "UPDATE account SET balance = balance + $amount WHERE user_id = '$username' AND name = '$name'";
+
+    $result = self::connect()->query($query);
+
+    if($result)
+      return true;
+    else
+      return false;
+  }
+
+  public static function subtract_amount($username, $name, $amount){
+    $query = "UPDATE account SET balance = balance - $amount WHERE user_id = '$username' AND name = '$name'";
 
     $result = self::connect()->query($query);
 

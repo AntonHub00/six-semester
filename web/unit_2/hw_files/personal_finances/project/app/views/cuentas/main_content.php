@@ -48,7 +48,7 @@
       </td>
       <td style="border:1px solid #000;">
         <input type="text" pattern="\d{1,20}" title="Solo dígitos (máximo 20)" name="number"
-        required value="<?php echo($account["number"]); ?>">
+        value="<?php echo($account["number"]); ?>">
       </td>
       <td style="border:1px solid #000;">
         <input type="text" pattern="\d+\.\d{1,2}" title="Debe ser decimal de máximo 2 decimales" name="balance"
