@@ -33,35 +33,32 @@ CREATE TABLE categories
 CREATE TABLE account
 (
 	user_id VARCHAR(20) NOT NULL,
-	number VARCHAR(20) NOT NULL UNIQUE,
-	bank VARCHAR(30) NOT NULL,
-	balance INT NOT NULL,
+	name VARCHAR(30) NOT NULL,
+	number VARCHAR(20),
+	balance FLOAT(11,2) NOT NULL,
 	CONSTRAINT fk_user_id_account FOREIGN KEY (user_id)
 	REFERENCES user(username)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE,
-	CONSTRAINT pk_account PRIMARY KEY (user_id, number)
+	CONSTRAINT pk_account PRIMARY KEY (user_id, name)
 );
 
 CREATE TABLE transaction
-(	id INT NOT NULL AUTO_INCREMENT,
+(
+  id INT NOT NULL AUTO_INCREMENT,
 	date DATE NOT NULL,
 	time TIME NOT NULL,
 	amount INT NOT NULL,
 	user_id VARCHAR(20) NOT NULL,
 	transaction_type_id INT NOT NULL,
 	payment_concept VARCHAR(30) NOT NULL,
-	account_number VARCHAR(20) NOT NULL,
-	CONSTRAINT fk_user_id_transaction FOREIGN KEY (user_id)
-	REFERENCES user(username)
-	ON UPDATE CASCADE
-	ON DELETE NO ACTION,
+	account_name VARCHAR(30) NOT NULL,
 	CONSTRAINT fk_transaction_type_id_transaction FOREIGN KEY (transaction_type_id)
 	REFERENCES transaction_type(id)
 	ON UPDATE CASCADE
 	ON DELETE NO ACTION,
-	CONSTRAINT fk_account_number_transaction FOREIGN KEY (account_number)
-	REFERENCES account(number)
+	CONSTRAINT fk_account_name_transaction FOREIGN KEY (user_id, account_name)
+	REFERENCES account(user_id, name)
 	ON UPDATE CASCADE
 	ON DELETE NO ACTION,
 	CONSTRAINT pk_transaction PRIMARY KEY (id)
