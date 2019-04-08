@@ -1,0 +1,65 @@
+\documentclass{article}
+
+%Configuraciones de idioma del documento
+\usepackage[spanish]{babel}
+%Configurar entrada {usar caracteres desde el teclado como á}
+\usepackage[utf8]{inputenc}
+%Fuente que pueda renderizar caracteres en nuestro idioma
+\usepackage[T1]{fontenc}
+%Fuente compatible
+\usepackage{lmodern}
+
+%\usepackage[top=2cm, left=2cm, right=2cm, bottom=2cm]{geometry}
+
+\begin{document}
+
+\title{Offline vs Detach (SQL Server)}
+\author{Antonio Emiko Ochoa Adame\\
+Julia Lizbeth Huerta Álvarez\\
+José Ángel Cortés Gómez}
+\maketitle
+
+Tanto ``offline'' como ``detach'' hacen que la base de datos quede inaccesible
+para lo usuarios, sin embargo, cuando se realiza detach, los metadatos de la
+base de datos a la que se le aplicó el comando quedan eliminados, es decir, la
+información acerca del archivo de la base de datos y otros datos que se
+pueden observar en la vista ``sys.database''. Al hacer ``offline'', todos los datos
+relacionados con la base de datos se mantienen y se pueden observar en las vistas
+de sistema de SQL Server \cite{sqlservergeeks}.
+
+\vspace{1em}
+
+Si se pone offline la base de datos, esta se muestra en la interfaz gráfica del
+SSMS como ``(offline)'' haciendo referencia al estado en el que se encuentra.
+Otra diferencia es que, cuando se utiliza detach, primero eliminan las conexiones
+ya que la conexión se pone en modo ``single user''. Al realizar lo anterior, si
+se intenta hacer un query a sys.database no devolverá nada \cite{sqlservergeeks}.
+
+\vspace{1em}
+
+Cuando se hace detach, se elimina el registro de la base de datos dentro de SQL
+Server, es decir, el manejador deja de reconocerla. Para poder volver a usar la
+base de datos se tiene que indicar donde se encuentra el archivo.
+
+Cuando se pone offline, el registro de la base de datos se mantiene intacto,
+por lo que si se desea volverla a usar, basta con ponerla online de nuevo \cite{microsoft}.
+
+\vspace{1em}
+
+Detaching/attaching se utiliza para mover los archivos de base de datos a otros
+servidores o a otra localidad; offline no permite mover archivos. Al realizar
+detaching/attaching a la base de datos, esta se elimina del manejador (SQL Server), pero
+los archivos data y log se mantendrán intactos \cite{microsoft}.
+
+\begin{thebibliography}{}
+    \bibitem{sqlservergeeks}
+	SQL Geek. ``Detach or take offline in SQL Server''.
+	[online] Available at: https://www.sqlservergeeks.com/detach-or-take-offline-in-sql-server/
+	[Accessed 26 Mar. 2019].
+    \bibitem{microsoft}
+	``whats the difference between detaching and taking a db offline?''.
+	[online] Available at: https://social.msdn.microsoft.com/Forums/sqlserver/en-US/693123ec-9dde-496d-b9c9-daea5eef3991/whats-the-difference-between-detaching-and-taking-a-db-offline
+	[Accessed 26 Mar. 2019].
+\end{thebibliography}
+
+\end{document}
