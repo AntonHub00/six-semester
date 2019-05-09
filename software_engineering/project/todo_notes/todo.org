@@ -1,0 +1,43 @@
+#+AUTHOR:Antonio Ochoa
+
+* Staff
+** DONE Añadir investigador
+** DONE Añadir tarea
+** DONE Eliminar tarea
+** TODO Confirmar tarea finalizada (Requiere "investigador hecho")
+** DONE Consultar proyectos
+** DONE Añadir convenio
+** DONE Añadir requerimientos
+*** Back-End
+    - Query to store requirement
+    - Query to delete requirement
+    - Query to get requirement
+*** Front-End
+    - Add item asynchrously
+    - Delete item
+    - Change item
+    - "Ok" button so save changes
+** TODO Generar reportes
+** DONE Modificar BD
+   La tabla "Proyecto" necesita el campo "convenio" para almacenar en nombre
+   del archivo de convenio.
+* Queries
+  #+BEGIN_SRC sql
+    INSERT INTO investigador (id_investigador, nombre, apellido_paterno, apellido_materno, contrasena)
+    VALUES('juan_perez', 'Juan', 'Perez', 'Villa', 'pass');
+
+    DELETE FROM estado;
+
+    ALTER TABLE estado AUTO_INCREMENT = 1;
+
+    INSERT INTO estado (descripcion) VALUES('Iniciado');
+    INSERT INTO estado (descripcion) VALUES('En proceso');
+    INSERT INTO estado (descripcion) VALUES('Suspendido');
+    INSERT INTO estado (descripcion) VALUES('Cancelado');
+
+    INSERT INTO proyecto (nombre, descripcion, id_estado, id_staff)
+    VALUES('herramientas de metal', 'Proyecto de herramientas contruídas con metal
+    para la contructora García',1, 'juan_perez');
+
+    UPDATE proyecto SET convenio = 'test' WHERE id_proyecto = 1;
+  #+END_SRC
