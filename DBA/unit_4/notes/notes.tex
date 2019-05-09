@@ -1,0 +1,68 @@
+% Created 2019-05-03 Fri 11:24
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\author{Antonio Ochoa}
+\date{\today}
+\title{Notas de DBA unidad 4}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 25.2.2 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Archivos log}
+\label{sec-1}
+Si hay errores y cualquier tipo de operación se almacenar en archivos logs.
+
+Se puede obtener:
+
+\begin{itemize}
+\item Operación que se realizó
+\item usuario e DB
+\item Fecha
+\item Máquina
+\end{itemize}
+
+\subsection{Transacciones}
+\label{sec-1-1}
+
+Cada registro de la bitáctora escribe una única escritura de base da datos
+tiene lo siguiente:
+
+\begin{itemize}
+\item Nombre de la transacción
+\item Valor antiguo
+\item Valor nuevo
+\end{itemize}
+
+\subsection{MySQL}
+\label{sec-1-2}
+\begin{itemize}
+\item Error log
+\item General query log
+\item Binary log (Replicación)?
+\item Relay log (Cambios pero de servidores replicados)?
+\item Slow query log (long$_{\text{query}}$$_{\text{time}}$ variable)?
+\item DDL log (metada log)
+\end{itemize}
+% Emacs 25.2.2 (Org mode 8.2.10)
+\end{document}

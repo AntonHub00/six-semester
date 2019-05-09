@@ -1,4 +1,4 @@
-#Título
+# Título
 
 * Asignar cuotas específicas de espacios a usuarios de la DB.
 * Controlar la disponibilidad de los datos de la base de datos, poniendo fuera

@@ -1,0 +1,88 @@
+* Inicios de sesión (Login)
+
+  Así se inicia una instancia de SQL Server
+
+* Usuario de la DB (User)
+
+  Asignar el grant, permisos y esquemas a usuarios y estos puede pertenercer a
+  roles.
+
+  El login sa está asignado a todos los usuarios.
+
+  dbo: Propietario. No puede ser borrado
+
+  Guest: Permite a usuarios que no tienen cuenta en la DB, que accedan a ella,
+  pero que hay que darle permiso explícitamente.
+
+  Para tener acceso a la DB se necesita crear/tener un usuario.
+  Para acceder a los objetos se necesita otorgarle permisos a los usuarios.
+
+  SQL Server tiene muchos nivles seguridad
+
+** Roles
+*** Roles a nivel de instancia
+*** Roles a nivel de DB
+
+* Autenticación
+
+  Autenticación de Windows
+  Autenticación de usuario
+  Autenticación mixta
+
+** Niveles
+   De servidor
+
+* Práctica
+
+   Se necesitan tener 2 usuarios de DB y 2 inicios de sesión para la DB Northwind.
+
+   Sintaxis:
+   #+BEGIN_SRC sql
+     CREATE LOGIN nombre_login WITH PASSWORD = 'clave de usuario';
+   #+END_SRC
+
+** Creación de logins
+   Creación de logins:
+   #+BEGIN_SRC sqlca
+     CREATE LOGIN DIRECTOR_RH  WITH PASSWORD = '1234';
+
+     CREATE LOGIN gerente_produccion  WITH PASSWORD = 'abcd';
+   #+END_SRC
+
+** Creación de schema
+   Creción de schema:
+
+   #+BEGIN_SRC sql
+     create schema RecursosHumanos;
+
+     create table RecursosHumanos.Empleado
+     (
+     codigo int primary key,
+     nombre varchar(25),
+     apellido varchar(25)
+     );
+   #+END_SRC
+
+** Creación de usuarios
+   Creción de usuarios:
+
+   #+BEGIN_SRC sql
+     USE Northwind;
+
+     CREATE USER JuanPerez FOR LOGIN Director_RH
+     WITH DEFAULT_SCHEMA = RecursosHumanos;
+
+     CREATE USER MarioRivas FOR LOGIN Gerente_Produccion
+     WITH DEFAULT_SCHEMA = Producción;
+   #+END_SRC
+
+** Creación de permisos
+   Dar permisos:
+
+   #+BEGIN_SRC sql
+     GRANT SELECT
+     ON SCHEMA :: RecursosHumanos
+     TO JuanPerez
+     WITH GRANT OPTION
+     GO
+   #+END_SRC

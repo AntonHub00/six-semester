@@ -1,0 +1,71 @@
+#+TITLE:Notas de DBA unidad 4
+#+AUTHOR:Antonio Ochoa
+
+* Logs
+** Archivos log
+   Si hay errores y cualquier tipo de operación se almacenar en archivos logs.
+
+   Se puede obtener:
+
+   + Operación que se realizó
+   + usuario e DB
+   + Fecha
+   + Máquina
+
+*** Transacciones
+
+   Cada registro de la bitáctora escribe una única escritura de base da datos
+   tiene lo siguiente:
+
+   + Nombre de la transacción
+   + Valor antiguo
+   + Valor nuevo
+
+*** MySQL
+    + Error log
+    + General query log
+    + Binary log (Replicación)?
+    + Relay log (Cambios pero de servidores replicados)?
+    + Slow query log (long_query_time variable)?
+    + DDL log (metada log)
+
+** COMMIT y ROLLBACK
+
+   Terminan las acciones (la transacción), no el programa.
+
+*** Rollback (recuperación)
+
+    Operación que devuelve a la DB a algún estado positivo.
+
+    Aseguraran la integridad de la DB.
+
+    Sirven para crashes de la DB.
+
+*** Commit (Acción de comprometer)
+
+    Consignar un conjunto de cambios tentativos, o no permanentes.
+
+
+*** Tiempo
+
+    Puede ser muy tardado el proceso de replicación desde el log de
+    transacciones.
+
+    Hacer checkpoints para que el tiempo de ejecución disminuya.
+
+** Altas
+
+   Añadir ese nuevo registro en el archivo.
+
+   1. Leer el regitro de alta
+   2. Inicio
+   3. Abrir archivo para añadir
+   4. ...
+
+** Baja
+
+   Puede ser lógica o física
+
+   Baja física:  borra el registro
+
+   Baja lógica: marca el archivo como borrado
