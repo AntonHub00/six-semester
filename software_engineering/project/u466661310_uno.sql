@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS u466661310_uno;
+CREATE DATABASE IF NOT EXISTS u466661310_uno CHARACTER SET latin1 COLLATE latin1_spanish_ci;
 
 USE u466661310_uno;
 
@@ -85,7 +85,7 @@ CREATE TABLE servicio(
 
 CREATE TABLE equipo_proyecto(
   id_proyecto INT(11) NOT NULL,
-  id_investigador VARCHAR(11) NOT NULL,
+  id_investigador VARCHAR(25) NOT NULL,
   CONSTRAINT fk_id_proyecto_in_equipo_proyecto FOREIGN KEY (id_proyecto)
   references proyecto (id_proyecto)
   ON UPDATE CASCADE
@@ -99,7 +99,7 @@ CREATE TABLE equipo_proyecto(
 
 CREATE TABLE equipo_servicio(
   id_servicio INT(11) NOT NULL,
-  id_investigador VARCHAR(11) NOT NULL,
+  id_investigador VARCHAR(25) NOT NULL,
   CONSTRAINT fk_id_servicio_in_equipo_servicio FOREIGN KEY (id_servicio)
   references servicio (id_servicio)
   ON UPDATE CASCADE
@@ -197,6 +197,10 @@ INSERT INTO investigador (id_investigador, nombre, apellido_paterno,
 apellido_materno, contrasena) VALUES('jorge_jimenez', 'Jorge',
 'Jimenez', 'Hernandez', 'pass');
 
+INSERT INTO investigador (id_investigador, nombre, apellido_paterno,
+apellido_materno, contrasena) VALUES('juan_megía', 'Juan',
+'Megía', 'Sánchez', 'pass');
+
 
 -- Insert estado query
 
@@ -212,6 +216,15 @@ VALUES('Piezas metalica SEDEAM', 'Proyecto de investigación para el
 desarrollo de una pieza metalica para el laboratorio de SEDEAM', 1,
 'jorge_jimenez');
 
+INSERT INTO proyecto (nombre, descripcion, id_estado, id_staff)
+VALUES('Proyecto prueba', 'Proyecto de prueba para SEDEAM', 2,
+'juan_megía');
+
+
+-- Insert project team
+
+INSERT INTO equipo_proyecto (id_proyecto, id_investigador) VALUES (1, 'jorge_jimenez');
+INSERT INTO equipo_proyecto (id_proyecto, id_investigador) VALUES (1, 'juan_megía');
 
 -- Select project info query
 
