@@ -1,0 +1,150 @@
+\documentclass{article}
+
+%Configuraciones de idioma del documento
+\usepackage[spanish]{babel}
+%Configurar entrada {usar caracteres desde el teclado como á}
+\usepackage[utf8]{inputenc}
+%Fuente que pueda renderizar caracteres en nuestro idioma
+\usepackage[T1]{fontenc}
+%Fuente compatible
+\usepackage{lmodern}
+
+\begin{document}
+
+\title{Tarea 28}
+\author{Antonio Emiko Ochoa Adame}
+\maketitle
+
+\tableofcontents
+%\newpage
+
+\section{Contenido}
+
+
+\begin{enumerate}
+\item Para cada una de las siguientes funciones, diseñe y escriba las
+  transiciones de  una Máquina de Turing que pueda realizarla:
+  \begin{enumerate}
+  \item Dada una cadena de entrada de la forma $wcx$, donde $w, x \in \{a, b\}*$,
+    se pide que arroje como resultado la cadena $xw$, por ejemplo si la entrada es
+    $abbcbaba$, debe de devolver como salida: $babaabb$.
+
+    $\delta(q_0, a) = (q_0, a, R)$\\
+    $\delta(q_0, b) = (q_0, b, R)$\\
+    $\delta(q_0, c) = (q_1, c, R)$\\
+
+    $\delta(q_1, b) = (q_2, b, L)$\\
+    $\delta(q_1, a) = (q_3, a, L)$\\
+
+    $\delta(q_2, c) = (q_2, b, R)$\\
+    $\delta(q_2, b) = (q_1, c, R)$\\
+    $\delta(q_2, \#) = (q_4, \#, L)$\\
+
+    $\delta(q_3, c) = (q_3, a, R)$\\
+    $\delta(q_3, a) = (q_1, c, R)$\\
+    $\delta(q_3, \#) = (q_4, \#, L)$\\
+
+    $\delta(q_4, c) = (q_4, \#, L)$\\
+    $\delta(q_4, a) = (q_4, a, L)$\\
+    $\delta(q_4, b) = (q_4, b, L)$\\
+    $\delta(q_4, \#) = (q_A, \#, R)$\\
+
+  \item Que duplique una cadena, es decir, dada la cadena de entrada $w \in \{a, b\}*$,
+    arroje como resultado $ww$, por ejemplo: si $w = abbb$, entonces devuelve: $ww = abbbabbb$.
+
+    $\delta(q_0, a) = (q_0, a, R)$\\
+    $\delta(q_0, b) = (q_0, b, R)$\\
+    $\delta(q_0, \#) = (q_1, \#, L)$\\
+
+    $\delta(q_1, a) = (q_2, *, L)$\\
+    $\delta(q_1, b) = (q_{10}, *, L)$\\
+
+    $\delta(q_2, a) = (q_2, a, L)$\\
+    $\delta(q_2, b) = (q_2, b, L)$\\
+    $\delta(q_2, \#) = (q_3, \#, R)$\\
+
+    $\delta(q_{10}, a) = (q_{10}, a, L)$\\
+    $\delta(q_{10}, b) = (q_1{10}, b, L)$\\
+    $\delta(q_{10}, \#) = (q_{11}, \#, R)$\\
+
+
+    $\delta(q_3, a) = (q_4, +, R)$\\
+    $\delta(q_3, b) = (q_7, +, R)$\\
+    $\delta(q_3, *) = (q_9, a, L)$\\
+
+    $\delta(q_{11}, a) = (q_4, +, R)$\\
+    $\delta(q_{11}, b) = (q_7, +, R)$\\
+    $\delta(q_{11}, *) = (q_9, a, L)$\\
+
+
+    $\delta(q_4, a) = (q_4, a, R)$\\
+    $\delta(q_4, b) = (q_4, b, R)$\\
+    $\delta(q_4, *) = (q_4, *, R)$\\
+    $\delta(q_4, \#) = (q_5, a, L)$\\
+
+    $\delta(q_5, a) = (q_5, a, L)$\\
+    $\delta(q_5, b) = (q_5, b, L)$\\
+    $\delta(q_5, *) = (q_5, *, L)$\\
+    $\delta(q_5, +) = (q_3, a, R)$\\
+
+    $\delta(q_9, a) = (q_9, a, L)$\\
+    $\delta(q_9, b) = (q_9, b, L)$\\
+    $\delta(q_9, \#) = (q_A, \#, R)$\\
+
+
+    $\delta(q_7, a) = (q_7, a, R)$\\
+    $\delta(q_7, b) = (q_7, b, R)$\\
+    $\delta(q_7, *) = (q_7, *, R)$\\
+    $\delta(q_7, \#) = (q_8, b, L)$\\
+
+    $\delta(q_8, a) = (q_8, a, L)$\\
+    $\delta(q_8, b) = (q_8, b, L)$\\
+    $\delta(q_8, *) = (q_8, *, L)$\\
+    $\delta(q_8, +) = (q_3, b, R)$\\
+
+    $\delta(q_6, a) = (q_6, a, L)$\\
+    $\delta(q_6, b) = (q_6, b, L)$\\
+    $\delta(q_6, \#) = (q_A, \#, R)$\\
+
+  \item Que pueda realizar sumas unarias de varios sumandos, generalizando la MT
+    vista en el ejemplo de funciones Turing-computables, por ejemplo si la
+    entrada es $1+111+11+1+111$, debe de devolver: $11111111111$.
+
+    $\delta(q_0, 1) = (q_0, 1, R)$\\
+    $\delta(q_0, +) = (q_1, 1, R)$\\
+    $\delta(q_0, \#) = (q_A, \#, R)$\\
+
+    $\delta(q_1, 1) = (q_1, 1, R)$\\
+    $\delta(q_1, +) = (q_1, +, R)$\\
+    $\delta(q_1, \#) = (q_2, 1, L)$\\
+
+    $\delta(q_2, 1) = (q_2, 1, L)$\\
+    $\delta(q_2, +) = (q_2, +, L)$\\
+    $\delta(q_2, \#) = (q_0, \#, R)$\\
+
+  \item Dada una cadena de entrada de la forma $w = 1^n$ , $n \geq 0$, nos entregue
+    una cadena de salida que tenga la forma $(01)*n$ , por ejemplo, si $w = 1111$,
+    la salida debe ser: $01010101$.
+
+    $\delta(q_0, 1) = (q_0, 1, R)$\\
+    $\delta(q_0, \#) = (q_1, *, L)$\\
+
+    $\delta(q_1, 1) = (q_1, 1, L$)\\
+    $\delta(q_1, \#) = (q_2, \#, R)$\\
+
+    $\delta(q_2, 1) = (q_3, \#, R)$\\
+    $\delta(q_2, *) = (q_A , \#, R)$\\
+
+    $\delta(q_3, 1) = (q_1, 1, R)$\\
+    $\delta(q_3, 0) = (q_1, 0, R)$\\
+    $\delta(q_3, *) = (q_1, *, R)$\\
+    $\delta(q_3, \#) = (q_4, 0, R)$\\
+
+    $\delta(q_4, \#) = (q_1, 1, L)$\\
+
+
+  \end{enumerate}
+\end{enumerate}
+
+
+\end{document}

@@ -174,10 +174,10 @@ INSERT INTO lista_requerimientos (id_proyecto, id_requerimiento)
 VALUES(project_id, @id_requirement);
 
 IF `should_rollback` THEN
-SELECT FALSE;
+SELECT FALSE AS success;
 ROLLBACK;
 ELSE
-SELECT TRUE;
+SELECT TRUE AS success;
 COMMIT;
 END IF;
 

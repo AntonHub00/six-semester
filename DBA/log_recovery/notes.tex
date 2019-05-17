@@ -1,0 +1,57 @@
+% Created 2019-05-11 Sat 19:54
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\author{Antonio Ochoa}
+\date{\today}
+\title{Semi-automatic DB Recovery System}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 25.2.2 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Query for mysql.general\\$_{\text{log}}$ table}
+\label{sec-1}
+\begin{verbatim}
+select argument from mysql.general_log where command_type = 'Query' and event_time like '%2019-05-11 18:5%';
+\end{verbatim}
+
+\section{Idea}
+\label{sec-2}
+\subsection{First step}
+\label{sec-2-1}
+\begin{itemize}
+\item Enable both table and file for general logs
+\item Get automatic backups with "cron" or something similar
+\item Query the mysql.general$_{\text{log}}$ table so you can identify the wrong query
+\end{itemize}
+\subsection{Second step}
+\label{sec-2-2}
+\begin{itemize}
+\item Create a stored procedure to get a file with all the correct queries since
+the last backup till the wrong query.
+\item Restore the backup, then redo all the correct queries.
+\item Clean the log file so the next time you can get all the queries since the
+las backup till the new error.
+\end{itemize}
+% Emacs 25.2.2 (Org mode 8.2.10)
+\end{document}

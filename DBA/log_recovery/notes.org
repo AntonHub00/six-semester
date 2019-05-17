@@ -1,0 +1,68 @@
+#+AUTHOR:Antonio Ochoa
+#+TITLE:Semi-automatic DB Recovery System
+
+* Idea
+
+** First step (backup)
+*** DONE Enable both table and file for general logs
+*** DONE Create program to create backups
+*** DONE Create program to restore backups
+*** DONE Get automatic backups with "cron"
+*** TODO Create a stored procedure to get a file with all the correct
+    queries since the last backup till the wrong query.
+
+** Second step (restore)
+*** TODO Query the mysql.general_log table so you can identify the bad
+    query
+*** TODO Create file with all the correct queries before the bad query
+*** TODO Create DB with the correct name
+*** TODO Restore the backup with script
+*** TODO Redo all the correct queries.
+*** TODO Clean the log file so the next time you can get all the queries
+    since the las backup till the new error (not sure yet).
+
+* Helpers
+
+  Query for search bad query
+  #+BEGIN_SRC sql
+    SELECT argument FROM mysql.general_log
+    WHERE command_type = 'Query'
+    AND event_time LIKE '%2019-05-11 18:5%';
+  #+END_SRC
+
+  Query get all the queries before bad query (the "event_time" must be exact)
+  #+BEGIN_SRC sql
+    SELECT argument FROM mysql.general_log
+    WHERE command_type = 'Query'
+    AND (event_time < '2019-05-11 18:55:00.890201') ;
+  #+END_SRC
+
+  Stored procedure to get all good queries
+  #+BEGIN_SRC sql
+    DELIMITER //
+    CREATE PROCEDURE get_good_queries
+    (IN good_date VARCHAR(30))
+    BEGIN
+
+    select argument, event_time from mysql.general_log
+    where command_type = 'Query'
+    and (event_time < good_date);
+
+    END //
+    DELIMITER ;
+  #+END_SRC
+
+  Cron job for every minute
+  #+BEGIN_SRC sh
+    * * * * * $HOME/Documents/sixth_semester/DBA/log_recovery/db_backup.sh compra
+  #+END_SRC
+
+  Cron job for every hour
+  #+BEGIN_SRC sh
+    0 * * * * $HOME/Documents/sixth_semester/DBA/log_recovery/db_backup.sh compra
+  #+END_SRC
+
+  Delete trailing data
+  #+BEGIN_SRC sh
+    cat test.sql | awk '!(/\\$/){$NF="";sub(/[ \t]+$/,"")}1' | awk '!(/\\$/){$NF="";sub(/[ \t]+$/,"")}1' | awk '!(/\\$/){print $0";"}(/\\$/){print $0}'
+  #+END_SRC
