@@ -1,0 +1,14 @@
+#Rewrite engine so I can modify apache rules
+RewriteEngine On
+
+#DO NOT redirect "static" directory (where JS and CSS files are)
+#Otherwise you won't be able to link CSS or JS files (your_project_name/static/*)
+
+RewriteCond %{REQUEST_URI} !^/[^/]*/static/.*$ [NC]
+
+#Mach all in the url that starts with at least 1 character that is no "/"
+#and can or not end with "/".
+#Then redirect to "index.php" with the group matched as "url" param in a GET
+#request (your_project_name/everything_without_slash/?)
+
+RewriteRule ^([^/]+)/? index.php?url=$1 [L,QSA]
