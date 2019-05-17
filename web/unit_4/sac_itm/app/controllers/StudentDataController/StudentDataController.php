@@ -19,7 +19,32 @@
 class StudentDataController extends Controller{
     public static function process(){
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
-	    echo 'Posted here';
+	    if(isset($_POST['submit'])){
+		$result = Student::update(
+		    '16121053',
+		    $_POST['nombre'],
+		    $_POST['primer_apellido'],
+		    $_POST['segundo_apellido'],
+		    $_POST['id_carrera'],
+		    $_POST['id_semestre'],
+		    $_POST['correo'],
+		    $_POST['telefono'],
+		    $_POST['id_genero'],
+		    $_POST['contrasena'],
+		    $_POST['nombre_tutor'],
+		    $_POST['primer_apellido_tutor'],
+		    $_POST['segundo_apellido_tutor'],
+		    $_POST['telefono_tutor'],
+		    $_POST['correo_tutor']);
+
+		if(!$result){
+		    echo "<script>alert('Error al actualizar datos de estudiante');
+                    window.location = 'StudentData';</script>";
+		}else{
+		    echo "<script>alert('Datos actualizados exitosamente');
+                    window.location = 'StudentData';</script>";
+		}
+	    }
 	}
 	elseif(count($_GET) > 1){
 	    self::render_view("StudentData", NULL);
@@ -28,6 +53,7 @@ class StudentDataController extends Controller{
 	    $student_data = Student::get('16121053');
 	    $careers = Student::get_careers();
 	    $genders = Student::get_genders();
+	    $semesters = Student::get_semesters();
 
 	    if(!$student_data){
 		echo "<script>alert('No se pudo obtener los datos del usuario');
@@ -38,10 +64,15 @@ class StudentDataController extends Controller{
 	    }elseif(!$genders){
 		echo "<script>alert('No se pudo obtener los géneros');
                 window.location = 'StudentIndex';</script>";
+	    }elseif(!$semesters){
+		echo "<script>alert('No se pudo obtener los semestres');
+                window.location = 'StudentIndex';</script>";
 	    }
 
 	    self::render_view("StudentData", array('student_data' => $student_data,
-	    'careers' => $careers, 'genders' => $genders));
+						   'careers' => $careers,
+						   'genders' => $genders,
+						   'semesters' => $semesters));
 	}
     }
 }

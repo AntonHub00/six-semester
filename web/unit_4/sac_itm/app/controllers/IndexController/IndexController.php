@@ -17,21 +17,9 @@
 #reason why each conditional return a view.
 
 class IndexController extends Controller{
-  public static function process(){
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-      echo "Is post";
-      self::render_view("Index", NULL);
+    public static function process(){
+	self::render_view("Index", NULL);
     }
-    elseif(count($_GET) > 1){
-      echo "Is get with params";
-      self::render_view("Index", NULL);
-    }
-    else{
-      echo "Is get without params";
-      self::render_view("Index", NULL);
-    }
-  }
 }
 
 ?>
-

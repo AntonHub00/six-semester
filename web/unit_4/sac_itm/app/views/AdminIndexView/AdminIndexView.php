@@ -14,8 +14,6 @@
     <title>The title</title>
     <link rel="stylesheet" type="text/css" href="<?php echo SITE_URL ?>/static/css/main.css">
     <link rel="stylesheet" type="text/css" href="<?php echo SITE_URL ?>/static/css/font_awesome_4_7_0.css">
-    <style>
-    </style>
   </head>
   <body>
     <div class="wrapper">

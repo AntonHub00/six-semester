@@ -14,8 +14,6 @@
     <title>The title</title>
     <link rel="stylesheet" type="text/css" href="<?php echo SITE_URL ?>/static/css/main.css">
     <link rel="stylesheet" type="text/css" href="<?php echo SITE_URL ?>/static/css/font_awesome_4_7_0.css">
-    <style>
-    </style>
   </head>
   <body>
     <div class="wrapper">
@@ -61,7 +59,7 @@
 		    <label for="">Nombre</label>
 		  </div>
 		  <div>
-		    <input name="id" type="text" value="<?php echo $student_data['nombre'] ?>" maxlength="35"/>
+		    <input name="nombre" type="text" value="<?php echo $student_data['nombre'] ?>" maxlength="35"/>
 		  </div>
 		</div>
 		<div >
@@ -69,7 +67,7 @@
 		    <label for="">Primer apellido</label>
 		  </div>
 		  <div>
-		    <input name="id" type="text" value="<?php echo $student_data['primer_apellido'] ?>" maxlength="35"/>
+		    <input name="primer_apellido" type="text" value="<?php echo $student_data['primer_apellido'] ?>" maxlength="35"/>
 		  </div>
 		</div>
 		<br/>
@@ -78,7 +76,7 @@
 		    <label for="">Segundo apellido</label>
 		  </div>
 		  <div>
-		    <input name="id" type="text" value="<?php echo $student_data['segundo_apellido'] ?>" maxlength="35"/>
+		    <input name="segundo_apellido" type="text" value="<?php echo $student_data['segundo_apellido'] ?>" maxlength="35"/>
 		  </div>
 		</div>
 		<div style="float:left">
@@ -86,7 +84,7 @@
 		    <label for="">Carrera</label>
 		  </div>
 		  <div>
-		    <select name="id" >
+		    <select name="id_carrera" >
 		      <?php foreach ($vars['careers'] as $career): ?>
 			<?php if ($career['id'] == $student_data['id_carrera']): ?>
 			  <option value="<?php echo $career['id'] ?>" selected="selected">
@@ -106,7 +104,19 @@
 		    <label for="">Semestre</label>
 		  </div>
 		  <div>
-		    <input name="id" type="text" value="<?php echo $student_data['semestre'] ?>"/>
+		    <select name="id_semestre" >
+		      <?php foreach ($vars['semesters'] as $semester): ?>
+			<?php if ($semester['id'] == $student_data['id_semestre']): ?>
+			  <option value="<?php echo $semester['id'] ?>" selected="selected">
+			    <?php echo $semester['id']; ?>
+			  </option>
+			<?php else: ?>
+			  <option value="<?php echo $semester['id'] ?>">
+			    <?php echo $semester['id']; ?>
+			  </option>
+			<?php endif; ?>
+		      <?php endforeach; ?>
+		    </select>
 		  </div>
 		</div>
 		<br/>
@@ -115,7 +125,7 @@
 		    <label for="">Correo</label>
 		  </div>
 		  <div>
-		    <input name="id" type="text" value="<?php echo $student_data['correo'] ?>"/>
+		    <input name="correo" type="text" value="<?php echo $student_data['correo'] ?>"/>
 		  </div>
 		</div>
 		<div style="float:left">
@@ -123,7 +133,7 @@
 		    <label for="">Teléfono</label>
 		  </div>
 		  <div>
-		    <input name="id" type="text" value="<?php echo $student_data['telefono'] ?>" maxlength="15"/>
+		    <input name="telefono" type="text" value="<?php echo $student_data['telefono'] ?>" maxlength="15"/>
 		  </div>
 		</div>
 		<div>
@@ -131,7 +141,7 @@
 		    <label for="">Género</label>
 		  </div>
 		  <div>
-		    <select name="id" >
+		    <select name="id_genero" >
 		      <?php foreach ($vars['genders'] as $gender): ?>
 			<?php if ($gender['id'] == $student_data['id_genero']): ?>
 			  <option value="<?php echo $gender['id'] ?>" selected="selected">
@@ -152,7 +162,7 @@
 		    <label for="">Contraseña</label>
 		  </div>
 		  <div>
-		    <input name="id" type="password" value="<?php echo $student_data['contrasena'] ?>" maxlength="80"/>
+		    <input name="contrasena" type="password" value="<?php echo $student_data['contrasena'] ?>" maxlength="80"/>
 		  </div>
 		</div>
 		<div style="float:left">
@@ -160,7 +170,7 @@
 		    <label for="">Nombre de tutor</label>
 		  </div>
 		  <div>
-		    <input name="id" type="text" value="<?php echo $student_data['nombre_tutor'] ?>" maxlength="35"/>
+		    <input name="nombre_tutor" type="text" value="<?php echo $student_data['nombre_tutor'] ?>" maxlength="35"/>
 		  </div>
 		</div>
 		<div>
@@ -168,7 +178,7 @@
 		    <label for="">Primer apellido tutor</label>
 		  </div>
 		  <div>
-		    <input name="id" type="text" value="<?php echo $student_data['primer_apellido_tutor'] ?>" maxlength="35"/>
+		    <input name="primer_apellido_tutor" type="text" value="<?php echo $student_data['primer_apellido_tutor'] ?>" maxlength="35"/>
 		  </div>
 		</div>
 		<br/>
@@ -177,7 +187,7 @@
 		    <label for="">Segundo apellido tutor</label>
 		  </div>
 		  <div>
-		    <input name="id" type="text" value="<?php echo $student_data['segundo_apellido_tutor'] ?>" maxlength="35"/>
+		    <input name="segundo_apellido_tutor" type="text" value="<?php echo $student_data['segundo_apellido_tutor'] ?>" maxlength="35"/>
 		  </div>
 		</div>
 		<div style="float:left">
@@ -185,7 +195,7 @@
 		    <label for="">Teléfono tutor</label>
 		  </div>
 		  <div>
-		    <input name="id" type="text" value="<?php echo $student_data['telefono_tutor'] ?>" maxlength="15"/>
+		    <input name="telefono_tutor" type="text" value="<?php echo $student_data['telefono_tutor'] ?>" maxlength="15"/>
 		  </div>
 		</div>
 		<div>
@@ -193,7 +203,7 @@
 		    <label for="">Correo tutor</label>
 		  </div>
 		  <div>
-		    <input name="id" type="email" value="<?php echo $student_data['correo_tutor'] ?>" maxlength="35"/>
+		    <input name="correo_tutor" type="email" value="<?php echo $student_data['correo_tutor'] ?>" maxlength="35"/>
 		  </div>
 		</div>
 		<br/>
