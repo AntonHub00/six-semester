@@ -53,11 +53,11 @@
   grid-template-rows: repeat(7, 1fr);
   grid-template-areas:
     "title title title title title"
-    ". si-username si-name si-otro1 ."
-    ". si-slastname si-flastname si-otro2 ."
-    ". si-birthdate si-email si-otro3 ."
-    ". si-phone si-password si-otro4 ."
-    ". si-otro5 si-otro6 si-otro7 ."
+    ". si-control-num si-name si-flastname ."
+    ". si-slastname si-career si-semester ."
+    ". si-email si-phone si-gender ."
+    ". si-password si-tutor-name si-tutor-flastname ."
+    ". si-tutor-slastname si-tutor-phone si-tutor-email ."
     ". si-submit si-submit si-submit ."
 }
 
@@ -67,24 +67,28 @@
   font-size: 30px;
 }
 
-.signin-wrapper .username-box{
-  grid-area: si-username;
+.signin-wrapper .control-num-box{
+  grid-area: si-control-num;
 }
 
 .signin-wrapper .name-box{
   grid-area: si-name;
 }
 
-.signin-wrapper .slastname-box{
-  grid-area: si-slastname;
-}
-
 .signin-wrapper .flastname-box{
   grid-area: si-flastname;
 }
 
-.signin-wrapper .birthdate-box{
-  grid-area: si-birthdate;
+.signin-wrapper .slastname-box{
+  grid-area: si-slastname;
+}
+
+.signin-wrapper .career-box{
+  grid-area: si-career;
+}
+
+.signin-wrapper .semester-box{
+  grid-area: si-semester;
 }
 
 .signin-wrapper .email-box{
@@ -95,36 +99,32 @@
   grid-area: si-phone;
 }
 
+.signin-wrapper .gender-box{
+  grid-area: si-gender;
+}
+
 .signin-wrapper .password-box{
   grid-area: si-password;
 }
 
-.signin-wrapper .otro1{
-  grid-area: si-otro1;
+.signin-wrapper .tutor-name-box{
+  grid-area: si-tutor-name;
 }
 
-.signin-wrapper .otro2{
-  grid-area: si-otro2;
+.signin-wrapper .tutor-flastname-box{
+  grid-area: si-tutor-flastname;
 }
 
-.signin-wrapper .otro3{
-  grid-area: si-otro3;
+.signin-wrapper .tutor-slastname-box{
+  grid-area: si-tutor-slastname;
 }
 
-.signin-wrapper .otro4{
-  grid-area: si-otro4;
+.signin-wrapper .tutor-phone-box{
+  grid-area: si-tutor-phone;
 }
 
-.signin-wrapper .otro5{
-  grid-area: si-otro5;
-}
-
-.signin-wrapper .otro6{
-  grid-area: si-otro6;
-}
-
-.signin-wrapper .otro7{
-  grid-area: si-otro7;
+.signin-wrapper .tutor-email-box{
+  grid-area: si-tutor-email;
 }
 
 .signin-wrapper .submit-box{

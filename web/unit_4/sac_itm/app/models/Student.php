@@ -10,7 +10,7 @@ class Student extends DB{
 				    $tutor_phone, $tutor_email){
 
 	$query = "INSERT INTO estudiante (id, nombre, primer_apellido,
-        segundo_apellido, id_carrera, semestre, correo, telefono, id_genero,
+        segundo_apellido, id_carrera, id_semestre, correo, telefono, id_genero,
         contrasena, nombre_tutor, primer_apellido_tutor, segundo_apellido_tutor,
         telefono_tutor, correo_tutor)
         VALUES('$id', '$name', '$student_f_lastname', '$student_s_lastname',

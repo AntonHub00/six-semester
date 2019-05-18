@@ -4,29 +4,31 @@
 #the connection and return it
 class DB{
 
-  private static $host;
-  private static $user;
-  private static $password;
-  private static $db;
+    private static $host;
+    private static $user;
+    private static $password;
+    private static $db;
 
-  protected static function connect(){
-    self::$host = "localhost";
-    self::$user = "root";
-    self::$password = "";
-    self::$db = "sac_itm";
+    protected static function connect(){
+	self::$host = "localhost";
+	self::$user = "root";
+	self::$password = "";
+	self::$db = "sac_itm";
 
-    $connection = new mysqli(self::$host,
-                             self::$user,
-                             self::$password,
-                             self::$db);
+	$connection = new mysqli(self::$host,
+				 self::$user,
+				 self::$password,
+				 self::$db);
 
-    if($connection->connect_errno){
-      Controller::render_view("NoDBConnection", NULL);
-      die();
+	if($connection->connect_errno){
+	    Controller::render_view("NoDBConnection", NULL);
+	    die();
+	}
+	else{
+	    $connection->set_charset("utf8");
+	    return $connection;
+	}
     }
-    else
-      return $connection;
-  }
 }
 
 ?>
