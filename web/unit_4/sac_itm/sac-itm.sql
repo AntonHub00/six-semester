@@ -3,6 +3,13 @@ CREATE DATABASE IF NOT EXISTS sac_itm CHARACTER SET latin1 COLLATE latin1_spanis
 USE sac_itm;
 
 --Begin table independent ----------------------------------------
+CREATE TABLE horario
+(
+id INT NOT NULL AUTO_INCREMENT,
+hora TIME,
+PRIMARY KEY(id)
+);
+
 CREATE TABLE semestre
 (
 id INT NOT NULL,
@@ -85,7 +92,7 @@ ON UPDATE CASCADE
 ON DELETE CASCADE
 );
 
---Need "puesto", "lugar" tables created
+--Need "puesto", "lugar" and "horario" tables created
 CREATE TABLE profesionista
 (
 id VARCHAR(15) NOT NULL,
@@ -97,6 +104,8 @@ telefono VARCHAR(15) NOT NULL,
 id_puesto INT NOT NULL,
 contrasena VARCHAR(80) NOT NULL,
 id_lugar INT NOT NULL,
+id_hora_entrada INT NOT NULL,
+id_hora_salida INT NOT NULL,
 rol INT NOT NULL DEFAULT 2,
 PRIMARY KEY(id),
 FOREIGN KEY (id_puesto) REFERENCES puesto(id)
@@ -104,19 +113,15 @@ ON UPDATE CASCADE
 ON DELETE CASCADE,
 FOREIGN KEY (id_lugar) REFERENCES lugar(id)
 ON UPDATE CASCADE
-ON DELETE CASCADE
-);
-
---Need "profesionista.id" tables created
-CREATE TABLE horario
-(
-id_profesionista VARCHAR(15) NOT NULL,
-entrada TIME,
-salida TIME,
-FOREIGN KEY (id_profesionista) REFERENCES profesionista(id)
+ON DELETE CASCADE,
+FOREIGN KEY (id_hora_entrada) REFERENCES horario(id)
+ON UPDATE CASCADE
+ON DELETE CASCADE,
+FOREIGN KEY (id_hora_salida) REFERENCES horario(id)
 ON UPDATE CASCADE
 ON DELETE CASCADE
 );
+
 
 --Need "profesionista.id", "estudiante.id", "horario" tables created
 CREATE TABLE cita
@@ -138,6 +143,10 @@ ON DELETE CASCADE
 --End table dependent ----------------------------------------
 
 --Data
+INSERT INTO horario (hora) VALUES ('07:00'), ('08:00'), ('09:00'), ('10:00'),
+('11:00'), ('12:00'), ('13:00'), ('14:00'), ('15:00'), ('16:00'), ('17:00'),
+('18:00'), ('19:00'), ('20:00');
+
 INSERT INTO semestre (id) VALUES (1), (2), (3), (4), (5), (6), (7), (8),
 (9), (10), (11), (12), (13);
 
@@ -166,18 +175,19 @@ VALUES
 'jp_prado@gmail.com');
 
 INSERT INTO profesionista (id, nombre, primer_apellido, segundo_apellido, correo,
-telefono, id_puesto, contrasena, id_lugar)
+telefono, id_puesto, contrasena, id_lugar, id_hora_entrada, id_hora_salida)
 VALUES
-('1', 'Antonio Emiko', 'Ochoa', 'Adame', 'antonhub00@gmail.com', '9988776655', 1,
-'pass', 2);
+('112233', 'Antonio Emiko', 'Ochoa', 'Adame', 'antonhub00@gmail.com', '9988776655', 1,
+'pass', 1, 3, 8);
 
-INSERT INTO horario (id_profesionista, entrada, salida)
-VALUES('1', '07:00', '15:00');
-
-INSERT INTO cita (id_profesionista, id_estudiante, fecha, hora_inicio, hora_fin)
-VALUES('1', '16121053', '10/12/18', '12:00','15:00');
+-- INSERT INTO cita (id_profesionista, id_estudiante, fecha, hora_inicio, hora_fin)
+-- VALUES('1', '16121053', '10/12/18', '12:00','15:00');
 
 --Justfor queries
 --DATE_FORMAT('10/12/18','%m/%d/%Y') : You get DATE as a STRING
 --TIME_FORMAT('16:00', '%H:%i') : You get TIME as a STRING
 --STR_TO_DATE('18/12/2010', '%d/%m/%Y') : You convert STRING to DATE to GET and INSERT
+
+-- SELECT DATE_FORMAT(entrada, '%H:%i'), DATE_FORMAT(salida, '%H:%i')
+-- FROM horario
+-- WHERE id_profesionista = '112233';

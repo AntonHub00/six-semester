@@ -3,12 +3,13 @@
 class Professional extends DB{
 
     public static function register($id, $name, $flastname, $slastname, $email,
-				    $phone, $id_job, $password, $id_place){
+				    $phone, $id_job, $password, $id_place, $id_entry_time,
+				    $id_departure_time){
 
 	$query = "INSERT INTO profesionista (id, nombre, primer_apellido,
         segundo_apellido, correo, telefono, id_puesto, contrasena, id_lugar)
         VALUES ('$id', '$name', '$flastname', '$slastname', '$email', '$phone',
-        $id_job, '$password', $id_place)";
+        $id_job, '$password', $id_place, $id_entry_time, $id_departure_time)";
 
 	$result = self::connect()->query($query);
 
@@ -16,19 +17,22 @@ class Professional extends DB{
     }
 
     public static function update($id, $name, $flastname, $slastname, $email,
-				  $phone, $id_job, $password, $id_place){
+				  $phone, $id_job, $password, $id_place, $id_entry_time,
+				  $id_departure_time){
 
 	$query = "UPDATE profesionista SET
-        id = '112233',
-        nombre = 'Jorge Marcos',
-        primer_apellido = 'Mejía',
-        segundo_apellido = 'Castillo',
-        correo = 'jorgemc@gmail.com',
-        telefono = '4444444444',
-        id_puesto = 2,
-        contrasena = 'pass',
-        id_lugar = 2
-        WHERE id = '112233';";
+        id = '$id',
+        nombre = '$name',
+        primer_apellido = '$flastname',
+        segundo_apellido = '$slastname',
+        correo = '$email',
+        telefono = '$phone',
+        id_puesto = $id_job,
+        contrasena = '$password',
+        id_lugar = $id_place,
+        id_hora_entrada = $id_entry_time,
+        id_hora_salida = $id_departure_time
+        WHERE id = '$id';";
 
 	$result = self::connect()->query($query);
 
@@ -39,7 +43,11 @@ class Professional extends DB{
 	$query = "SELECT profesionista.id, nombre, primer_apellido,
         segundo_apellido, correo, telefono, id_puesto,
         puesto.descripcion as puesto_desc, contrasena, id_lugar,
-        lugar.descripcion as lugar_desc
+        lugar.descripcion as lugar_desc,
+        id_hora_entrada,
+        (SELECT DATE_FORMAT(hora, '%H:%i') FROM horario WHERE id = id_hora_entrada) AS entrada_desc,
+        id_hora_salida,
+        (SELECT DATE_FORMAT(hora, '%H:%i') FROM horario WHERE id = id_hora_salida) AS salida_desc
         FROM profesionista
         INNER JOIN puesto ON id_puesto = puesto.id
         INNER JOIN lugar ON id_lugar = lugar.id

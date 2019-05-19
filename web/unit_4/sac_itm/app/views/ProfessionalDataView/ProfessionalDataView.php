@@ -116,6 +116,22 @@
 	      </div>
 	    </div>
 	    <br/>
+	    <div style="float:left">
+	      <div>
+		<label for="">Hora de entrada</label>
+	      </div>
+	      <div>
+		<input name="id_hora_entrada"type="text" value="<?php echo $professional_data['entrada_desc']; ?>" disabled/>
+	      </div>
+	    </div>
+	    <div style="float:left">
+	      <div>
+		<label for="">Hora de salida</label>
+	      </div>
+	      <div>
+		<input name="id_hroa_salida" type="text" value="<?php echo $professional_data['salida_desc']; ?>" disabled/>
+	      </div>
+	    </div>
 	  </article>
 	</section>
       </main><!--End main-->
