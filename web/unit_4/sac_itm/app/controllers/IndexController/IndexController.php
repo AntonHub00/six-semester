@@ -21,12 +21,27 @@ class IndexController extends Controller{
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
 	    if(isset($_POST['submit'])){
 		if($_POST['submit'] == 'login'){
-		    echo 'Login';
+		    $result = Student::get_password_and_role($_POST['username']);
+
+		    # Is missing the checking of admin and professional.
+
+		    if($result){
+			$result = $result->fetch_assoc();
+			$password = $result['contrasena'];
+			$role = $result['rol'];
+
+			if ($password === $_POST['password']){
+			    Session::set($_POST['username'], $role);
+			    echo "<script>window.location = 'StudentIndex';</script>";
+			}else{
+			    echo "<script>alert('El usuario o la contraseña son incorrectos');
+			    window.location = '';</script>";
+			}
+		    }else{
+			echo "<script>alert('El usuario o la contraseña son incorrectos');
+			window.location = '';</script>";
+		    }
 		}elseif($_POST['submit'] == 'signin'){
-		    /* echo '<pre>';
-		       print_r($_POST);
-		       echo '</pre>';
-		       die(); */
 		    $result = Student::register(
 			$_POST['id'],
 			$_POST['nombre'],

@@ -19,7 +19,7 @@
       <header class="main-header">
 	sac-itm
       </header>
-      <form action="<?php echo SITE_URL;?>\" method="POST" class="signin-wrapper">
+      <form action="<?php echo SITE_URL;?>/" method="POST" class="signin-wrapper">
 	<div class="title-box">
           Registrarse
 	</div>

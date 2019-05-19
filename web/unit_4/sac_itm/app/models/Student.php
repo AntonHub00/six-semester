@@ -63,6 +63,14 @@ class Student extends DB{
 	return ($result->num_rows > 0) ? $result : false;
     }
 
+    public static function get_password_and_role($id){
+	$query = "SELECT contrasena, rol FROM estudiante WHERE id = '$id'";
+
+	$result = self::connect()->query($query);
+
+	return ($result->num_rows > 0) ? $result : false;
+    }
+
     public static function get_careers(){
 	$query = "SELECT id, descripcion FROM carrera";
 

@@ -1,4 +1,6 @@
 <?php
+# Start the Session
+session_start();
 
 #Defines a constant wich contains the route the user is trying to access (from
 #the URL) wich is got from the ".htaccess" file

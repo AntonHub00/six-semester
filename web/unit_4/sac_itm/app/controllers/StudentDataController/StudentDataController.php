@@ -21,7 +21,7 @@ class StudentDataController extends Controller{
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
 	    if(isset($_POST['submit'])){
 		$result = Student::update(
-		    '16121053',
+		    Session::get_id(),
 		    $_POST['nombre'],
 		    $_POST['primer_apellido'],
 		    $_POST['segundo_apellido'],
@@ -50,7 +50,7 @@ class StudentDataController extends Controller{
 	    self::render_view("StudentData", NULL);
 	}
 	else{
-	    $student_data = Student::get('16121053');
+	    $student_data = Student::get(Session::get_id());
 	    $careers = Student::get_careers();
 	    $genders = Student::get_genders();
 	    $semesters = Student::get_semesters();

@@ -35,7 +35,7 @@
             <a href="<?php echo SITE_URL ?>/StudentData">Mis datos</a>
           </li>
           <li class="menu-item">
-            <a href="#"> Cerrar sesión </a>
+            <a href="<?php echo SITE_URL ?>/CloseSession"> Cerrar sesión </a>
           </li>
 	</ul><!--End menu-->
       </nav><!--End navbar-->

@@ -12,6 +12,10 @@ Route::set("index.php", function(){
     IndexController::process();
 });
 
+Route::set("CloseSession", function(){
+    CloseSessionController::process();
+});
+
 #Admin stuff -------------------------------------------------------------------
 Route::set("AdminIndex", function(){
     AdminIndexController::process();
@@ -25,19 +29,19 @@ Route::set("ProfessionalIndex", function(){
 #Student stuff -----------------------------------------------------------------
 Route::set("StudentIndex", function(){
     StudentIndexController::process();
-});
+}, 1);
 
 Route::set("StudentMakeAppointment", function(){
     StudentMakeAppointmentController::process();
-});
+}, 1);
 
 Route::set("StudentAppointments", function(){
     StudentAppointmentsController::process();
-});
+}, 1);
 
 Route::set("StudentData", function(){
     StudentDataController::process();
-});
+}, 1);
 
 #If the route the user typed doesn't exist, then render 404 page ---------------
 if(!in_array(URL, Route::$valid_routes))
