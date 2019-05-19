@@ -16,18 +16,20 @@
 #can just use them inside the views because are in the same "scope", that's the
 #reason why each conditional return a view.
 
-class StudentIndexController extends Controller{
+class ProfessionalAppointmentsController extends Controller{
     public static function process(){
-	$result = Student::get(Session::get_id());
-
-	if(!$result){
-	    echo "<script>alert('Error al obtener los datos del estudiante');
-            window.location = 'CloseSession';</script>";
+	if($_SERVER["REQUEST_METHOD"] == "POST"){
+	    #echo "Is post";
+	    self::render_view("ProfessionalAppointments", NULL);
 	}
-
-	$result = $result->fetch_assoc()['nombre'];
-
-	self::render_view("StudentIndex", array('student_name' => $result));
+	elseif(count($_GET) > 1){
+	    #echo "Is get with params";
+	    self::render_view("ProfessionalAppointments", NULL);
+	}
+	else{
+	    #echo "Is get without params";
+	    self::render_view("ProfessionalAppointments", NULL);
+	}
     }
 }
 

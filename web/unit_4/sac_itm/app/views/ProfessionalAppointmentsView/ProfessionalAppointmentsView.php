@@ -20,22 +20,19 @@
       <nav class="grid-item navbar">
 	<ul class="menu">
           <li class="menu-item">
-            <a href="<?php echo SITE_URL ?>/StudentIndex">SAC-ITM</a>
+            <a href="<?php echo SITE_URL ?>/ProfessionalIndex">SAC-ITM</a>
           </li>
           <li class="menu-item">
-            <a href="<?php echo SITE_URL ?>/StudentIndex"> Inicio </a>
+            <a href="<?php echo SITE_URL ?>/ProfessionalIndex"> Inicio </a>
           </li>
           <li class="menu-item">
-            <a href="<?php echo SITE_URL ?>/StudentMakeAppointment">Agendar</a>
+            <a href="<?php echo SITE_URL; ?>/ProfessionalAppointments">Citas agendadas</a>
           </li>
           <li class="menu-item">
-            <a href="<?php echo SITE_URL ?>/StudentAppointments">Citas agendadas</a>
+            <a href="<?php echo SITE_URL; ?>/ProfessionalData">Mis datos</a>
           </li>
           <li class="menu-item">
-            <a href="<?php echo SITE_URL ?>/StudentData">Mis datos</a>
-          </li>
-          <li class="menu-item">
-            <a href="<?php echo SITE_URL ?>/CloseSession"> Cerrar sesión </a>
+            <a href="<?php echo SITE_URL; ?>/CloseSession"> Cerrar sesión </a>
           </li>
 	</ul><!--End menu-->
       </nav><!--End navbar-->

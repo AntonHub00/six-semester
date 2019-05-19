@@ -11,7 +11,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8">
-    <title>The title</title>
+    <title>Agendar cita</title>
     <link rel="stylesheet" type="text/css" href="<?php echo SITE_URL ?>/static/css/main.css">
     <link rel="stylesheet" type="text/css" href="<?php echo SITE_URL ?>/static/css/font_awesome_4_7_0.css">
   </head>
@@ -41,7 +41,7 @@
       </nav><!--End navbar-->
       <main class="grid-item main">
 	<section>
-	  <header>Inicio</header>
+	  <header>Agendar cita</header>
 	  <article>
 	    Quis commodo odio aenean sed adipiscing diam donec adipiscing
 	    tristique risus nec feugiat in fermentum posuere urna nec

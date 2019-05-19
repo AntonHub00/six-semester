@@ -11,7 +11,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8">
-    <title>The title</title>
+    <title>Inicio</title>
     <link rel="stylesheet" type="text/css" href="<?php echo SITE_URL ?>/static/css/main.css">
     <link rel="stylesheet" type="text/css" href="<?php echo SITE_URL ?>/static/css/font_awesome_4_7_0.css">
   </head>
@@ -26,13 +26,13 @@
             <a href="<?php echo SITE_URL ?>/ProfessionalIndex"> Inicio </a>
           </li>
           <li class="menu-item">
-            <a href="#">Citas agendadas</a>
+            <a href="<?php echo SITE_URL; ?>/ProfessionalAppointments">Citas agendadas</a>
           </li>
           <li class="menu-item">
-            <a href="#">Mis datos</a>
+            <a href="<?php echo SITE_URL; ?>/ProfessionalData">Mis datos</a>
           </li>
           <li class="menu-item">
-            <a href="#"> Cerrar sesión </a>
+            <a href="<?php echo SITE_URL; ?>/CloseSession"> Cerrar sesión </a>
           </li>
 	</ul><!--End menu-->
       </nav><!--End navbar-->
@@ -40,10 +40,7 @@
 	<section>
 	  <header>Inicio</header>
 	  <article>
-	    Quis commodo odio aenean sed adipiscing diam donec adipiscing
-	    tristique risus nec feugiat in fermentum posuere urna nec
-	    tincidunt praesent semper. Nibh tortor, id aliquet lectus
-	    proin nibh nisl, condimentum.
+	    <h3>Bienvenido <?php echo $vars['professional_name']; ?>!</h3>
 	  </article>
 	</section>
       </main><!--End main-->

@@ -21,18 +21,31 @@ class IndexController extends Controller{
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
 	    if(isset($_POST['submit'])){
 		if($_POST['submit'] == 'login'){
-		    $result = Student::get_password_and_role($_POST['username']);
+		    $student_result = Student::get_password_and_role($_POST['username']);
+		    $professional_result = Professional::get_password_and_role($_POST['username']);
 
-		    # Is missing the checking of admin and professional.
+		    # Is missing the checking of admin
 
-		    if($result){
-			$result = $result->fetch_assoc();
-			$password = $result['contrasena'];
-			$role = $result['rol'];
+		    if($student_result){
+			$student_result = $student_result->fetch_assoc();
+			$password = $student_result['contrasena'];
+			$role = $student_result['rol'];
 
 			if ($password === $_POST['password']){
 			    Session::set($_POST['username'], $role);
 			    echo "<script>window.location = 'StudentIndex';</script>";
+			}else{
+			    echo "<script>alert('El usuario o la contraseña son incorrectos');
+			    window.location = '';</script>";
+			}
+		    }else if($professional_result){
+			$professional_result = $professional_result->fetch_assoc();
+			$password = $professional_result['contrasena'];
+			$role = $professional_result['rol'];
+
+			if ($password === $_POST['password']){
+			    Session::set($_POST['username'], $role);
+			    echo "<script>window.location = 'ProfessionalIndex';</script>";
 			}else{
 			    echo "<script>alert('El usuario o la contraseña son incorrectos');
 			    window.location = '';</script>";

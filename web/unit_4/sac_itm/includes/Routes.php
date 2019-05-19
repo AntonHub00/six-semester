@@ -24,7 +24,15 @@ Route::set("AdminIndex", function(){
 #Profesional stuff -------------------------------------------------------------
 Route::set("ProfessionalIndex", function(){
     ProfessionalIndexController::process();
-});
+}, 2);
+
+Route::set("ProfessionalData", function(){
+    ProfessionalDataController::process();
+}, 2);
+
+Route::set("ProfessionalAppointments", function(){
+    ProfessionalAppointmentsController::process();
+}, 2);
 
 #Student stuff -----------------------------------------------------------------
 Route::set("StudentIndex", function(){

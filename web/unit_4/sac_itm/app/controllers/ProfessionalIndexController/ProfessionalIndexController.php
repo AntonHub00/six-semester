@@ -18,18 +18,16 @@
 
 class ProfessionalIndexController extends Controller{
     public static function process(){
-	if($_SERVER["REQUEST_METHOD"] == "POST"){
-	    #echo "Is post";
-	    self::render_view("ProfessionalIndex", NULL);
+	$result = Professional::get(Session::get_id());
+
+	if(!$result){
+	    echo "<script>alert('Error al obtener los datos del profesionista');
+            window.location = 'CloseSession';</script>";
 	}
-	elseif(count($_GET) > 1){
-	    #echo "Is get with params";
-	    self::render_view("ProfessionalIndex", NULL);
-	}
-	else{
-	    #echo "Is get without params";
-	    self::render_view("ProfessionalIndex", NULL);
-	}
+
+	$result = $result->fetch_assoc()['nombre'];
+
+	self::render_view("ProfessionalIndex", array('professional_name' => $result));
     }
 }
 

@@ -16,18 +16,16 @@
 #can just use them inside the views because are in the same "scope", that's the
 #reason why each conditional return a view.
 
-class StudentIndexController extends Controller{
+class ProfessionalDataController extends Controller{
     public static function process(){
-	$result = Student::get(Session::get_id());
+	$professional_data = Professional::get(Session::get_id());
 
-	if(!$result){
-	    echo "<script>alert('Error al obtener los datos del estudiante');
-            window.location = 'CloseSession';</script>";
+	if(!$professional_data){
+	    echo "<script>alert('No se pudo obtener los datos del usuario');
+                window.location = 'index.php';</script>";
 	}
 
-	$result = $result->fetch_assoc()['nombre'];
-
-	self::render_view("StudentIndex", array('student_name' => $result));
+	self::render_view("ProfessionalData", array('professional_data' => $professional_data));
     }
 }
 

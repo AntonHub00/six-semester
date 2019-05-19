@@ -11,7 +11,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8">
-    <title>The title</title>
+    <title>Inicio</title>
     <link rel="stylesheet" type="text/css" href="<?php echo SITE_URL ?>/static/css/main.css">
     <link rel="stylesheet" type="text/css" href="<?php echo SITE_URL ?>/static/css/font_awesome_4_7_0.css">
   </head>
