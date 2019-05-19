@@ -43,10 +43,7 @@
 	<section>
 	  <header>Inicio</header>
 	  <article>
-	    Quis commodo odio aenean sed adipiscing diam donec adipiscing
-	    tristique risus nec feugiat in fermentum posuere urna nec
-	    tincidunt praesent semper. Nibh tortor, id aliquet lectus
-	    proin nibh nisl, condimentum.
+	    <h3>Bienvenido <?php echo $vars['student_name']; ?>!</h3>
 	  </article>
 	</section>
       </main><!--End main-->

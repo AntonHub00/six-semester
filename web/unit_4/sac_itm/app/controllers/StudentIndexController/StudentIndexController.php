@@ -18,18 +18,16 @@
 
 class StudentIndexController extends Controller{
     public static function process(){
-	if($_SERVER["REQUEST_METHOD"] == "POST"){
-	    #echo "Is post";
-	    self::render_view("StudentIndex", NULL);
+	$result = Student::get(Session::get_id());
+
+	if(!$result){
+	    echo "<script>alert('Error al obtener los datos del estudiante');
+            window.location = 'StudentData';</script>";
 	}
-	elseif(count($_GET) > 1){
-	    #echo "Is get with params";
-	    self::render_view("StudentIndex", NULL);
-	}
-	else{
-	    #echo "Is get without params";
-	    self::render_view("StudentIndex", NULL);
-	}
+
+	$result = $result->fetch_assoc()['nombre'];
+
+	self::render_view("StudentIndex", array('student_name' => $result));
     }
 }
 
