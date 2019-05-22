@@ -58,6 +58,24 @@ class Professional extends DB{
 	return ($result->num_rows > 0) ? $result : false;
     }
 
+    public static function get_all(){
+	$query = "SELECT profesionista.id , nombre, primer_apellido,
+        segundo_apellido, correo, telefono, id_puesto,
+        puesto.descripcion as puesto_desc, contrasena, id_lugar,
+        lugar.descripcion as lugar_desc,
+        id_hora_entrada,
+        (SELECT DATE_FORMAT(hora, '%H:%i') FROM horario WHERE id = id_hora_entrada) AS entrada_desc,
+        id_hora_salida,
+        (SELECT DATE_FORMAT(hora, '%H:%i') FROM horario WHERE id = id_hora_salida) AS salida_desc
+        FROM profesionista
+        INNER JOIN puesto ON id_puesto = puesto.id
+        INNER JOIN lugar ON id_lugar = lugar.id";
+
+	$result = self::connect()->query($query);
+
+	return ($result->num_rows > 0) ? $result : false;
+    }
+
     public static function get_password_and_role($id){
 	$query = "SELECT contrasena, rol FROM profesionista WHERE id = '$id'";
 

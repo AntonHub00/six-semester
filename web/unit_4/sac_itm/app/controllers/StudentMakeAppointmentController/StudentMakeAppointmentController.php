@@ -19,16 +19,78 @@
 class StudentMakeAppointmentController extends Controller{
     public static function process(){
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
-	    #echo "Is post";
 	    self::render_view("StudentMakeAppointment", NULL);
 	}
 	elseif(count($_GET) > 1){
-	    #echo "Is get with params";
-	    self::render_view("StudentMakeAppointment", NULL);
+	    if(isset($_GET['data_from_step_1'])){
+		$professional = Professional::get($_GET['id_professional']);
+
+		if(!$professional){
+		    echo "<script>alert('Error al obtener datos del profesionista');
+                    window.location = 'StudentMakeAppointment';</script>";
+		}else{
+		    $professional = $professional->fetch_assoc();
+		}
+
+		self::render_view("StudentMakeAppointment", array('step_2' => true,
+								  'id_professional' => $_GET['id_professional'],
+								  'professional' => $professional));
+	    }elseif(isset($_GET['data_from_step_2'])){
+		$professional = Professional::get($_GET['id_professional']);
+		$hours = Appointment::get_available_hours($_GET['id_professional'],
+							  $_GET['date']);
+
+		if(!$professional){
+		    echo "<script>alert('Error al obtener datos del profesionista');
+                    window.location = 'StudentMakeAppointment';</script>";
+		}else{
+		    $professional = $professional->fetch_assoc();
+		}
+
+		if(!$hours){
+		    echo "<script>alert('Error al obtener el horario del profesionista');
+                    window.location = 'StudentMakeAppointment';</script>";
+		}
+
+		$day = date('d', strtotime($_GET['date']));
+		$month = date('F', strtotime($_GET['date']));
+		$year = date('Y', strtotime($_GET['date']));
+
+		$date_parsed = "$day de $month del $year";
+
+		self::render_view("StudentMakeAppointment", array('step_3' => true,
+								  'id_professional' => $_GET['id_professional'],
+								  'professional' => $professional,
+								  'date' => $_GET['date'],
+								  'date_parsed' => $date_parsed,
+								  'hours' => $hours));
+	    }if(isset($_GET['data_from_step_3'])){
+		$id_end_hour = $_GET['id_start_hour'] + 1;
+
+		$result = Appointment::insert_appointment($_GET['id_professional'],
+							  Session::get_id(),
+							  $_GET['date'],
+							  $_GET['id_start_hour'],
+							  $id_end_hour);
+
+		if(!$result){
+		    echo "<script>alert('Error al almacenar la cita en la base de datos');
+                    window.location = 'StudentMakeAppointment';</script>";
+		}else{
+		    echo "<script>alert('Cita establecida exitosamente');
+                    window.location = 'StudentMakeAppointment';</script>";
+		}
+	    }
 	}
 	else{
-	    #echo "Is get without params";
-	    self::render_view("StudentMakeAppointment", NULL);
+	    $result = Professional::get_all();
+
+	    if(!$result){
+		echo "<script>alert('Error al obtener datos de los profesionistas');
+                    window.location = 'StudentIndex';</script>";
+	    }
+	    self::render_view("StudentMakeAppointment", array('step_1' => true,
+							      'professionals' => $result));
 	}
     }
 }

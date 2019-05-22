@@ -1,0 +1,166 @@
+% Created 2019-05-22 Wed 01:53
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\author{Antonio Ochoa}
+\date{\today}
+\title{Propuesta de proyecto final}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 25.2.2 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Definición}
+\label{sec-1}
+
+Administración de citas entre alumnos y profesionistas del Instituto
+Tecnológico de Morelia.
+
+Desarrollar una aplicación web en la que los alumnos del Instituto
+Tecnológico de Morelia puedan registrarse y agendar citas con los profesionistas
+registrados y disponibles para ello. Contará principalmente de dos tipos de
+profesionistas: piscólogos y nutriólogos.
+
+\section{Alcances}
+\label{sec-2}
+\subsection{Alumno}
+\label{sec-2-1}
+\subsubsection{Registrarse en el sistema}
+\label{sec-2-1-1}
+\begin{enumerate}
+\item Matrícula
+\label{sec-2-1-1-1}
+\item Correo electrónico
+\label{sec-2-1-1-2}
+\item Teléfono
+\label{sec-2-1-1-3}
+\item Nombre
+\label{sec-2-1-1-4}
+\item Apellido paterno
+\label{sec-2-1-1-5}
+\item Apellido materno
+\label{sec-2-1-1-6}
+\item Género
+\label{sec-2-1-1-7}
+\item Semestre cursando
+\label{sec-2-1-1-8}
+\item Contraseña
+\label{sec-2-1-1-9}
+\item Nombre de padre o tutor
+\label{sec-2-1-1-10}
+\item Apellido paterno del padre o tutor
+\label{sec-2-1-1-11}
+\item Apellido materno del padre o tutor
+\label{sec-2-1-1-12}
+\item Teléfono del padre o tutor
+\label{sec-2-1-1-13}
+\item Correo electrónico del padre o tutor
+\label{sec-2-1-1-14}
+\item Carrera que cursa
+\label{sec-2-1-1-15}
+\end{enumerate}
+\subsubsection{Ver datos personales}
+\label{sec-2-1-2}
+\subsubsection{Modificar datos personales}
+\label{sec-2-1-3}
+\subsubsection{Agendar cita}
+\label{sec-2-1-4}
+\subsubsection{Ver citas agendadas}
+\label{sec-2-1-5}
+\subsubsection{Cancelar cita agendada}
+\label{sec-2-1-6}
+\subsection{Profesionista}
+\label{sec-2-2}
+\subsubsection{Ver datos personales}
+\label{sec-2-2-1}
+\subsubsection{Ver citas agendadas por los alumnos}
+\label{sec-2-2-2}
+\subsubsection{Cancelar cita}
+\label{sec-2-2-3}
+\subsection{Administrador}
+\label{sec-2-3}
+\subsubsection{Dar de alta profesionistas}
+\label{sec-2-3-1}
+\begin{enumerate}
+\item RFC
+\label{sec-2-3-1-1}
+\item Correo electrónico
+\label{sec-2-3-1-2}
+\item Teléfono
+\label{sec-2-3-1-3}
+\item Nombre
+\label{sec-2-3-1-4}
+\item Apellido materno
+\label{sec-2-3-1-5}
+\item Apellido paterno
+\label{sec-2-3-1-6}
+\item Puesto
+\label{sec-2-3-1-7}
+\item Hora de entrada
+\label{sec-2-3-1-8}
+\item Hora de salida
+\label{sec-2-3-1-9}
+\item Salón
+\label{sec-2-3-1-10}
+\item Contraseña
+\label{sec-2-3-1-11}
+\end{enumerate}
+\subsubsection{Dar de baja profesionistas}
+\label{sec-2-3-2}
+\subsubsection{Modificar datos de profesionistas}
+\label{sec-2-3-3}
+\subsubsection{Ver información de los profesionistas}
+\label{sec-2-3-4}
+\subsubsection{Dar de baja alumnos}
+\label{sec-2-3-5}
+\subsubsection{Modificar datos de alumnos}
+\label{sec-2-3-6}
+\subsubsection{Ver información de los alumnos}
+\label{sec-2-3-7}
+\subsubsection{Ver citas agendadas entre alumnos y profesionistas}
+\label{sec-2-3-8}
+\subsubsection{Cancelar citas agendadas}
+\label{sec-2-3-9}
+\subsection{Otros}
+\label{sec-2-4}
+\subsubsection{Todos los usuarios tendrán que autenticarse para poder iniciar sesión}
+\label{sec-2-4-1}
+\subsubsection{Todos los usuarios podrán cerrar su sesión cuando lo deseen}
+\label{sec-2-4-2}
+\subsubsection{Hora de entrada y salida de profesionistas}
+\label{sec-2-4-3}
+\begin{enumerate}
+\item Los profesionistas contarán con horario de entrada y salida, horario
+\label{sec-2-4-3-1}
+en el cual los alumnos podrán agendar cita siempre y cuando la hora y el lugar
+estén disponibles.
+\end{enumerate}
+\subsubsection{El alumno podrá modificar sus datos personales a excepción de su matrícula}
+\label{sec-2-4-4}
+\section{Sugerencias del profesor}
+\label{sec-3}
+\subsection{Bandera para cita (realizada o cancelada)}
+\label{sec-3-1}
+\subsection{Estadísticas para saber}
+\label{sec-3-2}
+% Emacs 25.2.2 (Org mode 8.2.10)
+\end{document}

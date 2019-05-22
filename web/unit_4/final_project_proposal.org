@@ -13,60 +13,60 @@
 
 * Alcances
 ** Alumno
-   - Registrarse en el sistema
-     - Matrícula
-     - Correo electrónico
-     - Teléfono
-     - Nombre
-     - Apellido paterno
-     - Apellido materno
-     - Género
-     - Semestre cursando
-     - Contraseña
-     - Nombre de padre o tutor
-     - Apellido paterno del padre o tutor
-     - Apellido materno del padre o tutor
-     - Teléfono del padre o tutor
-     - Correo electrónico del padre o tutor
-     - Carrera que cursa
-   - Ver datos personales
-   - Modificar datos personales
-   - Agendar cita
-   - Ver citas agendadas
-   - Cancelar cita agendada
+*** DONE Registrarse en el sistema
+**** Matrícula
+**** Correo electrónico
+**** Teléfono
+**** Nombre
+**** Apellido paterno
+**** Apellido materno
+**** Género
+**** Semestre cursando
+**** Contraseña
+**** Nombre de padre o tutor
+**** Apellido paterno del padre o tutor
+**** Apellido materno del padre o tutor
+**** Teléfono del padre o tutor
+**** Correo electrónico del padre o tutor
+**** Carrera que cursa
+*** DONE Ver datos personales
+*** DONE Modificar datos personales
+*** TODO Agendar cita
+*** TODO Ver citas agendadas
+*** TODO Cancelar cita agendada
 ** Profesionista
-   - Ver datos personales
-   - Ver citas agendadas por los alumnos
-   - Cancelar cita
+*** DONE Ver datos personales
+*** TODO Ver citas agendadas por los alumnos
+*** TODO Cancelar cita
 ** Administrador
-   - Dar de alta profesionistas
-    - RFC
-    - Correo electrónico
-    - Teléfono
-    - Nombre
-    - Apellido materno
-    - Apellido paterno
-    - Puesto
-    - Hora de entrada
-    - Hora de salida
-    - Salón
-    - Contraseña
-   - Dar de baja profesionistas
-   - Modificar datos de profesionistas
-   - Ver información de los profesionistas
-   - Dar de baja alumnos
-   - Modificar datos de alumnos
-   - Ver información de los alumnos
-   - Ver citas agendadas entre alumnos y profesionistas
-   - Cancelar citas agendadas
+*** TODO Dar de alta profesionistas
+**** RFC
+**** Correo electrónico
+**** Teléfono
+**** Nombre
+**** Apellido materno
+**** Apellido paterno
+**** Puesto
+**** Hora de entrada
+**** Hora de salida
+**** Salón
+**** Contraseña
+*** TODO Dar de baja profesionistas
+*** TODO Modificar datos de profesionistas
+*** TODO Ver información de los profesionistas
+*** TODO Dar de baja alumnos
+*** TODO Modificar datos de alumnos
+*** TODO Ver información de los alumnos
+*** TODO Ver citas agendadas entre alumnos y profesionistas
+*** TODO Cancelar citas agendadas
 ** Otros
-   - Todos los usuarios tendrán que autenticarse para poder iniciar sesión
-   - Todos los usuarios podrán cerrar su sesión cuando lo deseen
-   - Hora de entrada y salida de profesionistas
-     - Los profesionistas contarán con horario de entrada y salida, horario
-       en el cual los alumnos podrán agendar cita siempre y cuando la hora y el lugar
-       estén disponibles.
-   - El alumno podrá modificar sus datos personales a excepción de su matrícula
+*** DONE Todos los usuarios tendrán que autenticarse para poder iniciar sesión
+*** DONE Todos los usuarios podrán cerrar su sesión cuando lo deseen
+*** DONE Hora de entrada y salida de profesionistas
+**** Los profesionistas contarán con horario de entrada y salida, horario
+     en el cual los alumnos podrán agendar cita siempre y cuando la hora y el lugar
+     estén disponibles.
+*** DONE El alumno podrá modificar sus datos personales a excepción de su matrícula
 * Sugerencias del profesor
-  - Bandera para cita (realizada o cancelada)
-  - Estadísticas para saber
+** TODO Bandera para cita (realizada, en espera, cancelada)
+** TODO Estadísticas

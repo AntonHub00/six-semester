@@ -43,10 +43,52 @@
 	<section>
 	  <header>Agendar cita</header>
 	  <article>
-	    Quis commodo odio aenean sed adipiscing diam donec adipiscing
-	    tristique risus nec feugiat in fermentum posuere urna nec
-	    tincidunt praesent semper. Nibh tortor, id aliquet lectus
-	    proin nibh nisl, condimentum.
+	    <?php if(isset($vars['step_1'])): ?>
+	      <h3>Paso 1: Elige profesionista</h3>
+	      <br/>
+	      <form action="<?php echo SITE_URL ?>/StudentMakeAppointment" method="GET">
+		<select name="id_professional" >
+		  <?php foreach ($vars['professionals'] as $professional): ?>
+		    <option value="<?php echo $professional['id']; ?>">
+		      <?php echo "{$professional['nombre']}
+                    {$professional['primer_apellido']}
+                    {$professional['segundo_apellido']}
+                    ({$professional['puesto_desc']})"; ?>
+		    </option>
+		  <?php endforeach; ?>
+		</select>
+		<input name="data_from_step_1" type="submit" value="Seleccionar"/>
+	      </form>
+	    <?php elseif(isset($vars['step_2'])): ?>
+	      <?php $pro = $vars['professional']; ?>
+	      <h3>Paso 2: Elige fecha de cita con <?php echo "{$pro['nombre']} {$pro['primer_apellido']} {$pro['segundo_apellido']}"; ?></h3>
+	      <br/>
+	      <form action="<?php echo SITE_URL ?>/StudentMakeAppointment" method="GET">
+		<input name="id_professional" type="hidden" value="<?php echo $vars['id_professional']; ?>"/>
+		<input id="date_appointment" name="date" type="date" min="" max="" required/>
+		<input name="data_from_step_2" type="submit" value="Seleccionar"/>
+	      </form>
+	    <?php elseif(isset($vars['step_3'])): ?>
+	      <?php $pro = $vars['professional']; ?>
+	      <h3>Paso 3: Elige hora de cita con <?php echo "{$pro['nombre']}
+             {$pro['primer_apellido']}
+             {$pro['segundo_apellido']}";?> el <?php echo $vars['date_parsed']; ?></h3>
+	      <br/>
+	      <form action="<?php echo SITE_URL ?>/StudentMakeAppointment" method="GET">
+		<input name="id_professional" type="hidden" value="<?php echo $vars['id_professional']; ?>"/>
+		<input name="date" type="hidden" value="<?php echo $vars['date']; ?>"/>
+		<select name="id_start_hour" >
+		  <?php foreach ($vars['hours'] as $hour): ?>
+		    <?php if ($hour['id'] < $vars['professional']['id_hora_salida']): ?>
+		      <option value="<?php echo $hour['id']; ?>">
+			<?php echo $hour['hora']; ?>
+		      </option>
+		    <?php endif; ?>
+		  <?php endforeach; ?>
+		</select>
+		<input name="data_from_step_3" type="submit" value="Seleccionar"/>
+	      </form>
+	    <?php endif; ?>
 	  </article>
 	</section>
       </main><!--End main-->
@@ -54,5 +96,6 @@
 	SAC-ITM &copy 2019
       </footer><!--End footer-->
     </div><!--En wrapper-->
+    <script type="text/javascript" src="<?php echo SITE_URL; ?>/static/js/min_and_max_date.js"></script>
   </body>
 </html>
