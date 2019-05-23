@@ -35,7 +35,7 @@ class Appointment extends DB{
 	$query = "SELECT cita.id AS id, profesionista.nombre AS profesionista_nombre,
         profesionista.primer_apellido AS profesionista_primer_apellido,
         profesionista.segundo_apellido as profesionista_segundo_apellido,
-        cita.fecha AS fecha, horario.hora AS hora_desc,
+        cita.fecha AS fecha, horario.hora AS hora_desc, cita.id_estado AS id_estado,
         estado.descripcion AS estado_desc, lugar.descripcion lugar_desc
         FROM cita
         INNER JOIN profesionista ON cita.id_profesionista = profesionista.id
@@ -47,5 +47,13 @@ class Appointment extends DB{
 	$result = self::connect()->query($query);
 
 	return ($result->num_rows > 0) ? $result : false;
+    }
+
+    public static function cancel_appointment($id){
+	$query = "UPDATE cita SET id_estado = 3 WHERE id = $id;";
+
+	$result = self::connect()->query($query);
+
+	return $result;
     }
 }

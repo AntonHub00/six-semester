@@ -95,4 +95,13 @@ section article{
   color: #212121;
 }
 
-/* Media queries */
+table {
+  border-collapse: collapse;
+  text-align: center;
+}
+
+table, th, td {
+  border: 1px solid black;
+  padding: 0.3em;
+  text-align: center;
+}

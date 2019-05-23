@@ -31,9 +31,9 @@
 **** Carrera que cursa
 *** DONE Ver datos personales
 *** DONE Modificar datos personales
-*** TODO Agendar cita
-*** TODO Ver citas agendadas
-*** TODO Cancelar cita agendada
+*** DONE Agendar cita
+*** DONE Ver citas agendadas
+*** DONE Cancelar cita agendada
 ** Profesionista
 *** DONE Ver datos personales
 *** TODO Ver citas agendadas por los alumnos
@@ -68,5 +68,5 @@
      estén disponibles.
 *** DONE El alumno podrá modificar sus datos personales a excepción de su matrícula
 * Sugerencias del profesor
-** TODO Bandera para cita (realizada, en espera, cancelada)
+** DONE Bandera para cita (realizada, en espera, cancelada)
 ** TODO Estadísticas
