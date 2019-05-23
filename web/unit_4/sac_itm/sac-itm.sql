@@ -133,6 +133,7 @@ ON DELETE CASCADE
 --Need "profesionista.id", "estudiante.id", "horario" tables created
 CREATE TABLE cita
 (
+id INT NOT NULL AUTO_INCREMENT,
 id_profesionista VARCHAR(15) NOT NULL,
 id_estudiante VARCHAR(15) NOT NULL,
 fecha DATE NOT NULL,
@@ -158,7 +159,8 @@ ON DELETE CASCADE,
 FOREIGN KEY (id_lugar) REFERENCES lugar(id)
 ON UPDATE CASCADE
 ON DELETE CASCADE,
-PRIMARY KEY(id_profesionista, fecha, id_hora_inicio, id_lugar)
+UNIQUE(id_profesionista, fecha, id_hora_inicio, id_lugar),
+PRIMARY KEY(id)
 );
 --End table dependent ----------------------------------------
 
