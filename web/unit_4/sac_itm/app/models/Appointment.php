@@ -8,11 +8,9 @@ class Appointment extends DB{
         AND
         (SELECT id_hora_salida FROM profesionista WHERE id = '$id')
         AND
-        id NOT IN (SELECT id_hora_inicio FROM cita WHERE fecha = '$date' AND id_profesionista = '$id')
-        AND
         id NOT IN (SELECT id_hora_inicio FROM cita WHERE id_lugar =
         (SELECT id_lugar from profesionista WHERE id = '$id')
-        AND fecha = '$date')";
+        AND fecha = '$date' AND id_estado <> 3)";
 
 	$result = self::connect()->query($query);
 
@@ -35,7 +33,7 @@ class Appointment extends DB{
 	$query = "SELECT cita.id AS id, profesionista.nombre AS profesionista_nombre,
         profesionista.primer_apellido AS profesionista_primer_apellido,
         profesionista.segundo_apellido as profesionista_segundo_apellido,
-        cita.fecha AS fecha, horario.hora AS hora_desc, cita.id_estado AS id_estado,
+        cita.fecha AS fecha, DATE_FORMAT(horario.hora, '%H:%i') AS hora_desc, cita.id_estado AS id_estado,
         estado.descripcion AS estado_desc, lugar.descripcion lugar_desc
         FROM cita
         INNER JOIN profesionista ON cita.id_profesionista = profesionista.id
