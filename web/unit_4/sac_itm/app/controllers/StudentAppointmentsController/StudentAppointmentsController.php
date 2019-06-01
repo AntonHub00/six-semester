@@ -33,11 +33,6 @@ class StudentAppointmentsController extends Controller{
 	}else{
 	    $result = Appointment::get_student_appointments(Session::get_id());
 
-	    if(!$result){
-		echo "<script>alert('Error al obtener citas de la base de datos');
-                    window.location = 'StudentIndex';</script>";
-	    }
-
 	    self::render_view("StudentAppointments", array('appointments' => $result));
 	}
     }

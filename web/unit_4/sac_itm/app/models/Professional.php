@@ -7,7 +7,8 @@ class Professional extends DB{
 				    $id_departure_time){
 
 	$query = "INSERT INTO profesionista (id, nombre, primer_apellido,
-        segundo_apellido, correo, telefono, id_puesto, contrasena, id_lugar)
+        segundo_apellido, correo, telefono, id_puesto, contrasena, id_lugar, id_hora_entrada,
+        id_hora_salida)
         VALUES ('$id', '$name', '$flastname', '$slastname', '$email', '$phone',
         $id_job, '$password', $id_place, $id_entry_time, $id_departure_time)";
 
@@ -78,6 +79,30 @@ class Professional extends DB{
 
     public static function get_password_and_role($id){
 	$query = "SELECT contrasena, rol FROM profesionista WHERE id = '$id'";
+
+	$result = self::connect()->query($query);
+
+	return ($result->num_rows > 0) ? $result : false;
+    }
+
+    public static function get_jobs(){
+	$query = "SELECT id, descripcion FROM puesto";
+
+	$result = self::connect()->query($query);
+
+	return ($result->num_rows > 0) ? $result : false;
+    }
+
+    public static function get_places(){
+	$query = "SELECT id, descripcion FROM lugar";
+
+	$result = self::connect()->query($query);
+
+	return ($result->num_rows > 0) ? $result : false;
+    }
+
+    public static function get_all_hours(){
+	$query = "SELECT id, DATE_FORMAT(hora, '%H:%i') AS hora FROM horario";
 
 	$result = self::connect()->query($query);
 

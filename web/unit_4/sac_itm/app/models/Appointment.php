@@ -54,4 +54,22 @@ class Appointment extends DB{
 
 	return $result;
     }
+
+    public static function get_professional_appointments($id){
+	$query = "SELECT cita.id AS id, estudiante.nombre AS estudiante_nombre,
+        estudiante.primer_apellido AS estudiante_primer_apellido,
+        estudiante.segundo_apellido as estudiante_segundo_apellido,
+        cita.fecha AS fecha, DATE_FORMAT(horario.hora, '%H:%i') AS hora_desc, cita.id_estado AS id_estado,
+        estado.descripcion AS estado_desc, lugar.descripcion lugar_desc
+        FROM cita
+        INNER JOIN estudiante ON cita.id_estudiante = estudiante.id
+        INNER JOIN horario ON cita.id_hora_inicio = horario.id
+        INNER JOIN estado ON cita.id_estado = estado.id
+        INNER JOIN lugar ON cita.id_lugar = lugar.id
+        WHERE cita.id_profesionista = '$id'";
+
+	$result = self::connect()->query($query);
+
+	return ($result->num_rows > 0) ? $result : false;
+    }
 }

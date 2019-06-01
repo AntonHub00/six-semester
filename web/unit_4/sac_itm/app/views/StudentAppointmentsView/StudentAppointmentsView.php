@@ -43,34 +43,37 @@
 	<section>
 	  <header>Citas agendadas</header>
 	  <article>
-
-	    <table>
-	      <tr>
-		<th>Profesionista</th>
-		<th>Fecha</th>
-		<th>Hora</th>
-		<th>Estado de cita</th>
-		<th>Lugar</th>
-		<th>Cancelar</th>
-	      </tr>
-	      <?php foreach ($vars['appointments'] as $appointment): ?>
+	    <?php if ($vars['appointments']): ?>
+	      <table>
 		<tr>
-		  <td><?php echo "{$appointment['profesionista_nombre']}
+		  <th>Profesionista</th>
+		  <th>Fecha</th>
+		  <th>Hora</th>
+		  <th>Estado de cita</th>
+		  <th>Lugar</th>
+		  <th>Cancelar</th>
+		</tr>
+		<?php foreach ($vars['appointments'] as $appointment): ?>
+		  <tr>
+		    <td><?php echo "{$appointment['profesionista_nombre']}
 		      {$appointment['profesionista_primer_apellido']}
 		      {$appointment['profesionista_segundo_apellido']}"; ?></td>
-		  <td><?php echo $appointment['fecha']; ?></td>
-		  <td><?php echo $appointment['hora_desc']; ?></td>
-		  <td><?php echo $appointment['estado_desc']; ?></td>
-		  <td><?php echo $appointment['lugar_desc']; ?></td>
-		  <td>
-		    <?php if ($appointment['id_estado'] == 2): ?>
-		      <form action="<?php echo SITE_URL; ?>/StudentAppointments" method="POST">
-			<button name="appointment_id" type="submit" value="<?php echo $appointment['id']; ?>">Cancelar</button>
-		      </form>
-		    <?php endif; ?>
-		  </td>
-	      <?php endforeach; ?>
-	    </table>
+		    <td><?php echo $appointment['fecha']; ?></td>
+		    <td><?php echo $appointment['hora_desc']; ?></td>
+		    <td><?php echo $appointment['estado_desc']; ?></td>
+		    <td><?php echo $appointment['lugar_desc']; ?></td>
+		    <td>
+		      <?php if ($appointment['id_estado'] == 2): ?>
+			<form action="<?php echo SITE_URL; ?>/StudentAppointments" method="POST">
+			  <button name="appointment_id" type="submit" value="<?php echo $appointment['id']; ?>">Cancelar</button>
+			</form>
+		      <?php endif; ?>
+		    </td>
+		<?php endforeach; ?>
+	      </table>
+	    <?php else: ?>
+	      <p>No has agendado ninguna cita</p>
+	    <?php endif; ?>
 	  </article>
 	</section>
       </main><!--End main-->

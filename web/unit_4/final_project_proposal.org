@@ -36,10 +36,10 @@
 *** DONE Cancelar cita agendada
 ** Profesionista
 *** DONE Ver datos personales
-*** TODO Ver citas agendadas por los alumnos
-*** TODO Cancelar cita
+*** DONE Ver citas agendadas por los alumnos
+*** DONE Cancelar cita
 ** Administrador
-*** TODO Dar de alta profesionistas
+*** DONE Dar de alta profesionistas
 **** RFC
 **** Correo electrónico
 **** Teléfono

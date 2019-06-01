@@ -19,16 +19,21 @@
 class ProfessionalAppointmentsController extends Controller{
     public static function process(){
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
-	    #echo "Is post";
-	    self::render_view("ProfessionalAppointments", NULL);
-	}
-	elseif(count($_GET) > 1){
-	    #echo "Is get with params";
-	    self::render_view("ProfessionalAppointments", NULL);
-	}
-	else{
-	    #echo "Is get without params";
-	    self::render_view("ProfessionalAppointments", NULL);
+	    if(isset($_POST['appointment_id'])){
+		$result = Appointment::cancel_appointment($_POST['appointment_id']);
+
+		if(!$result){
+		    echo "<script>alert('Error al cancelar cita');
+                    window.location = 'ProfessionalAppointments';</script>";
+		}else{
+		    echo "<script>alert('Cita cancelada exitosamente');
+                    window.location = 'ProfessionalAppointments';</script>";
+		}
+	    }
+	}else{
+	    $result = Appointment::get_professional_appointments(Session::get_id());
+
+	    self::render_view("ProfessionalAppointments", array('appointments' => $result));
 	}
     }
 }

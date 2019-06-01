@@ -14,6 +14,20 @@
     <title>The title</title>
     <link rel="stylesheet" type="text/css" href="<?php echo SITE_URL ?>/static/css/main.css">
     <link rel="stylesheet" type="text/css" href="<?php echo SITE_URL ?>/static/css/font_awesome_4_7_0.css">
+    <style>
+     nav ul ul {
+       display: none;
+     }
+
+     nav ul li:hover > ul {
+       display: block;
+     }
+
+     nav ul ul li {
+       position: relative;
+       list-style:none;
+     }
+    </style>
   </head>
   <body>
     <div class="wrapper">
@@ -29,11 +43,13 @@
             <a href=#>Profesionistas
 	      <i class="fa fa-caret-down"></i>
 	    </a>
+	    <ul>
+	      <li><a href="<?php echo SITE_URL ?>/AdminRegisterProfessional">Registrar profesionista</a></li>
+	      <li><a href="">Ver profesionistas</a></li>
+	    </ul>
           </li>
           <li class="menu-item">
-            <a href="#">Alumnos
-	      <i class="fa fa-caret-down"></i>
-	    </a>
+            <a href="#">Alumnos</a>
           </li>
           <li class="menu-item">
             <a href="#">Citas agendadas</a>
@@ -42,9 +58,12 @@
             <a href="#">Estadísticas
 	      <i class="fa fa-caret-down"></i>
 	    </a>
+	    <ul>
+	      <li><a href="">No disponible</a></li>
+	    </ul>
           </li>
           <li class="menu-item">
-            <a href="#"> Cerrar sesión </a>
+            <a href="<?php echo SITE_URL ?>/CloseSession"> Cerrar sesión </a>
           </li>
 	</ul><!--End menu-->
       </nav><!--End navbar-->
@@ -52,10 +71,7 @@
 	<section>
 	  <header>Inicio</header>
 	  <article>
-	    Quis commodo odio aenean sed adipiscing diam donec adipiscing
-	    tristique risus nec feugiat in fermentum posuere urna nec
-	    tincidunt praesent semper. Nibh tortor, id aliquet lectus
-	    proin nibh nisl, condimentum.
+	    <h3>Bienvenido admin!</h3>
 	  </article>
 	</section>
       </main><!--End main-->

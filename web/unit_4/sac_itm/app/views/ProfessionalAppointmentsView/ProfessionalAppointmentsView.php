@@ -39,11 +39,38 @@
       <main class="grid-item main">
 	<section>
 	  <header>Citas agendadas</header>
-	  <article>
-	    Quis commodo odio aenean sed adipiscing diam donec adipiscing
-	    tristique risus nec feugiat in fermentum posuere urna nec
-	    tincidunt praesent semper. Nibh tortor, id aliquet lectus
-	    proin nibh nisl, condimentum.
+	  <?php if ($vars['appointments']): ?>
+	    <article>
+	    <table>
+	      <tr>
+		<th>Alumno</th>
+		<th>Fecha</th>
+		<th>Hora</th>
+		<th>Estado de cita</th>
+		<th>Lugar</th>
+		<th>Cancelar</th>
+	      </tr>
+	      <?php foreach ($vars['appointments'] as $appointment): ?>
+		<tr>
+		  <td><?php echo "{$appointment['estudiante_nombre']}
+		      {$appointment['estudiante_primer_apellido']}
+		      {$appointment['estudiante_segundo_apellido']}"; ?></td>
+		  <td><?php echo $appointment['fecha']; ?></td>
+		  <td><?php echo $appointment['hora_desc']; ?></td>
+		  <td><?php echo $appointment['estado_desc']; ?></td>
+		  <td><?php echo $appointment['lugar_desc']; ?></td>
+		  <td>
+		    <?php if ($appointment['id_estado'] == 2): ?>
+		      <form action="<?php echo SITE_URL; ?>/ProfessionalAppointments" method="POST">
+			<button name="appointment_id" type="submit" value="<?php echo $appointment['id']; ?>">Cancelar</button>
+		      </form>
+		    <?php endif; ?>
+		  </td>
+	      <?php endforeach; ?>
+	    </table>
+	  <?php else: ?>
+	    <p>Ninguna cita ha sido agendada</p>
+	  <?php endif; ?>
 	  </article>
 	</section>
       </main><!--End main-->

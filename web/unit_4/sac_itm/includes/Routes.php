@@ -21,6 +21,9 @@ Route::set("AdminIndex", function(){
     AdminIndexController::process();
 });
 
+Route::set("AdminRegisterProfessional", function(){
+    AdminRegisterProfessionalController::process();
+});
 #Profesional stuff -------------------------------------------------------------
 Route::set("ProfessionalIndex", function(){
     ProfessionalIndexController::process();
