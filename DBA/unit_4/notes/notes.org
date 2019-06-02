@@ -69,3 +69,64 @@
    Baja física:  borra el registro
 
    Baja lógica: marca el archivo como borrado
+* Índices, reorganización y reconstrucción
+
+  #+BEGIN_SRC sql
+    CREATE INDEX my_index ON my_table(column_1);
+  #+END_SRC
+
+  Lista doblemente enlazada para índices y después se mete a un árbol binario.
+
+  Los índices que no se mantienen pueden afectar porque los índices se fragmentan
+  y la información puede quedar muy dispersa.
+
+  Si hay mucha fragmentación, el DBMS cambia a utilizar el método de búsqueda
+  original para evitar el problema de la lentitud.
+
+  En SQL Server en la tabla siguiente se encuentra la información de
+  fragmentación:
+
+  sys.dm_db_index_physical_stats
+
+  Es bueno checar el procentaje de fragmentación.
+
+  Menor a 10%: defragmentación.
+  Entre 10% y 30%: reorganización.
+  Mayor a 30%: Reconstruir el índice.
+
+** Reorganzación
+
+   No muy efectivo.
+   Hace un índice del índice; recorre el índice para limpiarlo.
+   No bloquea tablas.
+
+** Reconstrucción de índice
+
+   Bloquea tablas, vista, etc.
+   Es tardado.
+   El más efectivo.
+
+
+La reconstrucción del índice se puede incluir en el proceso de mantenimiento.
+* Mirroring (espejeo)
+
+  Dos o tres servidores de base de datos.
+
+  Es costoso.
+
+  El servidor primario.
+  Segundo servidor.
+  Tercer servidor.
+
+  Tolerancia a fallas.
+
+  Funciona a nivel DB
+
+* Réplica (para DBs distribuídas)
+
+  En la replicación los 2 racks están activos.
+
+  Puede funcionar a nivel tablas, registros o columnas.
+
+  Sirve para cuando las distancias entre los servidores y clientes son grandes;
+  la conexión con la réplica de la DB sería más rápida.
